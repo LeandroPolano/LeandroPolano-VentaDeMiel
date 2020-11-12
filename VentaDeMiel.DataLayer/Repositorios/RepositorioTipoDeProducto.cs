@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,31 +8,31 @@ using VentaDeMiel.BusinessLayer.Entities;
 
 namespace VentaDeMiel.DataLayer.Repositorios
 {
-    public class RepositorioProblemaDeColmena
+   public class RepositorioTipoDeProducto
     {
-         private readonly SqlConnection _sqlConnection;
+        private readonly SqlConnection _sqlConnection;
 
-        public RepositorioProblemaDeColmena(SqlConnection sqlConnection)
+        public RepositorioTipoDeProducto(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
-        public ProblemaDeColmena GetProblemaDeColmenaPorId(decimal id)
+        public TipoDeProducto GetTipoDeProductoPorId(decimal id)
         {
             try
             {
-                ProblemaDeColmena problemaDeColmena = null;
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                TipoDeProducto tiposDeProductos = null;
+                string cadenaComando = "SELECT TipoProductoID, TipoProducto FROM TiposDeProductos WHERE TipoProductoID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    problemaDeColmena = ConstruirProblemaDeColmena(reader);
+                    tiposDeProductos = ConstruirTipoDeProducto(reader);
                     reader.Close();
                 }
 
-                return problemaDeColmena;
+                return tiposDeProductos;
             }
             catch (Exception e)
             {
@@ -42,18 +41,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public List<ProblemaDeColmena> GetLista()
+        public List<TipoDeProducto> GetLista()
         {
-            List<ProblemaDeColmena> lista = new List<ProblemaDeColmena>();
+            List<TipoDeProducto> lista = new List<TipoDeProducto>();
             try
             {
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas";
+                string cadenaComando = "SELECT TipoProductoID, TipoProducto FROM TiposDeProductos";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    ProblemaDeColmena problemaDeColmena = ConstruirProblemaDeColmena(reader);
-                    lista.Add(problemaDeColmena);
+                    TipoDeProducto tiposDeProductos = ConstruirTipoDeProducto(reader);
+                    lista.Add(tiposDeProductos);
                 }
                 reader.Close();
                 return lista;
@@ -64,31 +63,31 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        private ProblemaDeColmena ConstruirProblemaDeColmena(SqlDataReader reader)
+        private TipoDeProducto ConstruirTipoDeProducto(SqlDataReader reader)
         {
 
-            var problema = new ProblemaDeColmena();
-            problema.ProblemaID = reader.GetDecimal(0);
-            problema.TipoDeProblema = reader.GetString(1);
-            return problema;
+            var producto = new TipoDeProducto();
+            producto.TipoDeProductoID = reader.GetDecimal(0);
+            producto.tipoDeProducto = reader.GetString(1);
+            return producto;
 
         }
 
-        public void Guardar(ProblemaDeColmena problemaDeColmena)
+        public void Guardar(TipoDeProducto tiposDeProductos)
         {
-            if (problemaDeColmena.ProblemaID == 0)
+            if (tiposDeProductos.TipoDeProductoID == 0)
             {
-                
+
                 try
                 {
-                    string cadenaComando = "INSERT INTO ProblemasDeColmenas VALUES(@nombre)";
+                    string cadenaComando = "INSERT INTO TiposDeProductos VALUES(@nombre)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", tiposDeProductos.tipoDeProducto);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    problemaDeColmena.ProblemaID = (int)(decimal)comando.ExecuteScalar();
+                    tiposDeProductos.TipoDeProductoID = (int)(decimal)comando.ExecuteScalar();
 
                 }
                 catch (Exception e)
@@ -99,13 +98,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
             else
             {
-                
+
                 try
                 {
-                    string cadenaComando = "UPDATE ProblemasDeColmenas SET TipoDeProblema=@nombre WHERE ProblemaID=@id";
+                    string cadenaComando = "UPDATE TiposDeProductos SET TipoProducto=@nombre WHERE TipoProductoID=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", tiposDeProductos.tipoDeProducto);
+                    comando.Parameters.AddWithValue("@id", tiposDeProductos.TipoDeProductoID);
                     comando.ExecuteNonQuery();
 
                 }
@@ -121,7 +120,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                string cadenaComando = "DELETE FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                string cadenaComando = "DELETE FROM TiposDeProductos WHERE TipoProductoID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 comando.ExecuteNonQuery();
@@ -133,24 +132,24 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool Existe(ProblemaDeColmena problemaDeColmena)
+        public bool Existe(TipoDeProducto tiposDeProductos)
         {
             try
             {
                 SqlCommand comando;
-                if (problemaDeColmena.ProblemaID == 0)
+                if (tiposDeProductos.TipoDeProductoID == 0)
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre";
+                    string cadenaComando = "SELECT TipoProductoID, TipoProducto FROM TiposDeProductos WHERE TipoProducto=@nombre";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", tiposDeProductos.tipoDeProducto);
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre AND ProblemaID<>@id";
+                    string cadenaComando = "SELECT TipoProductoID, TipoProducto FROM TiposDeProductos WHERE TipoProducto=@nombre AND TipoProductoID<>@id";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", tiposDeProductos.tipoDeProducto);
+                    comando.Parameters.AddWithValue("@id", tiposDeProductos.TipoDeProductoID);
 
 
                 }
@@ -163,13 +162,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool EstaRelacionado(ProblemaDeColmena problemaDeColmena)
+        public bool EstaRelacionado(TipoDeProducto tiposDeProductos)
         {
             try
             {
-                var CadenaDeComando = "select ProblemaID from EstadosDeLasColmenas where ProblemaID = @Id";
+                var CadenaDeComando = "select TipoProductoID from Productos where TipoProductoID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
-                Comando.Parameters.AddWithValue("@Id", problemaDeColmena.ProblemaID);
+                Comando.Parameters.AddWithValue("@Id", tiposDeProductos.TipoDeProductoID);
                 var reader = Comando.ExecuteReader();
                 return reader.HasRows;
             }

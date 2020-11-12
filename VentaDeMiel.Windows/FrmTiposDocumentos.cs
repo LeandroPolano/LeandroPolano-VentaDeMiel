@@ -12,41 +12,19 @@ using VentaDeMiel.ServiceLayer.Servicios;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmProblemasDeColmenas : Form
+    public partial class FrmTiposDocumentos : Form
     {
-        public FrmProblemasDeColmenas()
+        public FrmTiposDocumentos()
         {
             InitializeComponent();
         }
-
-        private void CerrarToolStripButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        private void FrmProblemaDeColmena_Load(object sender, EventArgs e)
+        private ServicioTipoDocumento _servicio;
+        private List<tipoDocumento> _lista;
+        private void FrmTiposDocumentos_Load(object sender, EventArgs e)
         {
             try
             {
-                Iniciar();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Error");
-            }
-        }
-
-        private void Iniciar()
-        {
-            _servicio = new ServicioProblemaDeColmena();
-            _lista = _servicio.GetLista();
-            MostrarEnGrilla();
-        }
-        private void FrmProblemasDeColmenas_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                _servicio = new ServicioProblemaDeColmena();
+                _servicio = new ServicioTipoDocumento();
                 _lista = _servicio.GetLista();
                 MostrarEnGrilla();
             }
@@ -60,17 +38,18 @@ namespace VentaDeMiel.Windows
         private void MostrarEnGrilla()
         {
             DatosDataGridView.Rows.Clear();
-            foreach (var Problema in _lista)
+            foreach (var TipoDocumento in _lista)
             {
                 DataGridViewRow r = ConstruirFila();
-                SetearFila(r, Problema);
+                SetearFila(r, TipoDocumento);
                 AgregarFila(r);
             }
         }
-        public void AgregarFila(ProblemaDeColmena problema)
+
+        internal void AgregarFila(tipoDocumento tipodocumento)
         {
             DataGridViewRow r = ConstruirFila();
-            SetearFila(r, problema);
+            SetearFila(r, tipodocumento);
             AgregarFila(r);
         }
 
@@ -79,14 +58,12 @@ namespace VentaDeMiel.Windows
             DatosDataGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, ProblemaDeColmena problema)
+        private void SetearFila(DataGridViewRow r, tipoDocumento tipodocumento)
         {
-            r.Cells[CmlTipoDeProblema.Index].Value = problema.TipoDeProblema;
+            r.Cells[CmlTipoDocumento.Index].Value = tipodocumento.TipoDocumento;
 
-            r.Tag = problema;
+            r.Tag = tipodocumento;
         }
-
-        
 
         private DataGridViewRow ConstruirFila()
         {
@@ -95,13 +72,10 @@ namespace VentaDeMiel.Windows
             return r;
         }
 
-        private ServicioProblemaDeColmena _servicio;
-        private List<ProblemaDeColmena> _lista;
-
         private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            FrmProblemasDeColmenasAE frm = new FrmProblemasDeColmenasAE(this);
-            frm.Text = "Nueva Problema";
+            FrmTiposDocumentosAE frm = new FrmTiposDocumentosAE (this);
+            frm.Text = "Nuevo Tipo de Documento";
             DialogResult dr = frm.ShowDialog(this);
         }
 
@@ -110,9 +84,9 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                ProblemaDeColmena problema = (ProblemaDeColmena)r.Tag;
+                tipoDocumento tipodocumento = (tipoDocumento)r.Tag;
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja el problema {problema.TipoDeProblema}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja el tipo de documento {tipodocumento.TipoDocumento}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -120,9 +94,9 @@ namespace VentaDeMiel.Windows
                 {
                     try
                     {
-                        _servicio.Borrar(problema.ProblemaID);
+                        _servicio.Borrar(tipodocumento.TipoDocumentoID);
                         DatosDataGridView.Rows.Remove(r);
-                       MessageBox.Show("Registro borrado");
+                        MessageBox.Show("Registro borrado");
                     }
                     catch (Exception exception)
                     {
@@ -138,26 +112,25 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                ProblemaDeColmena problema = (ProblemaDeColmena)r.Tag;
-                FrmProblemasDeColmenasAE frm = new FrmProblemasDeColmenasAE();
-                frm.Text = "Editar Problema";
-                frm.SetProblema(problema);
+                tipoDocumento tipodocumento = (tipoDocumento)r.Tag;
+                FrmTiposDocumentosAE frm = new FrmTiposDocumentosAE();
+                frm.Text = "Editar Tipo de documento";
+                frm.SetTipoDocumento(tipodocumento);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        problema = frm.GetProblema();
-                        if (!_servicio.Existe(problema))
+                        tipodocumento = frm.GetTipoDocumento();
+                        if (!_servicio.Existe(tipodocumento))
                         {
-                            _servicio.Guardar(problema);
-                            SetearFila(r, problema);
+                            _servicio.Guardar(tipodocumento);
+                            SetearFila(r, tipodocumento);
                             MessageBox.Show("Registro Editado");
                         }
                         else
                         {
                             MessageBox.Show("Problema Repetido");
-                            Iniciar();
                         }
                     }
                     catch (Exception exception)
@@ -168,8 +141,9 @@ namespace VentaDeMiel.Windows
             }
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void CerrarToolStripButton_Click(object sender, EventArgs e)
         {
+            Close();
 
         }
 

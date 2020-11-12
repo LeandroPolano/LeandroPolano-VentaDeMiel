@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmColmenas : Form
+    public partial class FrmProvinciaAE : Form
     {
-        public FrmColmenas()
+        public FrmProvinciaAE()
         {
             InitializeComponent();
         }
 
-        private void FrmColmenas_Load(object sender, EventArgs e)
+        private void FrmProvinciaAE_Load(object sender, EventArgs e)
         {
 
         }

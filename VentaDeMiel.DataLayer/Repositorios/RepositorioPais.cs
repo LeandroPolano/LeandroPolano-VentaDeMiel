@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,31 +8,31 @@ using VentaDeMiel.BusinessLayer.Entities;
 
 namespace VentaDeMiel.DataLayer.Repositorios
 {
-    public class RepositorioProblemaDeColmena
+    public class RepositorioPais
     {
-         private readonly SqlConnection _sqlConnection;
+        private readonly SqlConnection _sqlConnection;
 
-        public RepositorioProblemaDeColmena(SqlConnection sqlConnection)
+        public RepositorioPais(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
-        public ProblemaDeColmena GetProblemaDeColmenaPorId(decimal id)
+        public Pais GetPaisPorId(decimal id)
         {
             try
             {
-                ProblemaDeColmena problemaDeColmena = null;
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                Pais pais = null;
+                string cadenaComando = "SELECT PaisID, Pais FROM Paises WHERE PaisID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    problemaDeColmena = ConstruirProblemaDeColmena(reader);
+                    pais = ConstruirPais(reader);
                     reader.Close();
                 }
 
-                return problemaDeColmena;
+                return pais;
             }
             catch (Exception e)
             {
@@ -42,18 +41,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public List<ProblemaDeColmena> GetLista()
+        public List<Pais> GetLista()
         {
-            List<ProblemaDeColmena> lista = new List<ProblemaDeColmena>();
+            List<Pais> lista = new List<Pais>();
             try
             {
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas";
+                string cadenaComando = "SELECT PaisID, Pais FROM Paises";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    ProblemaDeColmena problemaDeColmena = ConstruirProblemaDeColmena(reader);
-                    lista.Add(problemaDeColmena);
+                    Pais pais = ConstruirPais(reader);
+                    lista.Add(pais);
                 }
                 reader.Close();
                 return lista;
@@ -64,31 +63,31 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        private ProblemaDeColmena ConstruirProblemaDeColmena(SqlDataReader reader)
+        private Pais ConstruirPais(SqlDataReader reader)
         {
 
-            var problema = new ProblemaDeColmena();
-            problema.ProblemaID = reader.GetDecimal(0);
-            problema.TipoDeProblema = reader.GetString(1);
-            return problema;
+            var pais = new Pais();
+            pais.PaisID = reader.GetDecimal(0);
+            pais.pais = reader.GetString(1);
+            return pais;
 
         }
 
-        public void Guardar(ProblemaDeColmena problemaDeColmena)
+        public void Guardar(Pais pais)
         {
-            if (problemaDeColmena.ProblemaID == 0)
+            if (pais.PaisID == 0)
             {
-                
+
                 try
                 {
-                    string cadenaComando = "INSERT INTO ProblemasDeColmenas VALUES(@nombre)";
+                    string cadenaComando = "INSERT INTO Paises VALUES(@nombre)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", pais.pais);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    problemaDeColmena.ProblemaID = (int)(decimal)comando.ExecuteScalar();
+                    pais.PaisID = (int)(decimal)comando.ExecuteScalar();
 
                 }
                 catch (Exception e)
@@ -99,13 +98,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
             else
             {
-                
+
                 try
                 {
-                    string cadenaComando = "UPDATE ProblemasDeColmenas SET TipoDeProblema=@nombre WHERE ProblemaID=@id";
+                    string cadenaComando = "UPDATE Paises SET Pais=@nombre WHERE PaisID=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", pais.pais);
+                    comando.Parameters.AddWithValue("@id", pais.PaisID);
                     comando.ExecuteNonQuery();
 
                 }
@@ -121,7 +120,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                string cadenaComando = "DELETE FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                string cadenaComando = "DELETE FROM Paises WHERE PaisID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 comando.ExecuteNonQuery();
@@ -133,24 +132,24 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool Existe(ProblemaDeColmena problemaDeColmena)
+        public bool Existe(Pais pais)
         {
             try
             {
                 SqlCommand comando;
-                if (problemaDeColmena.ProblemaID == 0)
+                if (pais.PaisID == 0)
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre";
+                    string cadenaComando = "SELECT PaisID, Pais FROM Paises WHERE Pais=@nombre";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", pais.pais);
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre AND ProblemaID<>@id";
+                    string cadenaComando = "SELECT PaisID, Pais FROM Paises WHERE Pais=@nombre AND PaisID<>@id";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", pais.pais);
+                    comando.Parameters.AddWithValue("@id", pais.PaisID);
 
 
                 }
@@ -163,13 +162,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool EstaRelacionado(ProblemaDeColmena problemaDeColmena)
+        public bool EstaRelacionado(Pais pais)
         {
             try
             {
-                var CadenaDeComando = "select ProblemaID from EstadosDeLasColmenas where ProblemaID = @Id";
+                var CadenaDeComando = "select PaisID from Productos where PaisID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
-                Comando.Parameters.AddWithValue("@Id", problemaDeColmena.ProblemaID);
+                Comando.Parameters.AddWithValue("@Id", pais.PaisID);
                 var reader = Comando.ExecuteReader();
                 return reader.HasRows;
             }

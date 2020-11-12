@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmColmenas
+    partial class FrmProvincia
     {
         /// <summary>
         /// Required designer variable.
@@ -33,14 +33,10 @@
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.BuscarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ActualizarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ImprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.cmnPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmPaisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,17 +49,12 @@
             this.BorrarToolStripButton,
             this.EditarToolStripButton,
             this.toolStripSeparator1,
-            this.BuscarToolStripButton,
-            this.ActualizarToolStripButton,
-            this.toolStripSeparator2,
-            this.ImprimirToolStripButton,
-            this.toolStripSeparator3,
             this.CerrarToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.toolStrip1.Size = new System.Drawing.Size(800, 34);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // NuevoToolStripButton
@@ -98,43 +89,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
             // 
-            // BuscarToolStripButton
-            // 
-            this.BuscarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BuscarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BuscarToolStripButton.Name = "BuscarToolStripButton";
-            this.BuscarToolStripButton.Size = new System.Drawing.Size(67, 29);
-            this.BuscarToolStripButton.Text = "Buscar";
-            this.BuscarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // ActualizarToolStripButton
-            // 
-            this.ActualizarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ActualizarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ActualizarToolStripButton.Name = "ActualizarToolStripButton";
-            this.ActualizarToolStripButton.Size = new System.Drawing.Size(92, 29);
-            this.ActualizarToolStripButton.Text = "Actualizar";
-            this.ActualizarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 34);
-            // 
-            // ImprimirToolStripButton
-            // 
-            this.ImprimirToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ImprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ImprimirToolStripButton.Name = "ImprimirToolStripButton";
-            this.ImprimirToolStripButton.Size = new System.Drawing.Size(84, 29);
-            this.ImprimirToolStripButton.Text = "Imprimir";
-            this.ImprimirToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
-            // 
             // CerrarToolStripButton
             // 
             this.CerrarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -150,7 +104,8 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnPais});
+            this.CmlProvincia,
+            this.ClmPaisID});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -161,26 +116,34 @@
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 2;
+            this.DatosDataGridView.TabIndex = 8;
             // 
-            // cmnPais
+            // CmlProvincia
             // 
-            this.cmnPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnPais.HeaderText = "País";
-            this.cmnPais.MinimumWidth = 8;
-            this.cmnPais.Name = "cmnPais";
-            this.cmnPais.ReadOnly = true;
+            this.CmlProvincia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlProvincia.HeaderText = "Provincia";
+            this.CmlProvincia.MinimumWidth = 8;
+            this.CmlProvincia.Name = "CmlProvincia";
+            this.CmlProvincia.ReadOnly = true;
             // 
-            // FrmColmenas
+            // ClmPaisID
+            // 
+            this.ClmPaisID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClmPaisID.HeaderText = "Pais";
+            this.ClmPaisID.MinimumWidth = 8;
+            this.ClmPaisID.Name = "ClmPaisID";
+            this.ClmPaisID.ReadOnly = true;
+            // 
+            // FrmProvincia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.DatosDataGridView);
-            this.Name = "FrmColmenas";
-            this.Text = "Colmenas";
-            this.Load += new System.EventHandler(this.FrmColmenas_Load);
+            this.Name = "FrmProvincia";
+            this.Text = "FrmProvincia";
+            this.Load += new System.EventHandler(this.FrmProvincia_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
@@ -196,13 +159,9 @@
         private System.Windows.Forms.ToolStripButton BorrarToolStripButton;
         private System.Windows.Forms.ToolStripButton EditarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton BuscarToolStripButton;
-        private System.Windows.Forms.ToolStripButton ActualizarToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton ImprimirToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cmnPais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlProvincia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmPaisID;
     }
 }

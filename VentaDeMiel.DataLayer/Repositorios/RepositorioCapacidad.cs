@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,31 +8,31 @@ using VentaDeMiel.BusinessLayer.Entities;
 
 namespace VentaDeMiel.DataLayer.Repositorios
 {
-    public class RepositorioProblemaDeColmena
+    public class RepositorioCapacidad
     {
-         private readonly SqlConnection _sqlConnection;
+        private readonly SqlConnection _sqlConnection;
 
-        public RepositorioProblemaDeColmena(SqlConnection sqlConnection)
+        public RepositorioCapacidad(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
-        public ProblemaDeColmena GetProblemaDeColmenaPorId(decimal id)
+        public Capacidad GetCapacidadPorId(decimal id)
         {
             try
             {
-                ProblemaDeColmena problemaDeColmena = null;
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                Capacidad capacidad = null;
+                string cadenaComando = "SELECT CapacidadID, Capacidad FROM Capacidades WHERE CapacidadID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    problemaDeColmena = ConstruirProblemaDeColmena(reader);
+                    capacidad = ConstruirCapacidad(reader);
                     reader.Close();
                 }
 
-                return problemaDeColmena;
+                return capacidad;
             }
             catch (Exception e)
             {
@@ -42,18 +41,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public List<ProblemaDeColmena> GetLista()
+        public List<Capacidad> GetLista()
         {
-            List<ProblemaDeColmena> lista = new List<ProblemaDeColmena>();
+            List<Capacidad> lista = new List<Capacidad>();
             try
             {
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas";
+                string cadenaComando = "SELECT CapacidadID, Capacidad FROM Capacidades";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    ProblemaDeColmena problemaDeColmena = ConstruirProblemaDeColmena(reader);
-                    lista.Add(problemaDeColmena);
+                    Capacidad capacidad = ConstruirCapacidad(reader);
+                    lista.Add(capacidad);
                 }
                 reader.Close();
                 return lista;
@@ -64,31 +63,31 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        private ProblemaDeColmena ConstruirProblemaDeColmena(SqlDataReader reader)
+        private Capacidad ConstruirCapacidad(SqlDataReader reader)
         {
 
-            var problema = new ProblemaDeColmena();
-            problema.ProblemaID = reader.GetDecimal(0);
-            problema.TipoDeProblema = reader.GetString(1);
-            return problema;
+            var capacidad = new Capacidad();
+            capacidad.CapacidadID = reader.GetDecimal(0);
+            capacidad.capacidad = reader.GetString(1);
+            return capacidad;
 
         }
 
-        public void Guardar(ProblemaDeColmena problemaDeColmena)
+        public void Guardar(Capacidad capacidad)
         {
-            if (problemaDeColmena.ProblemaID == 0)
+            if (capacidad.CapacidadID == 0)
             {
-                
+
                 try
                 {
-                    string cadenaComando = "INSERT INTO ProblemasDeColmenas VALUES(@nombre)";
+                    string cadenaComando = "INSERT INTO Capacidades VALUES(@nombre)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", capacidad.capacidad);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    problemaDeColmena.ProblemaID = (int)(decimal)comando.ExecuteScalar();
+                    capacidad.CapacidadID = (int)(decimal)comando.ExecuteScalar();
 
                 }
                 catch (Exception e)
@@ -99,13 +98,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
             else
             {
-                
+
                 try
                 {
-                    string cadenaComando = "UPDATE ProblemasDeColmenas SET TipoDeProblema=@nombre WHERE ProblemaID=@id";
+                    string cadenaComando = "UPDATE Capacidades SET Capacidad=@nombre WHERE CapacidadID=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", capacidad.capacidad);
+                    comando.Parameters.AddWithValue("@id", capacidad.CapacidadID);
                     comando.ExecuteNonQuery();
 
                 }
@@ -121,7 +120,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                string cadenaComando = "DELETE FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                string cadenaComando = "DELETE FROM Capacidades WHERE CapacidadID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 comando.ExecuteNonQuery();
@@ -133,24 +132,24 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool Existe(ProblemaDeColmena problemaDeColmena)
+        public bool Existe(Capacidad capacidad)
         {
             try
             {
                 SqlCommand comando;
-                if (problemaDeColmena.ProblemaID == 0)
+                if (capacidad.CapacidadID == 0)
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre";
+                    string cadenaComando = "SELECT CapacidadID, Capacidad FROM Capacidades WHERE Capacidad=@nombre";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", capacidad.capacidad);
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre AND ProblemaID<>@id";
+                    string cadenaComando = "SELECT CapacidadID, Capacidad FROM Capacidades WHERE Capacidad=@nombre AND CapacidadID<>@id";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", capacidad.capacidad);
+                    comando.Parameters.AddWithValue("@id", capacidad.CapacidadID);
 
 
                 }
@@ -163,13 +162,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool EstaRelacionado(ProblemaDeColmena problemaDeColmena)
+        public bool EstaRelacionado(Capacidad capacidad)
         {
             try
             {
-                var CadenaDeComando = "select ProblemaID from EstadosDeLasColmenas where ProblemaID = @Id";
+                var CadenaDeComando = "select CapacidadID from TiposDeEnvases where CapacidadID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
-                Comando.Parameters.AddWithValue("@Id", problemaDeColmena.ProblemaID);
+                Comando.Parameters.AddWithValue("@Id", capacidad.CapacidadID);
                 var reader = Comando.ExecuteReader();
                 return reader.HasRows;
             }

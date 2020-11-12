@@ -27,7 +27,8 @@ namespace VentaDeClase.ReportLayer
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmPaises frm = new FrmPaises();
+            frm.ShowDialog(this);
         }
 
         private void ProblemasDeColmenas_Click(object sender, EventArgs e)
@@ -39,6 +40,36 @@ namespace VentaDeClase.ReportLayer
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarcas frm = new FrmMarcas();
+            frm.ShowDialog(this);
+        }
+
+        private void tipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTiposDocumentos frm = new FrmTiposDocumentos();
+            frm.ShowDialog(this);
+        }
+
+        private void TsbTiposDeProductos_Click(object sender, EventArgs e)
+        {
+            FrmTiposDeProductos frm = new FrmTiposDeProductos();
+            frm.ShowDialog(this);
+        }
+
+        private void TsbProvincias_Click(object sender, EventArgs e)
+        {
+            FrmProvincia frm = new FrmProvincia();
+            frm.ShowDialog(this);
+        }
+
+        private void capacidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCapacidades frm = new FrmCapacidades();
+            frm.ShowDialog(this);
         }
     }
 }

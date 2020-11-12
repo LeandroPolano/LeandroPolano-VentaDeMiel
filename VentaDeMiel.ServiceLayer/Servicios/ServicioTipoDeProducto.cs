@@ -9,25 +9,24 @@ using VentaDeMiel.DataLayer.Repositorios;
 
 namespace VentaDeMiel.ServiceLayer.Servicios
 {
-    public class ServicioProblemaDeColmena
+    public class ServicioTipoDeProducto
     {
-
         private ConexionBD _conexion;
-        private RepositorioProblemaDeColmena _repositorio;
+        private RepositorioTipoDeProducto _repositorio;
 
-        public ServicioProblemaDeColmena()
+        public ServicioTipoDeProducto()
         {
 
         }
-        public ProblemaDeColmena GetProblemaDeColmenaPorId(decimal id)
+        public TipoDeProducto GetTipoDeProductoPorId(decimal id)
         {
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
-                var problemaDeColmena = _repositorio.GetProblemaDeColmenaPorId(id);
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
+                var tipoDeProducto = _repositorio.GetTipoDeProductoPorId(id);
                 _conexion.CerrarConexion();
-                return problemaDeColmena;
+                return tipoDeProducto;
             }
             catch (Exception e)
             {
@@ -36,12 +35,12 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         }
 
-        public List<ProblemaDeColmena> GetLista()
+        public List<TipoDeProducto> GetLista()
         {
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
                 var lista = _repositorio.GetLista();
                 _conexion.CerrarConexion();
                 return lista;
@@ -53,13 +52,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public void Guardar(ProblemaDeColmena problemaDeColmena)
+        public void Guardar(TipoDeProducto tipoDeProducto)
         {
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
-                _repositorio.Guardar(problemaDeColmena);
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
+                _repositorio.Guardar(tipoDeProducto);
                 _conexion.CerrarConexion();
 
             }
@@ -75,7 +74,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
                 _repositorio.Borrar(id);
                 _conexion.CerrarConexion();
             }
@@ -86,13 +85,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool Existe(ProblemaDeColmena problemaDeColmena)
+        public bool Existe(TipoDeProducto tipoDeProducto)
         {
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
-                var existe = _repositorio.Existe(problemaDeColmena);
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
+                var existe = _repositorio.Existe(tipoDeProducto);
                 _conexion.CerrarConexion();
                 return existe;
             }
@@ -102,13 +101,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool EstaRelacionado(ProblemaDeColmena problemaDeColmena)
+        public bool EstaRelacionado(TipoDeProducto tipoDeProducto)
         {
             try
             {
                 _conexion = new ConexionBD();
-                _repositorio = new RepositorioProblemaDeColmena(_conexion.AbrirConexion());
-                var existe = _repositorio.EstaRelacionado(problemaDeColmena);
+                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
+                var existe = _repositorio.EstaRelacionado(tipoDeProducto);
                 _conexion.CerrarConexion();
                 return existe;
             }
@@ -117,6 +116,5 @@ namespace VentaDeMiel.ServiceLayer.Servicios
                 throw new Exception(e.Message);
             }
         }
-
     }
 }

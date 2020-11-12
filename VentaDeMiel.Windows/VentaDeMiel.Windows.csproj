@@ -46,17 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmClientesDeMiel.cs">
+    <Compile Include="FrmCapacidadesAE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmClientesDeMiel.Designer.cs">
-      <DependentUpon>FrmClientesDeMiel.cs</DependentUpon>
+    <Compile Include="FrmCapacidadesAE.Designer.cs">
+      <DependentUpon>FrmCapacidadesAE.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmColmenas.cs">
+    <Compile Include="FrmCapacidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmColmenas.Designer.cs">
-      <DependentUpon>FrmColmenas.cs</DependentUpon>
+    <Compile Include="FrmCapacidades.Designer.cs">
+      <DependentUpon>FrmCapacidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMarcasAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarcasAE.Designer.cs">
+      <DependentUpon>FrmMarcasAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarcas.Designer.cs">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -64,43 +76,112 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPaises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPaises.Designer.cs">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPaisesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPaisesAE.Designer.cs">
+      <DependentUpon>FrmPaisesAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProblemasDeColmenas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProblemasDeColmenas.Designer.cs">
       <DependentUpon>FrmProblemasDeColmenas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductos.cs">
+    <Compile Include="FrmProblemasDeColmenasAE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProductos.Designer.cs">
-      <DependentUpon>FrmProductos.cs</DependentUpon>
+    <Compile Include="FrmProblemasDeColmenasAE.Designer.cs">
+      <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProvincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProvincia.Designer.cs">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProvinciaAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProvinciaAE.Designer.cs">
+      <DependentUpon>FrmProvinciaAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDeProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeProductos.Designer.cs">
+      <DependentUpon>FrmTiposDeProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDeProductosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeProductosAE.Designer.cs">
+      <DependentUpon>FrmTiposDeProductosAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDocumentos.Designer.cs">
+      <DependentUpon>FrmTiposDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDocumentosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDocumentosAE.Designer.cs">
+      <DependentUpon>FrmTiposDocumentosAE.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FrmProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProveedores.Designer.cs">
-      <DependentUpon>FrmProveedores.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="FrmClientesDeMiel.resx">
-      <DependentUpon>FrmClientesDeMiel.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCapacidades.resx">
+      <DependentUpon>FrmCapacidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmColmenas.resx">
-      <DependentUpon>FrmColmenas.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCapacidadesAE.resx">
+      <DependentUpon>FrmCapacidadesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarcas.resx">
+      <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarcasAE.resx">
+      <DependentUpon>FrmMarcasAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPaises.resx">
+      <DependentUpon>FrmPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPaisesAE.resx">
+      <DependentUpon>FrmPaisesAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProblemasDeColmenas.resx">
       <DependentUpon>FrmProblemasDeColmenas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductos.resx">
-      <DependentUpon>FrmProductos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProblemasDeColmenasAE.resx">
+      <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProveedores.resx">
-      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProvincia.resx">
+      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProvinciaAE.resx">
+      <DependentUpon>FrmProvinciaAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDeProductos.resx">
+      <DependentUpon>FrmTiposDeProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDeProductosAE.resx">
+      <DependentUpon>FrmTiposDeProductosAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDocumentos.resx">
+      <DependentUpon>FrmTiposDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDocumentosAE.resx">
+      <DependentUpon>FrmTiposDocumentosAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

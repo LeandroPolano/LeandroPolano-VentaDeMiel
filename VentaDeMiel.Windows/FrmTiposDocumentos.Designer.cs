@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmProblemasDeColmenas
+    partial class FrmTiposDocumentos
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmlTipoDeProblema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +53,8 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.toolStrip1.Size = new System.Drawing.Size(800, 34);
-            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // NuevoToolStripButton
             // 
@@ -108,7 +107,7 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CmlTipoDeProblema});
+            this.CmlTipoDocumento});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -119,18 +118,18 @@
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 4;
+            this.DatosDataGridView.TabIndex = 6;
             this.DatosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellContentClick);
             // 
-            // CmlTipoDeProblema
+            // CmlTipoDocumento
             // 
-            this.CmlTipoDeProblema.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlTipoDeProblema.HeaderText = "TipoDeProblema";
-            this.CmlTipoDeProblema.MinimumWidth = 8;
-            this.CmlTipoDeProblema.Name = "CmlTipoDeProblema";
-            this.CmlTipoDeProblema.ReadOnly = true;
+            this.CmlTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlTipoDocumento.HeaderText = "TipoDocumento";
+            this.CmlTipoDocumento.MinimumWidth = 8;
+            this.CmlTipoDocumento.Name = "CmlTipoDocumento";
+            this.CmlTipoDocumento.ReadOnly = true;
             // 
-            // FrmProblemasDeColmenas
+            // FrmTiposDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -140,9 +139,9 @@
             this.Controls.Add(this.DatosDataGridView);
             this.MaximumSize = new System.Drawing.Size(822, 506);
             this.MinimumSize = new System.Drawing.Size(822, 506);
-            this.Name = "FrmProblemasDeColmenas";
-            this.Text = "Problemas De Colmenas";
-            this.Load += new System.EventHandler(this.FrmProblemasDeColmenas_Load);
+            this.Name = "FrmTiposDocumentos";
+            this.Text = "Tipos De Documentos";
+            this.Load += new System.EventHandler(this.FrmTiposDocumentos_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
@@ -160,6 +159,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlTipoDeProblema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlTipoDocumento;
     }
 }

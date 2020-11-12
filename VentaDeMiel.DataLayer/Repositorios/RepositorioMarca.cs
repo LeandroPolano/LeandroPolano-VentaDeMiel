@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,31 +8,31 @@ using VentaDeMiel.BusinessLayer.Entities;
 
 namespace VentaDeMiel.DataLayer.Repositorios
 {
-    public class RepositorioProblemaDeColmena
+    public class RepositorioMarca
     {
-         private readonly SqlConnection _sqlConnection;
+        private readonly SqlConnection _sqlConnection;
 
-        public RepositorioProblemaDeColmena(SqlConnection sqlConnection)
+        public RepositorioMarca(SqlConnection sqlConnection)
         {
             _sqlConnection = sqlConnection;
         }
-        public ProblemaDeColmena GetProblemaDeColmenaPorId(decimal id)
+        public Marca GetMarcaPorId(decimal id)
         {
             try
             {
-                ProblemaDeColmena problemaDeColmena = null;
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                Marca marca = null;
+                string cadenaComando = "SELECT MarcaID, Marca FROM Marcas WHERE MarcaID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    problemaDeColmena = ConstruirProblemaDeColmena(reader);
+                    marca = ConstruirMarca(reader);
                     reader.Close();
                 }
 
-                return problemaDeColmena;
+                return marca;
             }
             catch (Exception e)
             {
@@ -42,18 +41,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public List<ProblemaDeColmena> GetLista()
+        public List<Marca> GetLista()
         {
-            List<ProblemaDeColmena> lista = new List<ProblemaDeColmena>();
+            List<Marca> lista = new List<Marca>();
             try
             {
-                string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas";
+                string cadenaComando = "SELECT MarcaID, Marca FROM Marcas";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    ProblemaDeColmena problemaDeColmena = ConstruirProblemaDeColmena(reader);
-                    lista.Add(problemaDeColmena);
+                    Marca marca = ConstruirMarca(reader);
+                    lista.Add(marca);
                 }
                 reader.Close();
                 return lista;
@@ -64,31 +63,31 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        private ProblemaDeColmena ConstruirProblemaDeColmena(SqlDataReader reader)
+        private Marca ConstruirMarca(SqlDataReader reader)
         {
 
-            var problema = new ProblemaDeColmena();
-            problema.ProblemaID = reader.GetDecimal(0);
-            problema.TipoDeProblema = reader.GetString(1);
-            return problema;
+            var marca = new Marca();
+            marca.MarcaID = reader.GetDecimal(0);
+            marca.marca = reader.GetString(1);
+            return marca;
 
         }
 
-        public void Guardar(ProblemaDeColmena problemaDeColmena)
+        public void Guardar(Marca marca)
         {
-            if (problemaDeColmena.ProblemaID == 0)
+            if (marca.MarcaID == 0)
             {
-                
+
                 try
                 {
-                    string cadenaComando = "INSERT INTO ProblemasDeColmenas VALUES(@nombre)";
+                    string cadenaComando = "INSERT INTO Marcas VALUES(@nombre)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", marca.marca);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    problemaDeColmena.ProblemaID = (int)(decimal)comando.ExecuteScalar();
+                    marca.MarcaID = (int)(decimal)comando.ExecuteScalar();
 
                 }
                 catch (Exception e)
@@ -99,13 +98,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
             else
             {
-                
+
                 try
                 {
-                    string cadenaComando = "UPDATE ProblemasDeColmenas SET TipoDeProblema=@nombre WHERE ProblemaID=@id";
+                    string cadenaComando = "UPDATE Marcas SET Marca=@nombre WHERE MarcaID=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", marca.marca);
+                    comando.Parameters.AddWithValue("@id", marca.MarcaID);
                     comando.ExecuteNonQuery();
 
                 }
@@ -121,7 +120,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                string cadenaComando = "DELETE FROM ProblemasDeColmenas WHERE ProblemaID=@id";
+                string cadenaComando = "DELETE FROM Marcas WHERE MarcaID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 comando.ExecuteNonQuery();
@@ -133,24 +132,24 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool Existe(ProblemaDeColmena problemaDeColmena)
+        public bool Existe(Marca marca)
         {
             try
             {
                 SqlCommand comando;
-                if (problemaDeColmena.ProblemaID == 0)
+                if (marca.MarcaID == 0)
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre";
+                    string cadenaComando = "SELECT MarcaID, Marca FROM Marcas WHERE Marca=@nombre";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
+                    comando.Parameters.AddWithValue("@nombre", marca.marca);
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ProblemaID, TipoDeProblema FROM ProblemasDeColmenas WHERE TipoDeProblema=@nombre AND ProblemaID<>@id";
+                    string cadenaComando = "SELECT MarcaID, Marca FROM Marcas WHERE Marca=@nombre AND MarcaID<>@id";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", problemaDeColmena.TipoDeProblema);
-                    comando.Parameters.AddWithValue("@id", problemaDeColmena.ProblemaID);
+                    comando.Parameters.AddWithValue("@nombre", marca.marca);
+                    comando.Parameters.AddWithValue("@id", marca.MarcaID);
 
 
                 }
@@ -163,13 +162,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool EstaRelacionado(ProblemaDeColmena problemaDeColmena)
+        public bool EstaRelacionado(Marca marca)
         {
             try
             {
-                var CadenaDeComando = "select ProblemaID from EstadosDeLasColmenas where ProblemaID = @Id";
+                var CadenaDeComando = "select MarcaID from Productos where MarcaID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
-                Comando.Parameters.AddWithValue("@Id", problemaDeColmena.ProblemaID);
+                Comando.Parameters.AddWithValue("@Id", marca.MarcaID);
                 var reader = Comando.ExecuteReader();
                 return reader.HasRows;
             }
