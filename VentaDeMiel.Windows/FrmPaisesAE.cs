@@ -118,7 +118,7 @@ namespace VentaDeMiel.Windows
             if (_servicio.Existe(pais))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxPais, "Problema repetido");
+                errorProvider1.SetError(TextBoxPais, "Pais repetido");
             }
 
             return valido;

@@ -104,13 +104,12 @@ namespace VentaDeMiel.Windows
 
         private bool ValidarObjeto()
         {
-            errorProvider1.Clear();
             bool valido = true;
-            if (string.IsNullOrEmpty(TextBoxMarca.Text.Trim()) &&
-                string.IsNullOrWhiteSpace(TextBoxMarca.Text.Trim()))
+            errorProvider1.Clear();
+            if (_servicio.Existe(marca))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxMarca, "Debe ingresar una Marca");
+                errorProvider1.SetError(TextBoxMarca, "Marca repetida");
             }
 
             return valido;

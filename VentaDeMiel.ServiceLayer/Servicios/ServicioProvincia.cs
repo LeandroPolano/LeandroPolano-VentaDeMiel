@@ -16,7 +16,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
         private RepositorioPais _repositorioPais;
        
         private ConexionBD _conexion;
-        public Provincia GetProvinciaPorId(int id)
+        public Provincia GetProvinciaPorId(decimal id)
         {
             _conexion = new ConexionBD();
             _repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
@@ -46,14 +46,29 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             _conexion.CerrarConexion();
         }
 
-        public void Borrar(int id)
+        public void Borrar(decimal id)
         {
-            throw new System.NotImplementedException();
+            _conexion = new ConexionBD();
+            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+            _repositorioProvincia.Borrar(id);
+            _conexion.CerrarConexion();
         }
 
         public bool Existe(Provincia provincia)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexion = new ConexionBD();
+                _repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+                _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), _repositorioPais);
+                var existe = _repositorioProvincia.Existe(provincia);
+                _conexion.CerrarConexion();
+                return existe;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(Provincia provincia)

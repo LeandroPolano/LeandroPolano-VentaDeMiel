@@ -121,7 +121,7 @@ namespace VentaDeMiel.Windows
             if (_servicio.Existe(tipoDeProducto))
             {
                 valido = false;
-                errorProvider1.SetError(textBoxTipoDeProducto, "Problema repetido");
+                errorProvider1.SetError(textBoxTipoDeProducto, "Tipo de producto repetido");
             }
 
             return valido;

@@ -123,13 +123,12 @@ namespace VentaDeMiel.Windows
         }
         private bool ValidarDatos()
         {
-            errorProvider1.Clear();
             bool valido = true;
-            if (string.IsNullOrEmpty(TextBoxTipoDocumento.Text.Trim()) &&
-                string.IsNullOrWhiteSpace(TextBoxTipoDocumento.Text.Trim()))
+            errorProvider1.Clear();
+            if (_servicio.Existe(tipodocumento))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxTipoDocumento, "Debe ingresar un Problema");
+                errorProvider1.SetError(TextBoxTipoDocumento, "Tipo de documento repetido");
             }
 
             return valido;

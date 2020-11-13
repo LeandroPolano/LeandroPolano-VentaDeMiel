@@ -62,7 +62,7 @@ namespace VentaDeClase.ReportLayer
 
         private void TsbProvincias_Click(object sender, EventArgs e)
         {
-            FrmProvincia frm = new FrmProvincia();
+            FrmProvincias frm = new FrmProvincias();
             frm.ShowDialog(this);
         }
 

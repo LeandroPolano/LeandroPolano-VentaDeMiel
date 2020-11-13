@@ -32,7 +32,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             _tran = tran;
         }
 
-        public Provincia GetProvinciaPorId(int id)
+        public Provincia GetProvinciaPorId(decimal id)
         {
             Provincia p = null;
             try
@@ -45,7 +45,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    p = ConstruirProvinciaTotal(reader);
+                    p = ConstruirProvincia(reader);
                 }
                 reader.Close();
                 return p;
@@ -58,16 +58,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
 
         }
 
-        private Provincia ConstruirProvinciaTotal(SqlDataReader reader)
-        {
-            Provincia provincia = new Provincia();
-            provincia.ProvinciaID = reader.GetInt32(0);
-            provincia.provincia = reader.GetString(1);
-            provincia.Pais = _repositorioPais.GetPaisPorId(reader.GetInt32(2));
-           
-            return provincia;
 
-        }
 
         public List<Provincia> GetLista()
         {
@@ -96,47 +87,106 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private Provincia ConstruirProvincia(SqlDataReader reader)
         {
             Provincia provincia = new Provincia();
-            provincia.ProvinciaID = reader.GetInt32(0);
+            provincia.ProvinciaID = reader.GetDecimal(0);
             provincia.provincia = reader.GetString(1);
-            provincia.Pais = _repositorioPais.GetPaisPorId(reader.GetInt32(2));
+            provincia.Pais = _repositorioPais.GetPaisPorId(reader.GetDecimal(2));
             
             return provincia;
 
         }
         public void Guardar(Provincia provincia)
         {
+            if (provincia.ProvinciaID==0)
+            {
+                try
+                {
+                    string cadenaComando = "INSERT INTO Provincias (Provincia, PaisId ) VALUES (@desc, @pais)";
+                    var comando = new SqlCommand(cadenaComando, _connection);
+                    comando.Parameters.AddWithValue("@desc", provincia.provincia);
+                    comando.Parameters.AddWithValue("@pais", provincia.Pais.PaisID);
+                    comando.ExecuteNonQuery();
+                    cadenaComando = "SELECT @@IDENTITY";
+                    comando = new SqlCommand(cadenaComando, _connection);
+                    int id = (int)(decimal)comando.ExecuteScalar();
+                    provincia.ProvinciaID = id;
+
+
+
+
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.Message);
+                }
+            }
+            else
+            {
+                    try
+                    {
+                        string cadenaComando = "UPDATE Provincias SET Provincia=@nombre,PaisId=@paisId WHERE ProvinciaId=@id";
+                        SqlCommand comando = new SqlCommand(cadenaComando, _connection);
+                        comando.Parameters.AddWithValue("@nombre", provincia.provincia);
+                    comando.Parameters.AddWithValue("@paisId",provincia.Pais.PaisID);
+                        comando.Parameters.AddWithValue("@id", provincia.ProvinciaID);
+                        comando.ExecuteNonQuery();
+
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception(e.Message);
+                    }
+
+                
+            }
+        }
+
+        public void Borrar(decimal id)
+        {
             try
             {
-                string cadenaComando = "INSERT INTO Provincias (Provincia, PaisId ) VALUES (@desc, @pais, " +
-                                       ")";
-                var comando = new SqlCommand(cadenaComando, _connection);
-                comando.Parameters.AddWithValue("@desc", provincia.provincia);
-                comando.Parameters.AddWithValue("@pais", provincia.Pais.PaisID);            
+                string cadenaComando = "DELETE FROM Provincias WHERE ProvinciaID=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _connection);
+                comando.Parameters.AddWithValue("@id", id);
                 comando.ExecuteNonQuery();
-                cadenaComando = "SELECT @@IDENTITY";
-                comando = new SqlCommand(cadenaComando, _connection);
-                int id = (int)(decimal)comando.ExecuteScalar();
-                provincia.ProvinciaID = id;
-
-
-
 
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }
 
-        public void Borrar(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public bool Existe(Provincia provincia)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                SqlCommand comando;
+                if (provincia.ProvinciaID == 0)
+                {
+                    string cadenaComando = "SELECT ProvinciaID, Provincia,PaisID FROM Provincias WHERE PaisID=@pais AND Provincia=@nombre";
+                    comando = new SqlCommand(cadenaComando, _connection);
+                    comando.Parameters.AddWithValue("@nombre", provincia.provincia);
+                    comando.Parameters.AddWithValue("@pais",provincia.Pais.PaisID);
+
+                }
+                else
+                {
+                    string cadenaComando = "SELECT ProvinciaID, Provincia,PaisID FROM Provincias WHERE PaisID=@pais AND Provincia=@nombre AND ProvinciaID<>@id";
+                    comando = new SqlCommand(cadenaComando, _connection);
+                    comando.Parameters.AddWithValue("@nombre", provincia.provincia);
+                    comando.Parameters.AddWithValue("@id", provincia.ProvinciaID);
+                    comando.Parameters.AddWithValue("@pais", provincia.Pais.PaisID);
+
+
+                }
+                SqlDataReader reader = comando.ExecuteReader();
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public bool EstaRelacionado(Provincia provincia)

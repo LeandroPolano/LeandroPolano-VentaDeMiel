@@ -104,13 +104,12 @@ namespace VentaDeMiel.Windows
 
         private bool ValidarObjeto()
         {
-            errorProvider1.Clear();
             bool valido = true;
-            if (string.IsNullOrEmpty(TextBoxCapacidad.Text.Trim()) &&
-                string.IsNullOrWhiteSpace(TextBoxCapacidad.Text.Trim()))
+            errorProvider1.Clear();
+            if (_servicio.Existe(capacidad))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxCapacidad, "Debe ingresar una Capacidad");
+                errorProvider1.SetError(TextBoxCapacidad, "Capacidad Repetida");
             }
 
             return valido;

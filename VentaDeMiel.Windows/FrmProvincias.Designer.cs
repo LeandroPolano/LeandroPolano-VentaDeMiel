@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmProvincia
+    partial class FrmProvincias
     {
         /// <summary>
         /// Required designer variable.
@@ -65,6 +65,7 @@
             this.NuevoToolStripButton.Size = new System.Drawing.Size(68, 29);
             this.NuevoToolStripButton.Text = "Nuevo";
             this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
             // 
             // BorrarToolStripButton
             // 
@@ -74,6 +75,7 @@
             this.BorrarToolStripButton.Size = new System.Drawing.Size(64, 29);
             this.BorrarToolStripButton.Text = "Borrar";
             this.BorrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BorrarToolStripButton.Click += new System.EventHandler(this.BorrarToolStripButton_Click);
             // 
             // EditarToolStripButton
             // 
@@ -83,6 +85,7 @@
             this.EditarToolStripButton.Size = new System.Drawing.Size(61, 29);
             this.EditarToolStripButton.Text = "Editar";
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -97,6 +100,7 @@
             this.CerrarToolStripButton.Size = new System.Drawing.Size(63, 29);
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
             // DatosDataGridView
             // 

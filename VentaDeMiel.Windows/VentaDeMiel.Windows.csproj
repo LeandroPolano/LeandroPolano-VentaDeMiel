@@ -100,17 +100,17 @@
     <Compile Include="FrmProblemasDeColmenasAE.Designer.cs">
       <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProvincia.cs">
+    <Compile Include="FrmProvincias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProvincia.Designer.cs">
-      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    <Compile Include="FrmProvincias.Designer.cs">
+      <DependentUpon>FrmProvincias.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProvinciaAE.cs">
+    <Compile Include="FrmProvinciasAE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProvinciaAE.Designer.cs">
-      <DependentUpon>FrmProvinciaAE.cs</DependentUpon>
+    <Compile Include="FrmProvinciasAE.Designer.cs">
+      <DependentUpon>FrmProvinciasAE.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTiposDeProductos.cs">
       <SubType>Form</SubType>
@@ -165,11 +165,11 @@
     <EmbeddedResource Include="FrmProblemasDeColmenasAE.resx">
       <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProvincia.resx">
-      <DependentUpon>FrmProvincia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProvincias.resx">
+      <DependentUpon>FrmProvincias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProvinciaAE.resx">
-      <DependentUpon>FrmProvinciaAE.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProvinciasAE.resx">
+      <DependentUpon>FrmProvinciasAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTiposDeProductos.resx">
       <DependentUpon>FrmTiposDeProductos.cs</DependentUpon>
