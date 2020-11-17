@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmMarcas
+    partial class FrmColmenas
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmlMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlCantidadDeAlzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,9 +53,8 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.toolStrip1.Size = new System.Drawing.Size(800, 34);
-            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // NuevoToolStripButton
             // 
@@ -108,7 +107,7 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CmlMarca});
+            this.CmlCantidadDeAlzas});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -119,29 +118,27 @@
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 6;
+            this.DatosDataGridView.TabIndex = 8;
+            this.DatosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DatosDataGridView_CellContentClick);
             // 
-            // CmlMarca
+            // CmlCantidadDeAlzas
             // 
-            this.CmlMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlMarca.HeaderText = "Marcas";
-            this.CmlMarca.MinimumWidth = 8;
-            this.CmlMarca.Name = "CmlMarca";
-            this.CmlMarca.ReadOnly = true;
+            this.CmlCantidadDeAlzas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlCantidadDeAlzas.HeaderText = "Cantidad De Alzas";
+            this.CmlCantidadDeAlzas.MinimumWidth = 8;
+            this.CmlCantidadDeAlzas.Name = "CmlCantidadDeAlzas";
+            this.CmlCantidadDeAlzas.ReadOnly = true;
             // 
-            // FrmMarcas
+            // FrmColmenas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.DatosDataGridView);
-            this.MaximumSize = new System.Drawing.Size(822, 506);
-            this.MinimumSize = new System.Drawing.Size(822, 506);
-            this.Name = "FrmMarcas";
-            this.Text = "Marcas";
-            this.Load += new System.EventHandler(this.FrmMarcas_Load);
+            this.Name = "FrmColmenas";
+            this.Text = "FrmColmenas";
+            this.Load += new System.EventHandler(this.FrmColmenas_Load_1);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
@@ -159,6 +156,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlCantidadDeAlzas;
     }
 }

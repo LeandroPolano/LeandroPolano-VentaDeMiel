@@ -58,6 +58,42 @@
     <Compile Include="FrmCapacidades.Designer.cs">
       <DependentUpon>FrmCapacidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCiudades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCiudades.Designer.cs">
+      <DependentUpon>FrmCiudades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCiudadesAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCiudadesAE.Designer.cs">
+      <DependentUpon>FrmCiudadesAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmColmenaresAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColmenaresAE.Designer.cs">
+      <DependentUpon>FrmColmenaresAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmColmenares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColmenares.Designer.cs">
+      <DependentUpon>FrmColmenares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmColmenas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColmenas.Designer.cs">
+      <DependentUpon>FrmColmenas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmColmenasAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmColmenasAE.Designer.cs">
+      <DependentUpon>FrmColmenasAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMarcasAE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,18 +123,6 @@
     </Compile>
     <Compile Include="FrmPaisesAE.Designer.cs">
       <DependentUpon>FrmPaisesAE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProblemasDeColmenas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProblemasDeColmenas.Designer.cs">
-      <DependentUpon>FrmProblemasDeColmenas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProblemasDeColmenasAE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProblemasDeColmenasAE.Designer.cs">
-      <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProvincias.cs">
       <SubType>Form</SubType>
@@ -144,6 +168,24 @@
     <EmbeddedResource Include="FrmCapacidadesAE.resx">
       <DependentUpon>FrmCapacidadesAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCiudades.resx">
+      <DependentUpon>FrmCiudades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCiudadesAE.resx">
+      <DependentUpon>FrmCiudadesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColmenaresAE.resx">
+      <DependentUpon>FrmColmenaresAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColmenares.resx">
+      <DependentUpon>FrmColmenares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColmenas.resx">
+      <DependentUpon>FrmColmenas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmColmenasAE.resx">
+      <DependentUpon>FrmColmenasAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMarcas.resx">
       <DependentUpon>FrmMarcas.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,12 +200,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPaisesAE.resx">
       <DependentUpon>FrmPaisesAE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProblemasDeColmenas.resx">
-      <DependentUpon>FrmProblemasDeColmenas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProblemasDeColmenasAE.resx">
-      <DependentUpon>FrmProblemasDeColmenasAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProvincias.resx">
       <DependentUpon>FrmProvincias.cs</DependentUpon>

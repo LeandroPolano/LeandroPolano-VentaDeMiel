@@ -12,51 +12,49 @@ using VentaDeMiel.ServiceLayer.Servicios;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmProblemasDeColmenasAE : Form
+    public partial class FrmColmenasAE : Form
     {
-        public FrmProblemasDeColmenasAE()
+        public FrmColmenasAE()
         {
             InitializeComponent();
         }
 
-        public FrmProblemasDeColmenasAE(FrmProblemasDeColmenas frmProblemasDeColmenas)
+        public FrmColmenasAE(FrmColmenas frmColmenas)
         {
-            this.frm = frmProblemasDeColmenas;
+            this.frm = frmColmenas;
             InitializeComponent();
-        }
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            if (problemaDeColmena != null)
-            {
-                TextBoxProblema.Text = problemaDeColmena.TipoDeProblema;
-                _esEdicion = true;
-            }
-        }
-        internal void SetProblema(ProblemaDeColmena problema)
-        {
-            this.problemaDeColmena = problema; 
+
         }
 
-        internal ProblemaDeColmena GetProblema()
+        internal void SetColmena(Colmena CantidadDeAlzas)
         {
-            return problemaDeColmena;
+            this.CantidadDeAlzas = CantidadDeAlzas;
         }
-        private ProblemaDeColmena problemaDeColmena;
+
+        internal Colmena GetColmena()
+        {
+            return CantidadDeAlzas;
+        }
+
+        private void FrmColmenasAE_Load(object sender, EventArgs e)
+        {
+
+        }
+        private Colmena CantidadDeAlzas;
         private bool _esEdicion = false;
-        private ServicioProblemaDeColmena _servicio = new ServicioProblemaDeColmena();
-        private FrmProblemasDeColmenas frmProblemasDeColmenas;
-        private readonly FrmProblemasDeColmenas frm;
+        private ServicioColmena _servicio = new ServicioColmena();
+        private FrmColmenas frmColmenas;
+        private readonly FrmColmenas frm;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
             {
-                if ( problemaDeColmena== null)
+                if (CantidadDeAlzas == null)
                 {
-                    problemaDeColmena = new ProblemaDeColmena();
+                    CantidadDeAlzas = new Colmena();
                 }
 
-                problemaDeColmena.TipoDeProblema = TextBoxProblema.Text;
+                CantidadDeAlzas.CantidadDeAlzas = TextBoxColmena.Text;
                 if (ValidarObjeto())
                 {
 
@@ -64,10 +62,10 @@ namespace VentaDeMiel.Windows
                     {
                         try
                         {
-                            _servicio.Guardar(problemaDeColmena);
+                            _servicio.Guardar(CantidadDeAlzas);
                             if (frm != null)
                             {
-                                frm.AgregarFila(problemaDeColmena);
+                                frm.AgregarFila(CantidadDeAlzas);
 
                             }
                             MessageBox.Show("Registro Guardado");
@@ -97,41 +95,49 @@ namespace VentaDeMiel.Windows
             }
         }
 
-        private bool ValidarDatos()
-        {
-            errorProvider1.Clear();
-            bool valido = true;
-            if (string.IsNullOrEmpty(TextBoxProblema.Text.Trim()) &&
-                string.IsNullOrWhiteSpace(TextBoxProblema.Text.Trim()))
-            {
-                valido = false;
-                errorProvider1.SetError(TextBoxProblema, "Debe ingresar un Problema");
-            }
-
-            return valido;
-        }
-
         private void InicializarControles()
         {
-            TextBoxProblema.Clear();
-            TextBoxProblema.Focus();
-            problemaDeColmena = null;
+            TextBoxColmena.Clear();
+            TextBoxColmena.Focus();
+            CantidadDeAlzas = null;
         }
 
         private bool ValidarObjeto()
         {
             bool valido = true;
             errorProvider1.Clear();
-            if (_servicio.Existe(problemaDeColmena))
+            if (_servicio.Existe(CantidadDeAlzas))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxProblema, "Problema repetido");
+                errorProvider1.SetError(TextBoxColmena, "Colmena repetida");
+            }
+
+            return valido;
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (CantidadDeAlzas != null)
+            {
+                TextBoxColmena.Text = CantidadDeAlzas.CantidadDeAlzas;
+                _esEdicion = true;
+            }
+        }
+        private bool ValidarDatos()
+        {
+            errorProvider1.Clear();
+            bool valido = true;
+            if (string.IsNullOrEmpty(TextBoxColmena.Text.Trim()) &&
+                string.IsNullOrWhiteSpace(TextBoxColmena.Text.Trim()))
+            {
+                valido = false;
+                errorProvider1.SetError(TextBoxColmena, "Debe ingresar una CantidadDeAlzas");
             }
 
             return valido;
         }
 
-        private void FrmProblemasDeColmenasAE_Load(object sender, EventArgs e)
+        private void TextBoxColmena_TextChanged(object sender, EventArgs e)
         {
 
         }

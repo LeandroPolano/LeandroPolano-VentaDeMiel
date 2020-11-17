@@ -31,9 +31,9 @@ namespace VentaDeClase.ReportLayer
             frm.ShowDialog(this);
         }
 
-        private void ProblemasDeColmenas_Click(object sender, EventArgs e)
+        private void Colmenas_Click(object sender, EventArgs e)
         {
-            FrmProblemasDeColmenas frm = new FrmProblemasDeColmenas();
+            FrmColmenas frm = new FrmColmenas();
             frm.ShowDialog(this);
         }
 
@@ -69,6 +69,12 @@ namespace VentaDeClase.ReportLayer
         private void capacidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCapacidades frm = new FrmCapacidades();
+            frm.ShowDialog(this);
+        }
+
+        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCiudades frm = new FrmCiudades();
             frm.ShowDialog(this);
         }
     }

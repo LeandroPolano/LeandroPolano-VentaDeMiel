@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmProblemasDeColmenasAE
+    partial class FrmColmenaresAE
     {
         /// <summary>
         /// Required designer variable.
@@ -28,79 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ComboBoxCiudad = new System.Windows.Forms.ComboBox();
+            this.textBoxColmenar = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.TextBoxProblema = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(136, 107);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 20);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Ciudad:";
+            // 
+            // ComboBoxCiudad
+            // 
+            this.ComboBoxCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCiudad.FormattingEnabled = true;
+            this.ComboBoxCiudad.Location = new System.Drawing.Point(206, 104);
+            this.ComboBoxCiudad.Name = "ComboBoxCiudad";
+            this.ComboBoxCiudad.Size = new System.Drawing.Size(186, 28);
+            this.ComboBoxCiudad.TabIndex = 33;
+            // 
+            // textBoxColmenar
+            // 
+            this.textBoxColmenar.Location = new System.Drawing.Point(140, 57);
+            this.textBoxColmenar.Name = "textBoxColmenar";
+            this.textBoxColmenar.Size = new System.Drawing.Size(433, 26);
+            this.textBoxColmenar.TabIndex = 32;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(453, 156);
+            this.btnCancelar.Location = new System.Drawing.Point(438, 188);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(135, 63);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 30;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(40, 156);
+            this.btnGuardar.Location = new System.Drawing.Point(25, 188);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(135, 63);
-            this.btnGuardar.TabIndex = 14;
+            this.btnGuardar.TabIndex = 29;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // TextBoxProblema
-            // 
-            this.TextBoxProblema.Location = new System.Drawing.Point(128, 75);
-            this.TextBoxProblema.Margin = new System.Windows.Forms.Padding(4);
-            this.TextBoxProblema.MaxLength = 100;
-            this.TextBoxProblema.Name = "TextBoxProblema";
-            this.TextBoxProblema.Size = new System.Drawing.Size(460, 26);
-            this.TextBoxProblema.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 78);
+            this.label1.Location = new System.Drawing.Point(48, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Problema:";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Colmenar:";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // FrmProblemasDeColmenasAE
+            // FrmColmenarAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 272);
+            this.ClientSize = new System.Drawing.Size(616, 283);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ComboBoxCiudad);
+            this.Controls.Add(this.textBoxColmenar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.TextBoxProblema);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(647, 328);
-            this.MinimumSize = new System.Drawing.Size(647, 328);
-            this.Name = "FrmProblemasDeColmenasAE";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Agregado De Problema";
-            this.Load += new System.EventHandler(this.FrmProblemasDeColmenasAE_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.MaximumSize = new System.Drawing.Size(638, 339);
+            this.MinimumSize = new System.Drawing.Size(638, 339);
+            this.Name = "FrmColmenarAE";
+            this.Text = "Colmenar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,10 +118,11 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ComboBoxCiudad;
+        private System.Windows.Forms.TextBox textBoxColmenar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox TextBoxProblema;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

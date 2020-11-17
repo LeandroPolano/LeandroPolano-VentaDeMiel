@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Capacidad.cs" />
+    <Compile Include="Entities\Ciudad.cs" />
+    <Compile Include="Entities\Colmena.cs" />
+    <Compile Include="Entities\Colmenar.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\ProblemaDeColmena.cs" />
     <Compile Include="Entities\Pais.cs" />

@@ -34,11 +34,12 @@
             this.TsbMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbTiposDeProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.capacidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbColmenas = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbProvincias = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.capacidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ciudadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             this.capacidadToolStripMenuItem,
             this.TsbColmenas,
             this.TsbProvincias,
+            this.ciudadesToolStripMenuItem,
             this.toolStripSeparator1});
             this.archivosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivosToolStripMenuItem.Name = "archivosToolStripMenuItem";
@@ -75,49 +77,56 @@
             // ProblemasDeColmenas
             // 
             this.ProblemasDeColmenas.Name = "ProblemasDeColmenas";
-            this.ProblemasDeColmenas.Size = new System.Drawing.Size(315, 36);
-            this.ProblemasDeColmenas.Text = "ProblemasDeColmenas";
-            this.ProblemasDeColmenas.Click += new System.EventHandler(this.ProblemasDeColmenas_Click);
+            this.ProblemasDeColmenas.Size = new System.Drawing.Size(274, 36);
+            this.ProblemasDeColmenas.Text = "Colmenas";
+            this.ProblemasDeColmenas.Click += new System.EventHandler(this.Colmenas_Click);
             // 
             // TsbMarca
             // 
             this.TsbMarca.Name = "TsbMarca";
-            this.TsbMarca.Size = new System.Drawing.Size(315, 36);
+            this.TsbMarca.Size = new System.Drawing.Size(274, 36);
             this.TsbMarca.Text = "Marcas";
             this.TsbMarca.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // tipoToolStripMenuItem
             // 
             this.tipoToolStripMenuItem.Name = "tipoToolStripMenuItem";
-            this.tipoToolStripMenuItem.Size = new System.Drawing.Size(315, 36);
+            this.tipoToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
             this.tipoToolStripMenuItem.Text = "TiposDocumentos";
             this.tipoToolStripMenuItem.Click += new System.EventHandler(this.tipoToolStripMenuItem_Click);
             // 
             // TsbTiposDeProductos
             // 
             this.TsbTiposDeProductos.Name = "TsbTiposDeProductos";
-            this.TsbTiposDeProductos.Size = new System.Drawing.Size(315, 36);
+            this.TsbTiposDeProductos.Size = new System.Drawing.Size(274, 36);
             this.TsbTiposDeProductos.Text = "TiposDeProductos";
             this.TsbTiposDeProductos.Click += new System.EventHandler(this.TsbTiposDeProductos_Click);
+            // 
+            // capacidadToolStripMenuItem
+            // 
+            this.capacidadToolStripMenuItem.Name = "capacidadToolStripMenuItem";
+            this.capacidadToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.capacidadToolStripMenuItem.Text = "Capacidades";
+            this.capacidadToolStripMenuItem.Click += new System.EventHandler(this.capacidadToolStripMenuItem_Click);
             // 
             // TsbColmenas
             // 
             this.TsbColmenas.Name = "TsbColmenas";
-            this.TsbColmenas.Size = new System.Drawing.Size(315, 36);
+            this.TsbColmenas.Size = new System.Drawing.Size(274, 36);
             this.TsbColmenas.Text = "Paises";
             this.TsbColmenas.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // TsbProvincias
             // 
             this.TsbProvincias.Name = "TsbProvincias";
-            this.TsbProvincias.Size = new System.Drawing.Size(315, 36);
+            this.TsbProvincias.Size = new System.Drawing.Size(274, 36);
             this.TsbProvincias.Text = "Provincias";
             this.TsbProvincias.Click += new System.EventHandler(this.TsbProvincias_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
             // 
             // salirToolStripMenuItem
             // 
@@ -127,12 +136,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // capacidadToolStripMenuItem
+            // ciudadesToolStripMenuItem
             // 
-            this.capacidadToolStripMenuItem.Name = "capacidadToolStripMenuItem";
-            this.capacidadToolStripMenuItem.Size = new System.Drawing.Size(315, 36);
-            this.capacidadToolStripMenuItem.Text = "Capacidad";
-            this.capacidadToolStripMenuItem.Click += new System.EventHandler(this.capacidadToolStripMenuItem_Click);
+            this.ciudadesToolStripMenuItem.Name = "ciudadesToolStripMenuItem";
+            this.ciudadesToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.ciudadesToolStripMenuItem.Text = "Ciudades";
+            this.ciudadesToolStripMenuItem.Click += new System.EventHandler(this.ciudadesToolStripMenuItem_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -166,5 +175,6 @@
         private System.Windows.Forms.ToolStripMenuItem tipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TsbProvincias;
         private System.Windows.Forms.ToolStripMenuItem capacidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ciudadesToolStripMenuItem;
     }
 }
