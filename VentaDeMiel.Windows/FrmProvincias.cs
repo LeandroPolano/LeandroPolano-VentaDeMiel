@@ -88,16 +88,25 @@ namespace VentaDeMiel.Windows
                     MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    try
-                    {
-                        _servicio.Borrar(provincia.ProvinciaID);
-                        DatosDataGridView.Rows.Remove(r);
-                        MessageBox.Show("Registro borrado");
-                    }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show(exception.Message);
 
+                    if (!_servicio.EstaRelacionado(provincia))
+                    {
+                       
+                        try
+                        {
+                            _servicio.Borrar(provincia.ProvinciaID);
+                            DatosDataGridView.Rows.Remove(r);
+                            MessageBox.Show("Registro borrado");
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+
+                        } 
+                    }
+                    else
+                    {
+                       MessageBox.Show("Registro Relacionado");
                     }
                 }
             }

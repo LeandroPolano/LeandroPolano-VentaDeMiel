@@ -166,7 +166,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                var CadenaDeComando = "select PaisID from Productos where PaisID = @Id";
+                var CadenaDeComando = "select PaisID from Provincias where PaisID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
                 Comando.Parameters.AddWithValue("@Id", pais.PaisID);
                 var reader = Comando.ExecuteReader();

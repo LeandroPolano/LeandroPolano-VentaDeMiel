@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -193,7 +194,20 @@ namespace VentaDeMiel.DataLayer.Repositorios
 
         public bool EstaRelacionado(Provincia provincia)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                SqlCommand comando;
+                var cadenaDeComando = "SELECT ProvinciaID FROM Ciudades WHERE ProvinciaID=@Id";
+                comando = new SqlCommand(cadenaDeComando, conexion);
+                comando.Parameters.AddWithValue("@id", provincia.ProvinciaID);
+                var reader = comando.ExecuteReader();
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void ActualizarStock(Provincia provincia, decimal cantidad)

@@ -107,9 +107,9 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             {
                 _conexion = new ConexionBD();
                 _repositorio = new RepositorioPais(_conexion.AbrirConexion());
-                var existe = _repositorio.EstaRelacionado(pais);
+                var relacionado = _repositorio.EstaRelacionado(pais);
                 _conexion.CerrarConexion();
-                return existe;
+                return relacionado;
             }
             catch (Exception e)
             {

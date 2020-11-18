@@ -85,7 +85,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 throw new Exception(e.Message);
             }
         }
-        //_repositorioProvincia.GetProvinciaPorId(reader.GetDecimal(2))
+
         
 
         private Ciudad ConstruirCiudad(SqlDataReader reader)
@@ -195,7 +195,20 @@ namespace VentaDeMiel.DataLayer.Repositorios
 
         public bool EstaRelacionado(Ciudad ciudad)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                SqlCommand comando;
+                var cadenaDeComando = "SELECT CiudadID FROM Colmenares WHERE CiudadID=@Id";
+                comando = new SqlCommand(cadenaDeComando, _connection);
+                comando.Parameters.AddWithValue("@id", ciudad.CiudadID);
+                var reader = comando.ExecuteReader();
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
         public void ActualizarStock(Ciudad ciudad, decimal cantidad)

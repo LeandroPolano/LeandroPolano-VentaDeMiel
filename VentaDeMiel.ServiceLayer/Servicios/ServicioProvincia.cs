@@ -73,7 +73,19 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         public bool EstaRelacionado(Provincia provincia)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _conexion = new ConexionBD();
+                _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+
+                var relacionado = _repositorioProvincia.EstaRelacionado(provincia);
+                _conexion.CerrarConexion();
+                return relacionado;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         

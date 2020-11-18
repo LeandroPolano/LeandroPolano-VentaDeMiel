@@ -54,6 +54,9 @@ namespace VentaDeMiel.Windows
                     MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
+                    if (!_servicio.EstaRelacionado(CantidadDeAlzas))
+                    {
+
                     try
                     {
                         _servicio.Borrar(CantidadDeAlzas.ColmenaID);
@@ -64,6 +67,12 @@ namespace VentaDeMiel.Windows
                     {
                         MessageBox.Show(exception.Message);
 
+                    }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro Relacionado");
                     }
                 }
 

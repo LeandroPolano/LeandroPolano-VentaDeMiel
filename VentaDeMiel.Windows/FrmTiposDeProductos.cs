@@ -26,7 +26,7 @@ namespace VentaDeMiel.Windows
             DialogResult dr = frm.ShowDialog(this);
         }
 
-        
+
 
         private void MostrarEnGrilla()
         {
@@ -52,16 +52,25 @@ namespace VentaDeMiel.Windows
                     MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    try
+                    if (!_servicio.EstaRelacionado(tipoProducto))
                     {
-                        _servicio.Borrar(tipoProducto.TipoProductoID);
-                        DatosDataGridView.Rows.Remove(r);
-                        MessageBox.Show("Registro borrado");
-                    }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show(exception.Message);
 
+                        try
+                        {
+                            _servicio.Borrar(tipoProducto.TipoProductoID);
+                            DatosDataGridView.Rows.Remove(r);
+                            MessageBox.Show("Registro borrado");
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro Relacionado");
                     }
                 }
 

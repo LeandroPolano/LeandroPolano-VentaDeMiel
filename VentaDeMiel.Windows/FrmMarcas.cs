@@ -65,6 +65,9 @@ namespace VentaDeMiel.Windows
                     MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
+                    if (!_servicio.EstaRelacionado(marca))
+                    {
+
                     try
                     {
                         _servicio.Borrar(marca.MarcaID);
@@ -75,6 +78,12 @@ namespace VentaDeMiel.Windows
                     {
                         MessageBox.Show(exception.Message);
 
+                    }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registro Relacionado");
                     }
                 }
 

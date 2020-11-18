@@ -78,6 +78,9 @@ namespace VentaDeMiel.Windows
                     MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
+                     if (!_servicio.EstaRelacionado(ciudad))
+                    {
+                       
                     try
                     {
                         _servicio.Borrar(ciudad.CiudadID);
@@ -88,6 +91,12 @@ namespace VentaDeMiel.Windows
                     {
                         MessageBox.Show(exception.Message);
 
+                    }
+                       
+                    }
+                    else
+                    {
+                       MessageBox.Show("Registro Relacionado");
                     }
                 }
             }
