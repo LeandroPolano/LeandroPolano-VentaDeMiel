@@ -227,7 +227,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 throw new Exception("Error al actualizar el stock de un ciudad");
             }
         }
-
+        
 
 
         public List<Ciudad> GetLista(int provinciaId)
