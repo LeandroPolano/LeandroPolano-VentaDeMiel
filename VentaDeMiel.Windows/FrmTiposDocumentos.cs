@@ -19,7 +19,7 @@ namespace VentaDeMiel.Windows
             InitializeComponent();
         }
         private ServicioTipoDocumento _servicio;
-        private List<tipoDocumento> _lista;
+        private List<TipoDocumento> _lista;
         private void FrmTiposDocumentos_Load(object sender, EventArgs e)
         {
             try
@@ -46,7 +46,7 @@ namespace VentaDeMiel.Windows
             }
         }
 
-        internal void AgregarFila(tipoDocumento tipodocumento)
+        internal void AgregarFila(TipoDocumento tipodocumento)
         {
             DataGridViewRow r = ConstruirFila();
             SetearFila(r, tipodocumento);
@@ -58,9 +58,9 @@ namespace VentaDeMiel.Windows
             DatosDataGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, tipoDocumento tipodocumento)
+        private void SetearFila(DataGridViewRow r, TipoDocumento tipodocumento)
         {
-            r.Cells[CmlTipoDocumento.Index].Value = tipodocumento.TipoDocumento;
+            r.Cells[CmlTipoDocumento.Index].Value = tipodocumento.tipoDocumento;
 
             r.Tag = tipodocumento;
         }
@@ -84,9 +84,9 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                tipoDocumento tipodocumento = (tipoDocumento)r.Tag;
+                TipoDocumento tipodocumento = (TipoDocumento)r.Tag;
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja el tipo de documento {tipodocumento.TipoDocumento}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja el tipo de documento {tipodocumento.tipoDocumento}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -112,7 +112,8 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                tipoDocumento tipodocumento = (tipoDocumento)r.Tag;
+                TipoDocumento tipodocumento = (TipoDocumento)r.Tag;
+                tipodocumento = _servicio.GetTipoDocumentoPorId(tipodocumento.TipoDocumentoID);
                 FrmTiposDocumentosAE frm = new FrmTiposDocumentosAE();
                 frm.Text = "Editar Tipo de documento";
                 frm.SetTipoDocumento(tipodocumento);

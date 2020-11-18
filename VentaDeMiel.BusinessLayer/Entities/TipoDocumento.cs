@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VentaDeMiel.BusinessLayer.Entities
 {
-    public class tipoDocumento
+    public class TipoDocumento
     {
         public decimal TipoDocumentoID { get; set; }
 
-        public string TipoDocumento { get; set; }
+        public string tipoDocumento { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmTiposDocumentos
+    partial class FrmProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,11 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmlTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlTipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +57,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.toolStrip1.Size = new System.Drawing.Size(800, 34);
-            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // NuevoToolStripButton
@@ -107,7 +111,11 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CmlTipoDocumento});
+            this.CmlProducto,
+            this.CmlTipoProducto,
+            this.CmlMarca,
+            this.CmlStock,
+            this.CmlPrecioUnitario});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -118,17 +126,49 @@
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
-            this.DatosDataGridView.TabIndex = 7;
+            this.DatosDataGridView.TabIndex = 11;
             // 
-            // CmlTipoDocumento
+            // CmlProducto
             // 
-            this.CmlTipoDocumento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlTipoDocumento.HeaderText = "TipoDocumento";
-            this.CmlTipoDocumento.MinimumWidth = 8;
-            this.CmlTipoDocumento.Name = "CmlTipoDocumento";
-            this.CmlTipoDocumento.ReadOnly = true;
+            this.CmlProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlProducto.HeaderText = "Producto";
+            this.CmlProducto.MinimumWidth = 8;
+            this.CmlProducto.Name = "CmlProducto";
+            this.CmlProducto.ReadOnly = true;
             // 
-            // FrmTiposDocumentos
+            // CmlTipoProducto
+            // 
+            this.CmlTipoProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlTipoProducto.HeaderText = "Tipo de Producto";
+            this.CmlTipoProducto.MinimumWidth = 8;
+            this.CmlTipoProducto.Name = "CmlTipoProducto";
+            this.CmlTipoProducto.ReadOnly = true;
+            // 
+            // CmlMarca
+            // 
+            this.CmlMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlMarca.HeaderText = "Marca";
+            this.CmlMarca.MinimumWidth = 8;
+            this.CmlMarca.Name = "CmlMarca";
+            this.CmlMarca.ReadOnly = true;
+            // 
+            // CmlStock
+            // 
+            this.CmlStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlStock.HeaderText = "Stock";
+            this.CmlStock.MinimumWidth = 8;
+            this.CmlStock.Name = "CmlStock";
+            this.CmlStock.ReadOnly = true;
+            // 
+            // CmlPrecioUnitario
+            // 
+            this.CmlPrecioUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlPrecioUnitario.HeaderText = "Precio Unitario";
+            this.CmlPrecioUnitario.MinimumWidth = 8;
+            this.CmlPrecioUnitario.Name = "CmlPrecioUnitario";
+            this.CmlPrecioUnitario.ReadOnly = true;
+            // 
+            // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,9 +178,9 @@
             this.Controls.Add(this.toolStrip1);
             this.MaximumSize = new System.Drawing.Size(822, 506);
             this.MinimumSize = new System.Drawing.Size(822, 506);
-            this.Name = "FrmTiposDocumentos";
-            this.Text = "Tipos De Documentos";
-            this.Load += new System.EventHandler(this.FrmTiposDocumentos_Load);
+            this.Name = "FrmProductos";
+            this.Text = "Productos";
+            this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
@@ -158,6 +198,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlTipoDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlTipoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlPrecioUnitario;
     }
 }

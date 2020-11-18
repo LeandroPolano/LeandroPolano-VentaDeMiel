@@ -13,6 +13,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private readonly SqlConnection _connection;
         private readonly RepositorioProvincia _repositorioProvincia;
         private readonly SqlTransaction _tran;
+        private readonly Provincia provincia;
 
         public RepositorioCiudad(SqlConnection connection, RepositorioProvincia repositorioProvincia)
         {
@@ -84,6 +85,9 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 throw new Exception(e.Message);
             }
         }
+        //_repositorioProvincia.GetProvinciaPorId(reader.GetDecimal(2))
+        
+
         private Ciudad ConstruirCiudad(SqlDataReader reader)
         {
             Ciudad ciudad = new Ciudad();

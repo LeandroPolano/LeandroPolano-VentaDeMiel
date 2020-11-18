@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VentaDeMiel.BusinessLayer.Entities
 {
-    class Colmenar
+    public class Colmenar
     {
         public decimal ColmenarID { get; set; }
-        public Colmena Colmena { get; set; }
-        public string colmenar { get; set; }
+        public Ciudad Ciudad { get; set; }
+        public string NombreColmenar { get; set; }
     }
 }

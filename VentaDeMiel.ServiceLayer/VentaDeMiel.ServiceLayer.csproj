@@ -48,6 +48,7 @@
     <Compile Include="Servicios\ServicioColmenar.cs" />
     <Compile Include="Servicios\ServicioMarca.cs" />
     <Compile Include="Servicios\ServicioPais.cs" />
+    <Compile Include="Servicios\ServicioProducto.cs" />
     <Compile Include="Servicios\ServicioProvincia.cs" />
     <Compile Include="Servicios\ServicioTipoDeProducto.cs" />
     <Compile Include="Servicios\ServicioTipoDocumento.cs" />

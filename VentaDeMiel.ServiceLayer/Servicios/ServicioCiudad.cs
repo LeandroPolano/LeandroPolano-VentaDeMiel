@@ -13,12 +13,14 @@ namespace VentaDeMiel.ServiceLayer.Servicios
     {
         private RepositorioCiudad _repositorioCiudad;
         private RepositorioProvincia _repositorioProvincia;
+        private RepositorioPais repositorioPais;
 
         private ConexionBD _conexion;
         public Ciudad GetCiudadPorId(decimal id)
         {
             _conexion = new ConexionBD();
-            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+            repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(),repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), _repositorioProvincia);
             var p = _repositorioCiudad.GetCiudadPorId(id);
             _conexion.CerrarConexion();
@@ -29,7 +31,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
         public List<Ciudad> GetLista()
         {
             _conexion = new ConexionBD();
-            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+            repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), _repositorioProvincia);
             var lista = _repositorioCiudad.GetLista();
             _conexion.CerrarConexion();
@@ -58,7 +61,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             try
             {
                 _conexion = new ConexionBD();
-                _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+                repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+                _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
                 _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), _repositorioProvincia);
                 var existe = _repositorioCiudad.Existe(ciudad);
                 _conexion.CerrarConexion();
@@ -79,8 +83,9 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         public List<Ciudad> GetLista(int provinciaId)
         {
-            _conexion = new ConexionBD();
-            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+            _conexion = new ConexionBD(); 
+            repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), _repositorioProvincia);
             var lista = _repositorioCiudad.GetLista(provinciaId);
             _conexion.CerrarConexion();
@@ -90,8 +95,9 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         public List<Ciudad> GetLista(string ciudad)
         {
-            _conexion = new ConexionBD();
-            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion());
+            _conexion = new ConexionBD(); 
+            repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
+            _repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), _repositorioProvincia);
             var lista = _repositorioCiudad.GetLista(ciudad);
             _conexion.CerrarConexion();

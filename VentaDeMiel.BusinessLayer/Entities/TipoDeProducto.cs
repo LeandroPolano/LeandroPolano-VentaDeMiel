@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VentaDeMiel.BusinessLayer.Entities
 {
-    public class TipoDeProducto
+    public class TipoProducto
     {
-        public decimal TipoDeProductoID { get; set; }
+        public decimal TipoProductoID { get; set; }
 
-        public string tipoDeProducto { get; set; }
+        public string tipoProducto { get; set; }
     }
 }

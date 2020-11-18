@@ -109,7 +109,7 @@
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CmlPais});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
@@ -117,8 +117,8 @@
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 8;
+            this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
+            this.DatosDataGridView.TabIndex = 9;
             // 
             // CmlPais
             // 
@@ -134,8 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.DatosDataGridView);
+            this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(822, 506);
+            this.MinimumSize = new System.Drawing.Size(822, 506);
             this.Name = "FrmPaises";
             this.Text = "Paises";
             this.Load += new System.EventHandler(this.FrmPaises_Load);

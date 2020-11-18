@@ -14,7 +14,10 @@ namespace VentaDeMiel.Windows
 {
     public partial class FrmTiposDeProductosAE : Form
     {
-        
+        public FrmTiposDeProductosAE()
+        {
+            InitializeComponent();
+        }
 
         public FrmTiposDeProductosAE(FrmTiposDeProductos frmTiposDeProductos)
         {
@@ -23,27 +26,35 @@ namespace VentaDeMiel.Windows
 
         }
 
-        public FrmTiposDeProductosAE()
+        internal void SetTipoProducto(TipoProducto tipoProducto)
         {
-            InitializeComponent();
+            this.tipoProducto = tipoProducto;
         }
 
-        private TipoDeProducto tipoDeProducto;
-        private bool _esEdicion = false;
-        private ServicioTipoDeProducto _servicio = new ServicioTipoDeProducto();
-        private FrmTiposDeProductos frmTipoDeProducto;
+        internal TipoProducto GetTipoProducto()
+        {
+            return tipoProducto;
+        }
 
+        private void FrmTiposDeProductosAE_Load(object sender, EventArgs e)
+        {
+
+        }
+        private TipoProducto tipoProducto;
+        private bool _esEdicion = false;
+        private ServicioTipoProducto _servicio = new ServicioTipoProducto();
+        private FrmTiposDeProductos frmTiposDeProductos;
         private readonly FrmTiposDeProductos frm;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
             {
-                if (tipoDeProducto == null)
+                if (tipoProducto == null)
                 {
-                    tipoDeProducto = new TipoDeProducto();
+                    tipoProducto = new TipoProducto();
                 }
 
-                tipoDeProducto.tipoDeProducto = textBoxTipoDeProducto.Text;
+                tipoProducto.tipoProducto = TextBoxTipoDeProducto.Text;
                 if (ValidarObjeto())
                 {
 
@@ -51,10 +62,10 @@ namespace VentaDeMiel.Windows
                     {
                         try
                         {
-                            _servicio.Guardar(tipoDeProducto);
+                            _servicio.Guardar(tipoProducto);
                             if (frm != null)
                             {
-                                frm.AgregarFila(tipoDeProducto);
+                                frm.AgregarFila(tipoProducto);
 
                             }
                             MessageBox.Show("Registro Guardado");
@@ -86,48 +97,47 @@ namespace VentaDeMiel.Windows
 
         private void InicializarControles()
         {
-            textBoxTipoDeProducto.Clear();
-            textBoxTipoDeProducto.Focus();
-            tipoDeProducto = null;
+            TextBoxTipoDeProducto.Clear();
+            TextBoxTipoDeProducto.Focus();
+            tipoProducto = null;
         }
 
         private bool ValidarObjeto()
         {
             bool valido = true;
             errorProvider1.Clear();
-            if (_servicio.Existe(tipoDeProducto))
+            if (_servicio.Existe(tipoProducto))
             {
                 valido = false;
-                errorProvider1.SetError(textBoxTipoDeProducto, "Tipo de producto repetido");
+                errorProvider1.SetError(TextBoxTipoDeProducto, "Tipo de Producto repetida");
             }
 
             return valido;
         }
-
-        internal void SetTipoDeProducto(TipoDeProducto tipodeproducto)
+        protected override void OnLoad(EventArgs e)
         {
-            this.tipoDeProducto = tipodeproducto;
+            base.OnLoad(e);
+            if (tipoProducto != null)
+            {
+                TextBoxTipoDeProducto.Text = tipoProducto.tipoProducto;
+                _esEdicion = true;
+            }
         }
-
-        internal TipoDeProducto GetTipoDeProducto()
-        {
-            return tipoDeProducto;
-        }
-
         private bool ValidarDatos()
         {
-            bool valido = true;
             errorProvider1.Clear();
-            if (_servicio.Existe(tipoDeProducto))
+            bool valido = true;
+            if (string.IsNullOrEmpty(TextBoxTipoDeProducto.Text.Trim()) &&
+                string.IsNullOrWhiteSpace(TextBoxTipoDeProducto.Text.Trim()))
             {
                 valido = false;
-                errorProvider1.SetError(textBoxTipoDeProducto, "Tipo de producto repetido");
+                errorProvider1.SetError(TextBoxTipoDeProducto, "Debe ingresar una tipo de Producto");
             }
 
             return valido;
         }
 
-        private void FrmTiposDeProductosAE_Load(object sender, EventArgs e)
+        private void TextBoxTipoProducto_TextChanged(object sender, EventArgs e)
         {
 
         }

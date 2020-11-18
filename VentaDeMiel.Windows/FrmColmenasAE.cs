@@ -109,7 +109,7 @@ namespace VentaDeMiel.Windows
             if (_servicio.Existe(CantidadDeAlzas))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxColmena, "Colmena repetida");
+                errorProvider1.SetError(TextBoxColmena, "Cantidad De Alzas repetida");
             }
 
             return valido;
@@ -131,7 +131,7 @@ namespace VentaDeMiel.Windows
                 string.IsNullOrWhiteSpace(TextBoxColmena.Text.Trim()))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxColmena, "Debe ingresar una CantidadDeAlzas");
+                errorProvider1.SetError(TextBoxColmena, "Debe ingresar una Cantidad De Alzas");
             }
 
             return valido;

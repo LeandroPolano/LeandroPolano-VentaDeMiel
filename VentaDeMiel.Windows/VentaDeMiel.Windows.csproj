@@ -124,6 +124,18 @@
     <Compile Include="FrmPaisesAE.Designer.cs">
       <DependentUpon>FrmPaisesAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductosAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductosAE.Designer.cs">
+      <DependentUpon>FrmProductosAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProvincias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +212,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPaisesAE.resx">
       <DependentUpon>FrmPaisesAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductosAE.resx">
+      <DependentUpon>FrmProductosAE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProvincias.resx">
       <DependentUpon>FrmProvincias.cs</DependentUpon>

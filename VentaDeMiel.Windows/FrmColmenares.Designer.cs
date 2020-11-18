@@ -35,8 +35,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmlProvincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmPaisID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnColmenar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.NuevoToolStripButton.Size = new System.Drawing.Size(68, 29);
             this.NuevoToolStripButton.Text = "Nuevo";
             this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
             // 
             // BorrarToolStripButton
             // 
@@ -74,6 +75,7 @@
             this.BorrarToolStripButton.Size = new System.Drawing.Size(64, 29);
             this.BorrarToolStripButton.Text = "Borrar";
             this.BorrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BorrarToolStripButton.Click += new System.EventHandler(this.BorrarToolStripButton_Click);
             // 
             // EditarToolStripButton
             // 
@@ -83,6 +85,7 @@
             this.EditarToolStripButton.Size = new System.Drawing.Size(61, 29);
             this.EditarToolStripButton.Text = "Editar";
             this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 
@@ -97,6 +100,7 @@
             this.CerrarToolStripButton.Size = new System.Drawing.Size(63, 29);
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
             // DatosDataGridView
             // 
@@ -104,10 +108,10 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CmlProvincia,
-            this.ClmPaisID});
+            this.CmnColmenar,
+            this.CmnCiudad});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
@@ -115,34 +119,38 @@
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 10;
+            this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
+            this.DatosDataGridView.TabIndex = 11;
             // 
-            // CmlProvincia
+            // CmnColmenar
             // 
-            this.CmlProvincia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlProvincia.HeaderText = "Provincia";
-            this.CmlProvincia.MinimumWidth = 8;
-            this.CmlProvincia.Name = "CmlProvincia";
-            this.CmlProvincia.ReadOnly = true;
+            this.CmnColmenar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnColmenar.HeaderText = "Nombre Colmenar";
+            this.CmnColmenar.MinimumWidth = 8;
+            this.CmnColmenar.Name = "CmnColmenar";
+            this.CmnColmenar.ReadOnly = true;
             // 
-            // ClmPaisID
+            // CmnCiudad
             // 
-            this.ClmPaisID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ClmPaisID.HeaderText = "Pais";
-            this.ClmPaisID.MinimumWidth = 8;
-            this.ClmPaisID.Name = "ClmPaisID";
-            this.ClmPaisID.ReadOnly = true;
+            this.CmnCiudad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnCiudad.HeaderText = "Ciudad";
+            this.CmnCiudad.MinimumWidth = 8;
+            this.CmnCiudad.Name = "CmnCiudad";
+            this.CmnCiudad.ReadOnly = true;
             // 
             // FrmColmenares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStrip1);
+            this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
+            this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(822, 506);
+            this.MinimumSize = new System.Drawing.Size(822, 506);
             this.Name = "FrmColmenares";
-            this.Text = "FrmColmenares";
+            this.Text = "Colmenares";
+            this.Load += new System.EventHandler(this.FrmColmenares_Load_1);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
@@ -160,7 +168,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlProvincia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmPaisID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmnColmenar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmnCiudad;
     }
 }

@@ -48,7 +48,7 @@ namespace VentaDeMiel.Windows
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Colmena CantidadDeAlzas = (Colmena)r.Tag;
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja la CantidadDeAlzas {CantidadDeAlzas.CantidadDeAlzas}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja la Cantidad De Alzas {CantidadDeAlzas.CantidadDeAlzas}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -99,8 +99,10 @@ namespace VentaDeMiel.Windows
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Colmena CantidadDeAlzas = (Colmena)r.Tag;
+                CantidadDeAlzas = _servicio.GetColmenaPorId(CantidadDeAlzas.ColmenaID);
+
                 FrmColmenasAE frm = new FrmColmenasAE();
-                frm.Text = "Editar CantidadDeAlzas";
+                frm.Text = "Editar Cantidad De Alzas";
                 frm.SetColmena(CantidadDeAlzas);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
@@ -116,7 +118,7 @@ namespace VentaDeMiel.Windows
                         }
                         else
                         {
-                            MessageBox.Show("CantidadDeAlzas Repetida");
+                            MessageBox.Show("Cantidad De Alzas Repetida");
                         }
                     }
                     catch (Exception exception)

@@ -77,5 +77,17 @@ namespace VentaDeClase.ReportLayer
             FrmCiudades frm = new FrmCiudades();
             frm.ShowDialog(this);
         }
+
+        private void colmenaresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmColmenares frm = new FrmColmenares();
+            frm.ShowDialog(this);
+        }
+
+        private void productosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmProductos frm = new FrmProductos();
+            frm.ShowDialog(this);
+        }
     }
 }

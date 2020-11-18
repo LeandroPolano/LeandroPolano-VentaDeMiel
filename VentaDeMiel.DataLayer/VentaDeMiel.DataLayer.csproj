@@ -50,6 +50,7 @@
     <Compile Include="Repositorios\RepositorioColmenar.cs" />
     <Compile Include="Repositorios\RepositorioMarca.cs" />
     <Compile Include="Repositorios\RepositorioPais.cs" />
+    <Compile Include="Repositorios\RepositorioProducto.cs" />
     <Compile Include="Repositorios\RepositorioProvincia.cs" />
     <Compile Include="Repositorios\RepositorioTipoDeProducto.cs" />
     <Compile Include="Repositorios\RepositorioTipoDocumento.cs" />

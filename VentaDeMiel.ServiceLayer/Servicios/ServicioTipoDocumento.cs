@@ -18,7 +18,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
         {
 
         }
-        public tipoDocumento GetTipoDocumentoPorId(decimal id)
+        public TipoDocumento GetTipoDocumentoPorId(decimal id)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         }
 
-        public List<tipoDocumento> GetLista()
+        public List<TipoDocumento> GetLista()
         {
             try
             {
@@ -52,7 +52,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public void Guardar(tipoDocumento tipodocumento)
+        public void Guardar(TipoDocumento tipodocumento)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool Existe(tipoDocumento tipodocumento)
+        public bool Existe(TipoDocumento tipodocumento)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool EstaRelacionado(tipoDocumento tipodocumento)
+        public bool EstaRelacionado(TipoDocumento tipodocumento)
         {
             try
             {

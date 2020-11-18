@@ -48,6 +48,7 @@
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\ProblemaDeColmena.cs" />
     <Compile Include="Entities\Pais.cs" />
+    <Compile Include="Entities\Producto.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\TipoDeProducto.cs" />
     <Compile Include="Entities\TipoDocumento.cs" />

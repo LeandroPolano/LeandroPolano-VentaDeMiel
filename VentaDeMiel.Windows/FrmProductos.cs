@@ -12,16 +12,27 @@ using VentaDeMiel.ServiceLayer.Servicios;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmColmenares : Form
+    public partial class FrmProductos : Form
     {
-        public FrmColmenares()
+        public FrmProductos()
         {
             InitializeComponent();
         }
-
-        private ServicioColmenar _servicio;
-        private List<Colmenar> _lista;
-
+        private ServicioProducto _servicio;
+        private List<Producto> _lista;
+        private void FrmProducto_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                _servicio = new ServicioProducto();
+                _lista = _servicio.GetLista();
+                MostrarEnGrilla();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
 
         private void MostrarEnGrilla()
         {
@@ -32,7 +43,7 @@ namespace VentaDeMiel.Windows
             }
         }
 
-        public void AgregarFila(Colmenar producto)
+        public void AgregarFila(Producto producto)
         {
             DataGridViewRow r = ConstruirFila();
             SetearFila(r, producto);
@@ -44,11 +55,14 @@ namespace VentaDeMiel.Windows
             DatosDataGridView.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, Colmenar colmenar)
+        private void SetearFila(DataGridViewRow r, Producto producto)
         {
-            r.Cells[CmnColmenar.Index].Value = colmenar.NombreColmenar;
-            r.Cells[CmnCiudad.Index].Value = colmenar.Ciudad.ciudad;
-            r.Tag = colmenar;
+            r.Cells[CmlProducto.Index].Value = producto.producto;
+            r.Cells[CmlMarca.Index].Value = producto.Marca.marca;
+            r.Cells[CmlTipoProducto.Index].Value = producto.TipoProducto.tipoProducto;
+            r.Cells[CmlStock.Index].Value = producto.Stock;
+            r.Cells[CmlPrecioUnitario.Index].Value = producto.PrecioUnitario;
+            r.Tag = producto;
         }
 
         private DataGridViewRow ConstruirFila()
@@ -60,7 +74,7 @@ namespace VentaDeMiel.Windows
 
         private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            FrmColmenaresAE frm = new FrmColmenaresAE(this) { Text = "Agregar Colmenar" };
+            FrmProductosAE frm = new FrmProductosAE(this) { Text = "Agregar Producto" };
             DialogResult dr = frm.ShowDialog(this);
         }
 
@@ -69,9 +83,10 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                Colmenar colmenar = (Colmenar)r.Tag;
+                Producto  producto = (Producto)r.Tag;
+                
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja a la Colmenar {colmenar.NombreColmenar}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja a el Producto {producto.producto}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -79,7 +94,7 @@ namespace VentaDeMiel.Windows
                 {
                     try
                     {
-                        _servicio.Borrar(colmenar.ColmenarID);
+                        _servicio.Borrar(producto.ProductoID);
                         DatosDataGridView.Rows.Remove(r);
                         MessageBox.Show("Registro borrado");
                     }
@@ -100,27 +115,20 @@ namespace VentaDeMiel.Windows
             }
 
             DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-            Colmenar p = (Colmenar)r.Tag;
-            p = _servicio.GetColmenarPorId(p.ColmenarID);
-            FrmColmenaresAE frm = new FrmColmenaresAE();
-            frm.Text = "Editar Colmenar";
-            frm.SetColmenar(p);
+            Producto p = (Producto)r.Tag;
+            p = _servicio.GetProductoPorId(p.ProductoID);
+            FrmProductosAE frm = new FrmProductosAE();
+            frm.Text = "Editar Producto";
+            frm.SetProducto(p);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.OK)
             {
                 try
                 {
-                    p = frm.GetColmenar();
-                    if (!_servicio.Existe(p))
-                    {
-                        _servicio.Guardar(p);
-                        SetearFila(r, p);
-                        MessageBox.Show("Registro modificado");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Marca Repetida");
-                    }
+                    p = frm.GetProducto();
+                    _servicio.Guardar(p);
+                    SetearFila(r, p);
+                    MessageBox.Show("Registro modificado");
                 }
                 catch (Exception exception)
                 {
@@ -133,22 +141,6 @@ namespace VentaDeMiel.Windows
         private void CerrarToolStripButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-
-
-        private void FrmColmenares_Load_1(object sender, EventArgs e)
-        {
-            try
-            {
-                _servicio = new ServicioColmenar();
-                _lista = _servicio.GetLista();
-                MostrarEnGrilla();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
         }
     }
 }

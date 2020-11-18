@@ -12,7 +12,6 @@ namespace VentaDeMiel.DataLayer.Repositorios
     {
         private readonly SqlConnection conexion;
         private RepositorioPais _repositorioPais;
-        private Pais pais;
         private readonly SqlTransaction _tran;
 
         public RepositorioProvincia(SqlConnection connection, RepositorioPais repositorioPais)
@@ -85,14 +84,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 throw new Exception(e.Message);
             }
         }
-
+      
         private Provincia ConstruirProvincia(SqlDataReader reader)
         {
             Provincia provincia = new Provincia();
             provincia.ProvinciaID = reader.GetDecimal(0);
-            provincia.provincia = reader.GetString(1);    
-            provincia.Pais = pais;
-           
+            provincia.provincia = reader.GetString(1);
+            provincia.Pais = _repositorioPais.GetPaisPorId(reader.GetDecimal(2));
 
 
             return provincia;

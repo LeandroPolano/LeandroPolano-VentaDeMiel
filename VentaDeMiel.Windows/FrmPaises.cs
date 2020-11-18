@@ -69,6 +69,7 @@ namespace VentaDeMiel.Windows
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Pais pais = (Pais)r.Tag;
+                pais = _servicio.GetPaisPorId(pais.PaisID);
                 FrmPaisesAE frm = new FrmPaisesAE();
                 frm.Text = "Editar Pais";
                 frm.SetPais(pais);

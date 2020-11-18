@@ -110,6 +110,7 @@ namespace VentaDeMiel.Windows
             {
                 valido = false;
                 errorProvider1.SetError(TextBoxMarca, "Marca repetida");
+                marca = null;
             }
 
             return valido;

@@ -99,7 +99,7 @@
             this.MaximumSize = new System.Drawing.Size(647, 328);
             this.MinimumSize = new System.Drawing.Size(647, 328);
             this.Name = "FrmTiposDocumentosAE";
-            this.Text = "Tipos De Documentos";
+            this.Text = "Tipo De Documento";
             this.Load += new System.EventHandler(this.FrmTiposDocumentosAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

@@ -9,112 +9,114 @@ using VentaDeMiel.DataLayer.Repositorios;
 
 namespace VentaDeMiel.ServiceLayer.Servicios
 {
-    public class ServicioTipoDeProducto
+    public class ServicioTipoProducto
     {
-        private ConexionBD _conexion;
-        private RepositorioTipoDeProducto _repositorio;
+       
+            private ConexionBD _conexion;
+            private RepositorioTipoProducto _repositorio;
 
-        public ServicioTipoDeProducto()
-        {
-
-        }
-        public TipoDeProducto GetTipoDeProductoPorId(decimal id)
-        {
-            try
-            {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                var tipoDeProducto = _repositorio.GetTipoDeProductoPorId(id);
-                _conexion.CerrarConexion();
-                return tipoDeProducto;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
-        }
-
-        public List<TipoDeProducto> GetLista()
-        {
-            try
-            {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                var lista = _repositorio.GetLista();
-                _conexion.CerrarConexion();
-                return lista;
-            }
-            catch (Exception e)
+            public ServicioTipoProducto()
             {
 
-                throw new Exception(e.Message);
             }
-        }
+            public TipoProducto GetTipoProductoPorId(decimal id)
+            {
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    var tipoProducto = _repositorio.GetTipoProductoPorId(id);
+                    _conexion.CerrarConexion();
+                    return tipoProducto;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
 
-        public void Guardar(TipoDeProducto tipoDeProducto)
-        {
-            try
-            {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                _repositorio.Guardar(tipoDeProducto);
-                _conexion.CerrarConexion();
+            }
 
-            }
-            catch (Exception e)
+            public List<TipoProducto> GetLista()
             {
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    var lista = _repositorio.GetLista();
+                    _conexion.CerrarConexion();
+                    return lista;
+                }
+                catch (Exception e)
+                {
 
-                throw new Exception(e.Message);
+                    throw new Exception(e.Message);
+                }
             }
-        }
 
-        public void Borrar(decimal id)
-        {
-            try
+            public void Guardar(TipoProducto tipoProducto)
             {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                _repositorio.Borrar(id);
-                _conexion.CerrarConexion();
-            }
-            catch (Exception e)
-            {
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    _repositorio.Guardar(tipoProducto);
+                    _conexion.CerrarConexion();
 
-                throw new Exception(e.Message);
-            }
-        }
+                }
+                catch (Exception e)
+                {
 
-        public bool Existe(TipoDeProducto tipoDeProducto)
-        {
-            try
-            {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                var existe = _repositorio.Existe(tipoDeProducto);
-                _conexion.CerrarConexion();
-                return existe;
+                    throw new Exception(e.Message);
+                }
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
 
-        public bool EstaRelacionado(TipoDeProducto tipoDeProducto)
-        {
-            try
+            public void Borrar(decimal id)
             {
-                _conexion = new ConexionBD();
-                _repositorio = new RepositorioTipoDeProducto(_conexion.AbrirConexion());
-                var existe = _repositorio.EstaRelacionado(tipoDeProducto);
-                _conexion.CerrarConexion();
-                return existe;
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    _repositorio.Borrar(id);
+                    _conexion.CerrarConexion();
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.Message);
+                }
             }
-            catch (Exception e)
+
+            public bool Existe(TipoProducto tipoProducto)
             {
-                throw new Exception(e.Message);
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    var existe = _repositorio.Existe(tipoProducto);
+                    _conexion.CerrarConexion();
+                    return existe;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
-        }
+
+            public bool EstaRelacionado(TipoProducto tipoProducto)
+            {
+                try
+                {
+                    _conexion = new ConexionBD();
+                    _repositorio = new RepositorioTipoProducto(_conexion.AbrirConexion());
+                    var existe = _repositorio.EstaRelacionado(tipoProducto);
+                    _conexion.CerrarConexion();
+                    return existe;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            }
+        
     }
 }

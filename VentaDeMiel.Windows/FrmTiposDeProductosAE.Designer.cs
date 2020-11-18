@@ -33,7 +33,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBoxTipoDeProducto = new System.Windows.Forms.TextBox();
+            this.TextBoxTipoDeProducto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,19 +75,20 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // textBoxTipoDeProducto
+            // TextBoxTipoDeProducto
             // 
-            this.textBoxTipoDeProducto.Location = new System.Drawing.Point(165, 66);
-            this.textBoxTipoDeProducto.Name = "textBoxTipoDeProducto";
-            this.textBoxTipoDeProducto.Size = new System.Drawing.Size(384, 26);
-            this.textBoxTipoDeProducto.TabIndex = 22;
+            this.TextBoxTipoDeProducto.Location = new System.Drawing.Point(165, 66);
+            this.TextBoxTipoDeProducto.Name = "TextBoxTipoDeProducto";
+            this.TextBoxTipoDeProducto.Size = new System.Drawing.Size(384, 26);
+            this.TextBoxTipoDeProducto.TabIndex = 22;
             // 
             // FrmTiposDeProductosAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 272);
-            this.Controls.Add(this.textBoxTipoDeProducto);
+            this.ControlBox = false;
+            this.Controls.Add(this.TextBoxTipoDeProducto);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
@@ -95,7 +96,7 @@
             this.MinimumSize = new System.Drawing.Size(647, 328);
             this.Name = "FrmTiposDeProductosAE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tipos De Productos";
+            this.Text = "Tipo De Producto";
             this.Load += new System.EventHandler(this.FrmTiposDeProductosAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -109,6 +110,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox textBoxTipoDeProducto;
+        private System.Windows.Forms.TextBox TextBoxTipoDeProducto;
     }
 }

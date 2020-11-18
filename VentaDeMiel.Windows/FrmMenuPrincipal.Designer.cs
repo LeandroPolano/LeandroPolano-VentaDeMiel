@@ -31,15 +31,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProblemasDeColmenas = new System.Windows.Forms.ToolStripMenuItem();
+            this.colmenaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbTiposDeProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.capacidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbColmenas = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbProvincias = new System.Windows.Forms.ToolStripMenuItem();
+            this.ciudadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ciudadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             // 
             this.archivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProblemasDeColmenas,
+            this.colmenaresToolStripMenuItem,
             this.TsbMarca,
             this.tipoToolStripMenuItem,
             this.TsbTiposDeProductos,
@@ -68,7 +71,8 @@
             this.TsbColmenas,
             this.TsbProvincias,
             this.ciudadesToolStripMenuItem,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.productosToolStripMenuItem});
             this.archivosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.archivosToolStripMenuItem.Name = "archivosToolStripMenuItem";
             this.archivosToolStripMenuItem.Size = new System.Drawing.Size(103, 32);
@@ -80,6 +84,13 @@
             this.ProblemasDeColmenas.Size = new System.Drawing.Size(274, 36);
             this.ProblemasDeColmenas.Text = "Colmenas";
             this.ProblemasDeColmenas.Click += new System.EventHandler(this.Colmenas_Click);
+            // 
+            // colmenaresToolStripMenuItem
+            // 
+            this.colmenaresToolStripMenuItem.Name = "colmenaresToolStripMenuItem";
+            this.colmenaresToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.colmenaresToolStripMenuItem.Text = "Colmenares";
+            this.colmenaresToolStripMenuItem.Click += new System.EventHandler(this.colmenaresToolStripMenuItem_Click);
             // 
             // TsbMarca
             // 
@@ -123,6 +134,13 @@
             this.TsbProvincias.Text = "Provincias";
             this.TsbProvincias.Click += new System.EventHandler(this.TsbProvincias_Click);
             // 
+            // ciudadesToolStripMenuItem
+            // 
+            this.ciudadesToolStripMenuItem.Name = "ciudadesToolStripMenuItem";
+            this.ciudadesToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.ciudadesToolStripMenuItem.Text = "Ciudades";
+            this.ciudadesToolStripMenuItem.Click += new System.EventHandler(this.ciudadesToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -136,12 +154,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // ciudadesToolStripMenuItem
+            // productosToolStripMenuItem
             // 
-            this.ciudadesToolStripMenuItem.Name = "ciudadesToolStripMenuItem";
-            this.ciudadesToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
-            this.ciudadesToolStripMenuItem.Text = "Ciudades";
-            this.ciudadesToolStripMenuItem.Click += new System.EventHandler(this.ciudadesToolStripMenuItem_Click);
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(274, 36);
+            this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click_1);
             // 
             // FrmMenuPrincipal
             // 
@@ -176,5 +194,7 @@
         private System.Windows.Forms.ToolStripMenuItem TsbProvincias;
         private System.Windows.Forms.ToolStripMenuItem capacidadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ciudadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colmenaresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
     }
 }

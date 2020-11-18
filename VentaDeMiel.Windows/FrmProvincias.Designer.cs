@@ -111,7 +111,7 @@
             this.CmlProvincia,
             this.ClmPaisID});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
@@ -119,8 +119,8 @@
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 450);
-            this.DatosDataGridView.TabIndex = 8;
+            this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
+            this.DatosDataGridView.TabIndex = 9;
             // 
             // CmlProvincia
             // 
@@ -138,15 +138,18 @@
             this.ClmPaisID.Name = "ClmPaisID";
             this.ClmPaisID.ReadOnly = true;
             // 
-            // FrmProvincia
+            // FrmProvincias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStrip1);
+            this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
-            this.Name = "FrmProvincia";
-            this.Text = "FrmProvincia";
+            this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(822, 506);
+            this.MinimumSize = new System.Drawing.Size(822, 506);
+            this.Name = "FrmProvincias";
+            this.Text = "Provincia";
             this.Load += new System.EventHandler(this.FrmProvincia_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -112,6 +112,7 @@ namespace VentaDeMiel.Windows
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Capacidad capacidad = (Capacidad)r.Tag;
+                capacidad = _servicio.GetCapacidadPorId(capacidad.CapacidadID);
                 FrmCapacidadesAE frm = new FrmCapacidadesAE();
                 frm.Text = "Editar capacidad";
                 frm.SetCapacidad(capacidad);

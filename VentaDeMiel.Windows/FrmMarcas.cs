@@ -110,6 +110,7 @@ namespace VentaDeMiel.Windows
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Marca marca = (Marca)r.Tag;
+                marca = _servicio.GetMarcaPorId(marca.MarcaID);
                 FrmMarcasAE frm = new FrmMarcasAE();
                 frm.Text = "Editar marca";
                 frm.SetMarca(marca);
@@ -127,7 +128,7 @@ namespace VentaDeMiel.Windows
                         }
                         else
                         {
-                            MessageBox.Show("marca Repetida");
+                            MessageBox.Show("Marca Repetida");
                         }
                     }
                     catch (Exception exception)

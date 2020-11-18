@@ -31,7 +31,7 @@ namespace VentaDeMiel.Windows
         {
 
         }
-        private tipoDocumento tipodocumento;
+        private TipoDocumento tipodocumento;
         private bool _esEdicion = false;
         private ServicioTipoDocumento _servicio = new ServicioTipoDocumento();
         private FrmTiposDocumentos frmTiposDocumentos;
@@ -43,10 +43,10 @@ namespace VentaDeMiel.Windows
             {
                 if (tipodocumento == null)
                 {
-                    tipodocumento = new tipoDocumento();
+                    tipodocumento = new TipoDocumento();
                 }
 
-                tipodocumento.TipoDocumento = TextBoxTipoDocumento.Text;
+                tipodocumento.tipoDocumento = TextBoxTipoDocumento.Text;
                 if (ValidarObjeto())
                 {
 
@@ -95,13 +95,12 @@ namespace VentaDeMiel.Windows
 
         private bool ValidarObjeto()
         {
-            errorProvider1.Clear();
             bool valido = true;
-            if (string.IsNullOrEmpty(TextBoxTipoDocumento.Text.Trim()) &&
-                string.IsNullOrWhiteSpace(TextBoxTipoDocumento.Text.Trim()))
+            errorProvider1.Clear();
+            if (_servicio.Existe(tipodocumento))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxTipoDocumento, "Debe ingresar un Tipo de documento");
+                errorProvider1.SetError(TextBoxTipoDocumento, "Tipo de documento repetido");
             }
 
             return valido;
@@ -111,7 +110,7 @@ namespace VentaDeMiel.Windows
             base.OnLoad(e);
             if (tipodocumento != null)
             {
-                TextBoxTipoDocumento.Text = tipodocumento.TipoDocumento;
+                TextBoxTipoDocumento.Text = tipodocumento.tipoDocumento;
                 _esEdicion = true;
             }
         }
@@ -134,12 +133,12 @@ namespace VentaDeMiel.Windows
             return valido;
         }
 
-        internal tipoDocumento GetTipoDocumento()
+        internal TipoDocumento GetTipoDocumento()
         {
             return tipodocumento;
         }
 
-        internal void SetTipoDocumento(tipoDocumento tipodocumento)
+        internal void SetTipoDocumento(TipoDocumento tipodocumento)
         {
             this.tipodocumento = tipodocumento;
         }

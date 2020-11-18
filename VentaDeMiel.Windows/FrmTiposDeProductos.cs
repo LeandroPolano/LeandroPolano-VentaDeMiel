@@ -14,43 +14,29 @@ namespace VentaDeMiel.Windows
 {
     public partial class FrmTiposDeProductos : Form
     {
-        private void NuevoToolStripButton_Click(object sender, EventArgs e)
-        {
-            FrmTiposDeProductosAE frm = new FrmTiposDeProductosAE(this);
-            frm.Text = "Nueva Marca";
-            DialogResult dr = frm.ShowDialog(this);
-        }
         public FrmTiposDeProductos()
         {
             InitializeComponent();
         }
-        internal void AgregarFila(TipoDeProducto tipoDeProducto)
+
+        private void NuevoToolStripButton_Click(object sender, EventArgs e)
         {
-            DataGridViewRow r = ConstruirFila();
-            SetearFila(r, tipoDeProducto);
-            AgregarFila(r);
+            FrmTiposDeProductosAE frm = new FrmTiposDeProductosAE(this);
+            frm.Text = "Nueva TipoProducto";
+            DialogResult dr = frm.ShowDialog(this);
         }
 
-        private void AgregarFila(DataGridViewRow r)
+        
+
+        private void MostrarEnGrilla()
         {
-            DatosDataGridView.Rows.Add(r);
-        }
-
-        private void SetearFila(DataGridViewRow r, TipoDeProducto tipoDeProducto)
-        {
-            r.Cells[CmlTipoDeProducto.Index].Value = tipoDeProducto.tipoDeProducto;
-
-            r.Tag = tipoDeProducto;
-        }
-
-        private ServicioTipoDeProducto _servicio;
-        private List<TipoDeProducto> _lista;
-
-        private DataGridViewRow ConstruirFila()
-        {
-            DataGridViewRow r = new DataGridViewRow();
-            r.CreateCells(DatosDataGridView);
-            return r;
+            DatosDataGridView.Rows.Clear();
+            foreach (var tipoProducto in _lista)
+            {
+                DataGridViewRow r = ConstruirFila();
+                SetearFila(r, tipoProducto);
+                AgregarFila(r);
+            }
         }
 
         private void BorrarToolStripButton_Click(object sender, EventArgs e)
@@ -58,9 +44,9 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                TipoDeProducto tipodeproducto = (TipoDeProducto)r.Tag;
+                TipoProducto tipoProducto = (TipoProducto)r.Tag;
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja el Tipo de producto {tipodeproducto.tipoDeProducto}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja la tipoProducto {tipoProducto.tipoProducto}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -68,7 +54,7 @@ namespace VentaDeMiel.Windows
                 {
                     try
                     {
-                        _servicio.Borrar(tipodeproducto.TipoDeProductoID);
+                        _servicio.Borrar(tipoProducto.TipoProductoID);
                         DatosDataGridView.Rows.Remove(r);
                         MessageBox.Show("Registro borrado");
                     }
@@ -78,33 +64,58 @@ namespace VentaDeMiel.Windows
 
                     }
                 }
+
             }
         }
+
+
+        internal void AgregarFila(TipoProducto tipoProducto)
+        {
+            DataGridViewRow r = ConstruirFila();
+            SetearFila(r, tipoProducto);
+            AgregarFila(r);
+        }
+
+        private DataGridViewRow ConstruirFila()
+        {
+            DataGridViewRow r = new DataGridViewRow();
+            r.CreateCells(DatosDataGridView);
+            return r;
+        }
+
+        private void AgregarFila(DataGridViewRow r)
+        {
+            DatosDataGridView.Rows.Add(r);
+        }
+
+        private ServicioTipoProducto _servicio;
+        private List<TipoProducto> _lista;
 
         private void EditarToolStripButton_Click(object sender, EventArgs e)
         {
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                TipoDeProducto tipodeproducto = (TipoDeProducto)r.Tag;
+                TipoProducto tipoProducto = (TipoProducto)r.Tag;
+                tipoProducto = _servicio.GetTipoProductoPorId(tipoProducto.TipoProductoID);
                 FrmTiposDeProductosAE frm = new FrmTiposDeProductosAE();
-                frm.Text = "Editar Tipo de producto";
-                frm.SetTipoDeProducto(tipodeproducto);
+                frm.Text = "Editar tipoProducto";
+                frm.SetTipoProducto(tipoProducto);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
                 {
                     try
                     {
-                        tipodeproducto = frm.GetTipoDeProducto();
-                        if (!_servicio.Existe(tipodeproducto))
+                        tipoProducto = frm.GetTipoProducto();
+                        if (!_servicio.Existe(tipoProducto))
                         {
-                            _servicio.Guardar(tipodeproducto);
-                            SetearFila(r, tipodeproducto);
+                            _servicio.Guardar(tipoProducto);
+                            SetearFila(r, tipoProducto);
                             MessageBox.Show("Registro Editado");
                         }
                         else
                         {
-                            MessageBox.Show("Tipo De Producto Repetido");
+                            MessageBox.Show("tipoProducto Repetida");
                         }
                     }
                     catch (Exception exception)
@@ -115,16 +126,28 @@ namespace VentaDeMiel.Windows
             }
         }
 
+        private void SetearFila(DataGridViewRow r, TipoProducto tipoProducto)
+        {
+            r.Cells[CmlTipoDeProducto.Index].Value = tipoProducto.tipoProducto;
+
+            r.Tag = tipoProducto;
+        }
+
         private void CerrarToolStripButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void FrmTiposDeProductos_Load(object sender, EventArgs e)
         {
             try
             {
-                _servicio = new ServicioTipoDeProducto();
+                _servicio = new ServicioTipoProducto();
                 _lista = _servicio.GetLista();
                 MostrarEnGrilla();
             }
@@ -132,17 +155,6 @@ namespace VentaDeMiel.Windows
             {
 
                 MessageBox.Show(ex.Message, "Error");
-            }
-        }
-
-        private void MostrarEnGrilla()
-        {
-            DatosDataGridView.Rows.Clear();
-            foreach (var marca in _lista)
-            {
-                DataGridViewRow r = ConstruirFila();
-                SetearFila(r, marca);
-                AgregarFila(r);
             }
         }
     }
