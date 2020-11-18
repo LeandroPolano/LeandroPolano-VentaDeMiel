@@ -245,6 +245,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -271,6 +272,12 @@
       <Project>{6455BCA4-AF16-4F32-B523-062DA19DB01E}</Project>
       <Name>VentaDeMiel.ServiceLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7d73420c16a5e3bb6393c788b931d012-fondo-degradado-de-nido-de-abeja.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaaa.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
