@@ -128,6 +128,7 @@ namespace VentaDeMiel.Windows
             Close();
         }
 
+
         private void FrmTiposEnvases_Load(object sender, EventArgs e)
         {
             try
