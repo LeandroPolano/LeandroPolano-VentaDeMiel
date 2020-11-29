@@ -20,19 +20,19 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                Colmena CantidadDeAlzas = null;
-                string cadenaComando = "SELECT ColmenaID, CantidadDeAlzas FROM Colmenas WHERE ColmenaID=@id";
+                Colmena ClaveColmena = null;
+                string cadenaComando = "SELECT ColmenaID, ClaveColmena FROM Colmenas WHERE ColmenaID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    CantidadDeAlzas = ConstruirColmena(reader);
+                    ClaveColmena = ConstruirColmena(reader);
                     reader.Close();
                 }
 
-                return CantidadDeAlzas;
+                return ClaveColmena;
             }
             catch (Exception e)
             {
@@ -46,13 +46,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             List<Colmena> lista = new List<Colmena>();
             try
             {
-                string cadenaComando = "SELECT ColmenaID, CantidadDeAlzas FROM Colmenas";
+                string cadenaComando = "SELECT ColmenaID, ClaveColmena FROM Colmenas";
                 SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    Colmena CantidadDeAlzas = ConstruirColmena(reader);
-                    lista.Add(CantidadDeAlzas);
+                    Colmena ClaveColmena = ConstruirColmena(reader);
+                    lista.Add(ClaveColmena);
                 }
                 reader.Close();
                 return lista;
@@ -66,28 +66,28 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private Colmena ConstruirColmena(SqlDataReader reader)
         {
 
-            var CantidadDeAlzas = new Colmena();
-            CantidadDeAlzas.ColmenaID = reader.GetDecimal(0);
-            CantidadDeAlzas.CantidadDeAlzas = reader.GetString(1);
-            return CantidadDeAlzas;
+            var ClaveColmena = new Colmena();
+            ClaveColmena.ColmenaID = reader.GetDecimal(0);
+            ClaveColmena.ClaveColmena = reader.GetString(1);
+            return ClaveColmena;
 
         }
 
-        public void Guardar(Colmena CantidadDeAlzas)
+        public void Guardar(Colmena ClaveColmena)
         {
-            if (CantidadDeAlzas.ColmenaID == 0)
+            if (ClaveColmena.ColmenaID == 0)
             {
 
                 try
                 {
                     string cadenaComando = "INSERT INTO Colmenas VALUES(@nombre)";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", CantidadDeAlzas.CantidadDeAlzas);
+                    comando.Parameters.AddWithValue("@nombre", ClaveColmena.ClaveColmena);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    CantidadDeAlzas.ColmenaID = (int)(decimal)comando.ExecuteScalar();
+                    ClaveColmena.ColmenaID = (int)(decimal)comando.ExecuteScalar();
 
                 }
                 catch (Exception e)
@@ -101,10 +101,10 @@ namespace VentaDeMiel.DataLayer.Repositorios
 
                 try
                 {
-                    string cadenaComando = "UPDATE Colmenas SET CantidadDeAlzas=@nombre WHERE ColmenaID=@id";
+                    string cadenaComando = "UPDATE Colmenas SET ClaveColmena=@nombre WHERE ColmenaID=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", CantidadDeAlzas.CantidadDeAlzas);
-                    comando.Parameters.AddWithValue("@id", CantidadDeAlzas.ColmenaID);
+                    comando.Parameters.AddWithValue("@nombre", ClaveColmena.ClaveColmena);
+                    comando.Parameters.AddWithValue("@id", ClaveColmena.ColmenaID);
                     comando.ExecuteNonQuery();
 
                 }
@@ -132,24 +132,24 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool Existe(Colmena CantidadDeAlzas)
+        public bool Existe(Colmena ClaveColmena)
         {
             try
             {
                 SqlCommand comando;
-                if (CantidadDeAlzas.ColmenaID == 0)
+                if (ClaveColmena.ColmenaID == 0)
                 {
-                    string cadenaComando = "SELECT ColmenaID, CantidadDeAlzas FROM Colmenas WHERE CantidadDeAlzas=@nombre";
+                    string cadenaComando = "SELECT ColmenaID, ClaveColmena FROM Colmenas WHERE ClaveColmena=@nombre";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", CantidadDeAlzas.CantidadDeAlzas);
+                    comando.Parameters.AddWithValue("@nombre", ClaveColmena.ClaveColmena);
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ColmenaID, CantidadDeAlzas FROM Colmenas WHERE CantidadDeAlzas=@nombre AND ColmenaID<>@id";
+                    string cadenaComando = "SELECT ColmenaID, ClaveColmena FROM Colmenas WHERE ClaveColmena=@nombre AND ColmenaID<>@id";
                     comando = new SqlCommand(cadenaComando, _sqlConnection);
-                    comando.Parameters.AddWithValue("@nombre", CantidadDeAlzas.CantidadDeAlzas);
-                    comando.Parameters.AddWithValue("@id", CantidadDeAlzas.ColmenaID);
+                    comando.Parameters.AddWithValue("@nombre", ClaveColmena.ClaveColmena);
+                    comando.Parameters.AddWithValue("@id", ClaveColmena.ColmenaID);
 
 
                 }
@@ -162,13 +162,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             }
         }
 
-        public bool EstaRelacionado(Colmena CantidadDeAlzas)
+        public bool EstaRelacionado(Colmena ClaveColmena)
         {
             try
             {
                 var CadenaDeComando = "select ColmenaID from ColmenaColmenares where ColmenaID = @Id";
                 var Comando = new SqlCommand(CadenaDeComando, _sqlConnection);
-                Comando.Parameters.AddWithValue("@Id", CantidadDeAlzas.ColmenaID);
+                Comando.Parameters.AddWithValue("@Id", ClaveColmena.ColmenaID);
                 var reader = Comando.ExecuteReader();
                 return reader.HasRows;
             }

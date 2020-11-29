@@ -33,7 +33,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ProductoID,Producto,TipoProductoID,MarcaID,Stock,PrecioUnitario FROM Productos WHERE ProductoID=@id";
+                    "SELECT ProductoID,Producto,TipoProductoID,MarcaID,Stock FROM Productos WHERE ProductoID=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -61,7 +61,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ProductoID,Producto,TipoProductoID,MarcaID,Stock,PrecioUnitario FROM Productos ";
+                    "SELECT ProductoID,Producto,TipoProductoID,MarcaID,Stock FROM Productos ";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -84,10 +84,11 @@ namespace VentaDeMiel.DataLayer.Repositorios
             Producto producto = new Producto();
             producto.ProductoID = reader.GetDecimal(0);
             producto.producto = reader.GetString(1);
+            repositorioTipoProducto = new RepositorioTipoProducto(conexion);
             producto.TipoProducto = repositorioTipoProducto.GetTipoProductoPorId(reader.GetDecimal(2));
+            repositorioMarca = new RepositorioMarca(conexion);
             producto.Marca = repositorioMarca.GetMarcaPorId(reader.GetDecimal(3));
             producto.Stock = reader.GetDecimal(4);
-            producto.PrecioUnitario = reader.GetDecimal(5);
 
 
 
@@ -100,14 +101,13 @@ namespace VentaDeMiel.DataLayer.Repositorios
             {
                 try
                 {
-                    string cadenaComando = "INSERT INTO Productos (Producto, TipoProductoID, MarcaID, Stock, PrecioUnitario )" +
-                        " VALUES (@producto, @tipo ,@marca, @stock, @precio)";
+                    string cadenaComando = "INSERT INTO Productos (Producto, TipoProductoID, MarcaID, Stock)" +
+                        " VALUES (@producto, @tipo ,@marca, @stock, )";
                     var comando = new SqlCommand(cadenaComando, conexion);
                     comando.Parameters.AddWithValue("@producto", producto.producto);
                     comando.Parameters.AddWithValue("@tipo", producto.TipoProducto.TipoProductoID);
                     comando.Parameters.AddWithValue("@marca", producto.Marca.MarcaID);
                     comando.Parameters.AddWithValue("@stock", producto.Stock);
-                    comando.Parameters.AddWithValue("@precio", producto.PrecioUnitario);
 
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
@@ -130,13 +130,12 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 try
                 {
                     string cadenaComando = "UPDATE Productos SET Producto=@nombre,TipoProductoID=@tipo, MarcaID=@marca, Stock=@stock, " +
-                        "PrecioUnitario=@precio WHERE ProductoId=@id";
+                        " WHERE ProductoId=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                     comando.Parameters.AddWithValue("@nombre", producto.producto);
                     comando.Parameters.AddWithValue("@tipo", producto.TipoProducto.TipoProductoID);
                     comando.Parameters.AddWithValue("@marca", producto.Marca.MarcaID);
                     comando.Parameters.AddWithValue("@stock", producto.Stock);
-                    comando.Parameters.AddWithValue("@precio", producto.PrecioUnitario);
 
                     comando.Parameters.AddWithValue("@id", producto.ProductoID);
                     comando.ExecuteNonQuery();
@@ -199,7 +198,28 @@ namespace VentaDeMiel.DataLayer.Repositorios
 
         public bool EstaRelacionado(Producto producto)
         {
-            return false;
+            try
+            {
+                SqlCommand comando;
+                var cadenaDeComando = "SELECT ProductoID FROM VentasProductos WHERE ProductoID=@Id";
+                comando = new SqlCommand(cadenaDeComando, conexion);
+                comando.Parameters.AddWithValue("@id", producto.ProductoID);
+                var reader = comando.ExecuteReader();
+                if (!reader.HasRows)
+                {
+
+                    cadenaDeComando = "SELECT ProductoID FROM ProductosDeProveedores WHERE ProductoID=@Id";
+                    comando = new SqlCommand(cadenaDeComando, conexion);
+                    comando.Parameters.AddWithValue("@id", producto.ProductoID);
+                    reader = comando.ExecuteReader();
+                }
+                return reader.HasRows;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
         }
 
 

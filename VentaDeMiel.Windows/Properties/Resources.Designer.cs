@@ -63,6 +63,16 @@ namespace VentaDeMiel.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3_sin_título_20201123140459 {
+            get {
+                object obj = ResourceManager.GetObject("3 sin título_20201123140459", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _7d73420c16a5e3bb6393c788b931d012_fondo_degradado_de_nido_de_abeja {
             get {
                 object obj = ResourceManager.GetObject("7d73420c16a5e3bb6393c788b931d012-fondo-degradado-de-nido-de-abeja", resourceCulture);

@@ -13,7 +13,7 @@ namespace VentaDeMiel.BusinessLayer.Entities
         public TipoProducto TipoProducto { get; set; }
         public Marca Marca { get; set; }
         public decimal Stock { get; set; }
-        public decimal PrecioUnitario { get; set; }
 
+       
     }
 }

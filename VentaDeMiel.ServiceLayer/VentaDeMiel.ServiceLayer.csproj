@@ -44,14 +44,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\ServicioCapacidad.cs" />
     <Compile Include="Servicios\ServicioCiudad.cs" />
+    <Compile Include="Servicios\ServicioClienteDeMiel.cs" />
     <Compile Include="Servicios\ServicioColmena.cs" />
     <Compile Include="Servicios\ServicioColmenar.cs" />
+    <Compile Include="Servicios\ServicioEstadoColmena.cs" />
+    <Compile Include="Servicios\ServicioInsumo.cs" />
     <Compile Include="Servicios\ServicioMarca.cs" />
     <Compile Include="Servicios\ServicioPais.cs" />
     <Compile Include="Servicios\ServicioProducto.cs" />
+    <Compile Include="Servicios\ServicioProveedor.cs" />
     <Compile Include="Servicios\ServicioProvincia.cs" />
     <Compile Include="Servicios\ServicioTipoDeProducto.cs" />
     <Compile Include="Servicios\ServicioTipoDocumento.cs" />
+    <Compile Include="Servicios\ServicioTipoEnvase.cs" />
+    <Compile Include="Servicios\ServicioVenta.cs" />
+    <Compile Include="Servicios\ServicioVentaProducto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VentaDeMiel.BusinessLayer\VentaDeMiel.BusinessLayer.csproj">

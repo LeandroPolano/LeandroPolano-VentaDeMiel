@@ -13,15 +13,19 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private readonly SqlConnection _connection;
         private readonly RepositorioCiudad _repositorioCiudad;
         private readonly SqlTransaction _tran;
+        private  RepositorioEstadoColmena _repositorioEstadoColmena;
+        private RepositorioInsumo _repositorioInsumo;
 
-        public RepositorioColmenar(SqlConnection connection, RepositorioCiudad repositorioCiudad)
+        public RepositorioColmenar(SqlConnection connection, RepositorioCiudad repositorioCiudad, RepositorioEstadoColmena repositorioEstadoColmena, RepositorioInsumo repositorioInsumo)
         {
             _connection = connection;
-            _repositorioCiudad = repositorioCiudad;
+            this._repositorioCiudad = repositorioCiudad;
+            this._repositorioEstadoColmena = repositorioEstadoColmena;
+            this._repositorioInsumo = repositorioInsumo;
 
         }
 
-        public RepositorioColmenar(SqlConnection connection)
+        public RepositorioColmenar(SqlConnection connection, RepositorioCiudad _repositorioCiudad)
         {
             _connection = connection;
         }
@@ -32,13 +36,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
             _tran = tran;
         }
 
+        public RepositorioColmenar(SqlConnection sqlConnection)
+        {
+            this._connection = sqlConnection;
+        }
+
         public Colmenar GetColmenarPorId(decimal id)
         {
             Colmenar p = null;
             try
             {
                 string cadenaComando =
-                    "SELECT ColmenarId, NombreColmenar, CiudadId FROM Colmenares WHERE ColmenarId=@id";
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID FROM Colmenares WHERE ColmenarId=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -66,7 +75,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ColmenarId, NombreColmenar, CiudadId " +
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID " +
                     " FROM Colmenares";
                 SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -84,13 +93,18 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 throw new Exception(e.Message);
             }
         }
-
+       
         private Colmenar ConstruirColmenar(SqlDataReader reader)
         {
+            _repositorioEstadoColmena = new RepositorioEstadoColmena(_connection);
             Colmenar colmenar = new Colmenar();
             colmenar.ColmenarID = reader.GetDecimal(0);
             colmenar.NombreColmenar = reader.GetString(1);
             colmenar.Ciudad = _repositorioCiudad.GetCiudadPorId(reader.GetDecimal(2));
+            colmenar.CantidadColmena = reader.GetDecimal(3);
+            colmenar.EstadoColmena = _repositorioEstadoColmena.GetEstadoColmenaPorId(reader.GetDecimal(4));
+            colmenar.Insumo = _repositorioInsumo.GetInsumoPorId(reader.GetDecimal(5));
+
 
             return colmenar;
 
@@ -101,10 +115,14 @@ namespace VentaDeMiel.DataLayer.Repositorios
             {
                 try
                 {
-                    string cadenaComando = "INSERT INTO Colmenares (NombreColmenar, CiudadId ) VALUES (@desc, @ciudad)";
+                    string cadenaComando = "INSERT INTO Colmenares (NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID) VALUES (@desc, @ciudad, @colm, @esta, @insu)";
                     var comando = new SqlCommand(cadenaComando, _connection);
                     comando.Parameters.AddWithValue("@desc", colmenar.NombreColmenar);
                     comando.Parameters.AddWithValue("@ciudad", colmenar.Ciudad.CiudadID);
+                    comando.Parameters.AddWithValue("@colm", colmenar.CantidadColmena);
+                    comando.Parameters.AddWithValue("@esta", colmenar.EstadoColmena.EstadoColmenaID);
+                    comando.Parameters.AddWithValue("@insu", colmenar.Insumo.InsumoID);
+
                     comando.ExecuteNonQuery();
                     cadenaComando = "SELECT @@IDENTITY";
                     comando = new SqlCommand(cadenaComando, _connection);
@@ -125,10 +143,14 @@ namespace VentaDeMiel.DataLayer.Repositorios
             {
                 try
                 {
-                    string cadenaComando = "UPDATE Colmenares SET NombreColmenar=@nombre,CiudadId=@ciudadId WHERE ColmenarId=@id";
+                    string cadenaComando = "UPDATE Colmenares SET NombreColmenar=@nombre,CiudadId=@ciudadId, CantidadColmena=@colm, EstadoColmenaID=@esta, InsumoID=@insu WHERE ColmenarId=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                     comando.Parameters.AddWithValue("@nombre", colmenar.NombreColmenar);
                     comando.Parameters.AddWithValue("@ciudadId", colmenar.Ciudad.CiudadID);
+                    comando.Parameters.AddWithValue("@colm", colmenar.CantidadColmena);
+                    comando.Parameters.AddWithValue("@esta", colmenar.EstadoColmena.EstadoColmenaID);
+                    comando.Parameters.AddWithValue("@insu", colmenar.Insumo.InsumoID);
+
                     comando.Parameters.AddWithValue("@id", colmenar.ColmenarID);
                     comando.ExecuteNonQuery();
 
@@ -165,19 +187,28 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 SqlCommand comando;
                 if (colmenar.ColmenarID == 0)
                 {
-                    string cadenaComando = "SELECT ColmenarID, NombreColmenar,CiudadID FROM Colmenares WHERE CiudadID=@ciudad AND NombreColmenar=@nombre";
+                    string cadenaComando = "SELECT ColmenarID, NombreColmenar,CiudadID, CantidadColmena, InsumoID FROM Colmenares WHERE CiudadID=@ciudad AND NombreColmenar=@nombre AND CantidadColmena=@colm AND InsumoID=@insu AND EstadoColmenaID=@esta";
                     comando = new SqlCommand(cadenaComando, _connection);
                     comando.Parameters.AddWithValue("@nombre", colmenar.NombreColmenar);
                     comando.Parameters.AddWithValue("@ciudad", colmenar.Ciudad.CiudadID);
+                    comando.Parameters.AddWithValue("@colm", colmenar.CantidadColmena);
+                    comando.Parameters.AddWithValue("@esta", colmenar.EstadoColmena.EstadoColmenaID);
+                    comando.Parameters.AddWithValue("@insu", colmenar.Insumo.InsumoID);
+
+
 
                 }
                 else
                 {
-                    string cadenaComando = "SELECT ColmenarID, NombreColmenar,CiudadID FROM Colmenares WHERE CiudadID=@ciudad AND NombreColmenar=@nombre AND ColmenarID<>@id";
+                    string cadenaComando = "SELECT ColmenarID, NombreColmenar,CiudadID, InsumoID FROM Colmenares WHERE CiudadID=@ciudad AND NombreColmenar=@nombre AND CantidadColmena=@colm AND EstadoColmenaID=@esta AND InsumoID=@insu AND ColmenarID<>@id";
                     comando = new SqlCommand(cadenaComando, _connection);
                     comando.Parameters.AddWithValue("@nombre", colmenar.NombreColmenar);
                     comando.Parameters.AddWithValue("@id", colmenar.ColmenarID);
                     comando.Parameters.AddWithValue("@ciudad", colmenar.Ciudad.CiudadID);
+                    comando.Parameters.AddWithValue("@colm", colmenar.CantidadColmena);
+                    comando.Parameters.AddWithValue("@esta", colmenar.EstadoColmena.EstadoColmenaID);
+                    comando.Parameters.AddWithValue("@insu", colmenar.Insumo.InsumoID);
+
 
 
                 }
@@ -195,22 +226,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             throw new System.NotImplementedException();
         }
 
-        public void ActualizarStock(Colmenar colmenar, decimal cantidad)
-        {
-            try
-            {
-                string cadenaComando = "UPDATE Colmenares SET Stock=Stock+@cant WHERE ColmenarId=@id";
-                var comando = new SqlCommand(cadenaComando, _connection, _tran);
-                comando.Parameters.AddWithValue("@cant", cantidad);
-                comando.Parameters.AddWithValue("@id", colmenar.ColmenarID);
-                comando.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-
-                throw new Exception("Error al actualizar el stock de un colmenar");
-            }
-        }
+        
 
 
 
@@ -220,7 +236,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ColmenarId, NombreColmenar, CiudadId " +
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID" +
                     " FROM Colmenares WHERE CiudadId=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                 comando.Parameters.AddWithValue("@id", ciudadId);
@@ -246,7 +262,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ColmenarId, NombreColmenar, CiudadId " +
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, InsumoID " +
                     " FROM Colmenares WHERE NombreColmenar LIKE @desc";
                 SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                 comando.Parameters.AddWithValue("@desc", $"%{colmenar}%");
@@ -258,6 +274,33 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 }
                 reader.Close();
                 return lista;
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+
+            
+        }
+        public List<Colmenar> GetLista(decimal EstadoColmenaID)
+        {
+            List<Colmenar> listaCol = new List<Colmenar>();
+            try
+            {
+                string cadenaComando =
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID" +
+                    " FROM Colmenares WHERE EstadoColmenaID=@id";
+                SqlCommand comando = new SqlCommand(cadenaComando, _connection);
+                comando.Parameters.AddWithValue("@id", EstadoColmenaID);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Colmenar colmenar = ConstruirColmenar(reader);
+                    listaCol.Add(colmenar);
+                }
+                reader.Close();
+                return listaCol;
             }
             catch (Exception e)
             {

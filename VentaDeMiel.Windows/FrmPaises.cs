@@ -43,17 +43,17 @@ namespace VentaDeMiel.Windows
                     if (!_servicio.EstaRelacionado(pais))
                     {
 
-                    try
-                    {
-                        _servicio.Borrar(pais.PaisID);
-                        DatosDataGridView.Rows.Remove(r);
-                        MessageBox.Show("Registro borrado");
-                    }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show(exception.Message);
+                        try
+                        {
+                            _servicio.Borrar(pais.PaisID);
+                            DatosDataGridView.Rows.Remove(r);
+                            MessageBox.Show("Registro borrado");
+                        }
+                        catch (Exception exception)
+                        {
+                            MessageBox.Show(exception.Message);
 
-                    }
+                        }
 
                     }
                     else
@@ -80,7 +80,7 @@ namespace VentaDeMiel.Windows
                 Pais pais = (Pais)r.Tag;
                 pais = _servicio.GetPaisPorId(pais.PaisID);
                 FrmPaisesAE frm = new FrmPaisesAE();
-                frm.Text = "Editar Pais";
+                frm.Text = "Editar Estado de colmena";
                 frm.SetPais(pais);
                 DialogResult dr = frm.ShowDialog(this);
                 if (dr == DialogResult.OK)
@@ -97,7 +97,7 @@ namespace VentaDeMiel.Windows
                         }
                         else
                         {
-                            MessageBox.Show("Tipo De Producto Repetido");
+                            MessageBox.Show("Estado De Colmena Repetido");
                             Iniciar();
                         }
                     }

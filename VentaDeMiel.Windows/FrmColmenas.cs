@@ -48,7 +48,7 @@ namespace VentaDeMiel.Windows
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
                 Colmena CantidadDeAlzas = (Colmena)r.Tag;
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja la Cantidad De Alzas {CantidadDeAlzas.CantidadDeAlzas}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja la Cantidad De Alzas {CantidadDeAlzas.ClaveColmena}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -140,7 +140,7 @@ namespace VentaDeMiel.Windows
 
         private void SetearFila(DataGridViewRow r, Colmena CantidadDeAlzas)
         {
-            r.Cells[CmlCantidadDeAlzas.Index].Value = CantidadDeAlzas.CantidadDeAlzas;
+            r.Cells[CmlClaveColmena.Index].Value = CantidadDeAlzas.ClaveColmena;
 
             r.Tag = CantidadDeAlzas;
         }

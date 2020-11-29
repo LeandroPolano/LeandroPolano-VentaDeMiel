@@ -47,7 +47,10 @@ namespace VentaDeMiel.Windows
         private void SetearFila(DataGridViewRow r, Colmenar colmenar)
         {
             r.Cells[CmnColmenar.Index].Value = colmenar.NombreColmenar;
+            r.Cells[CmnCantidadColmena.Index].Value = colmenar.CantidadColmena;
             r.Cells[CmnCiudad.Index].Value = colmenar.Ciudad.ciudad;
+            r.Cells[CmnEstadoColmenar.Index].Value = colmenar.EstadoColmena.estadoColmena;
+            r.Cells[CmnInsumo.Index].Value = colmenar.Insumo.insumo;
             r.Tag = colmenar;
         }
 
@@ -119,7 +122,7 @@ namespace VentaDeMiel.Windows
                     }
                     else
                     {
-                        MessageBox.Show("Marca Repetida");
+                        MessageBox.Show("Colmenar Repetido ");
                     }
                 }
                 catch (Exception exception)

@@ -15,6 +15,10 @@ namespace VentaDeMiel.ServiceLayer.Servicios
         private RepositorioCiudad _repositorioCiudad;
         private RepositorioProvincia repositorioProvincia;
         private RepositorioPais repositorioPais;
+        private RepositorioEstadoColmena repositorioEstadoColmena;
+        private RepositorioInsumo repositorioInsumo;
+        private RepositorioProveedor repositorioProveedor;
+
 
         private ConexionBD _conexion;
         public Colmenar GetColmenarPorId(decimal id)
@@ -23,7 +27,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
             repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(),repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(),repositorioProvincia);
-            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad);
+            repositorioInsumo = new RepositorioInsumo(_conexion.AbrirConexion(), repositorioProveedor);
+            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad, repositorioEstadoColmena, repositorioInsumo);
             var p = _repositorioColmenar.GetColmenarPorId(id);
             _conexion.CerrarConexion();
             return p;
@@ -36,7 +41,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
             repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), repositorioProvincia);
-            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad);
+            repositorioInsumo = new RepositorioInsumo(_conexion.AbrirConexion(), repositorioProveedor);
+            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad, repositorioEstadoColmena, repositorioInsumo);
             var lista = _repositorioColmenar.GetLista();
             _conexion.CerrarConexion();
             return lista;
@@ -67,7 +73,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
                 repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
                 repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
                 _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), repositorioProvincia);
-                _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad);
+                repositorioInsumo = new RepositorioInsumo(_conexion.AbrirConexion(), repositorioProveedor);
+                _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad, repositorioEstadoColmena, repositorioInsumo);
                 var existe = _repositorioColmenar.Existe(colmenar);
                 _conexion.CerrarConexion();
                 return existe;
@@ -91,7 +98,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
             repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), repositorioProvincia);
-            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad);
+            repositorioInsumo = new RepositorioInsumo(_conexion.AbrirConexion(), repositorioProveedor);
+            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad, repositorioEstadoColmena, repositorioInsumo);
             var lista = _repositorioColmenar.GetLista(ciudadId);
             _conexion.CerrarConexion();
             return lista;
@@ -104,7 +112,8 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             repositorioPais = new RepositorioPais(_conexion.AbrirConexion());
             repositorioProvincia = new RepositorioProvincia(_conexion.AbrirConexion(), repositorioPais);
             _repositorioCiudad = new RepositorioCiudad(_conexion.AbrirConexion(), repositorioProvincia);
-            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad);
+            repositorioInsumo = new RepositorioInsumo(_conexion.AbrirConexion(), repositorioProveedor);
+            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion(), _repositorioCiudad, repositorioEstadoColmena, repositorioInsumo);
             var lista = _repositorioColmenar.GetLista(colmenar);
             _conexion.CerrarConexion();
             return lista;

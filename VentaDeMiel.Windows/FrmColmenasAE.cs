@@ -26,21 +26,21 @@ namespace VentaDeMiel.Windows
 
         }
 
-        internal void SetColmena(Colmena CantidadDeAlzas)
+        internal void SetColmena(Colmena ClaveColmena)
         {
-            this.CantidadDeAlzas = CantidadDeAlzas;
+            this.ClaveColmena = ClaveColmena;
         }
 
         internal Colmena GetColmena()
         {
-            return CantidadDeAlzas;
+            return ClaveColmena;
         }
 
         private void FrmColmenasAE_Load(object sender, EventArgs e)
         {
 
         }
-        private Colmena CantidadDeAlzas;
+        private Colmena ClaveColmena;
         private bool _esEdicion = false;
         private ServicioColmena _servicio = new ServicioColmena();
         private FrmColmenas frmColmenas;
@@ -49,12 +49,12 @@ namespace VentaDeMiel.Windows
         {
             if (ValidarDatos())
             {
-                if (CantidadDeAlzas == null)
+                if (ClaveColmena == null)
                 {
-                    CantidadDeAlzas = new Colmena();
+                    ClaveColmena = new Colmena();
                 }
 
-                CantidadDeAlzas.CantidadDeAlzas = TextBoxColmena.Text;
+                ClaveColmena.ClaveColmena = TextBoxColmena.Text;
                 if (ValidarObjeto())
                 {
 
@@ -62,10 +62,10 @@ namespace VentaDeMiel.Windows
                     {
                         try
                         {
-                            _servicio.Guardar(CantidadDeAlzas);
+                            _servicio.Guardar(ClaveColmena);
                             if (frm != null)
                             {
-                                frm.AgregarFila(CantidadDeAlzas);
+                                frm.AgregarFila(ClaveColmena);
 
                             }
                             MessageBox.Show("Registro Guardado");
@@ -99,17 +99,17 @@ namespace VentaDeMiel.Windows
         {
             TextBoxColmena.Clear();
             TextBoxColmena.Focus();
-            CantidadDeAlzas = null;
+            ClaveColmena = null;
         }
 
         private bool ValidarObjeto()
         {
             bool valido = true;
             errorProvider1.Clear();
-            if (_servicio.Existe(CantidadDeAlzas))
+            if (_servicio.Existe(ClaveColmena))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxColmena, "Cantidad De Alzas repetida");
+                errorProvider1.SetError(TextBoxColmena, "Clave de Colmena repetida");
             }
 
             return valido;
@@ -117,9 +117,9 @@ namespace VentaDeMiel.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (CantidadDeAlzas != null)
+            if (ClaveColmena != null)
             {
-                TextBoxColmena.Text = CantidadDeAlzas.CantidadDeAlzas;
+                TextBoxColmena.Text = ClaveColmena.ClaveColmena;
                 _esEdicion = true;
             }
         }
@@ -131,7 +131,7 @@ namespace VentaDeMiel.Windows
                 string.IsNullOrWhiteSpace(TextBoxColmena.Text.Trim()))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxColmena, "Debe ingresar una Cantidad De Alzas");
+                errorProvider1.SetError(TextBoxColmena, "Debe ingresar una Clave de Colmena");
             }
 
             return valido;

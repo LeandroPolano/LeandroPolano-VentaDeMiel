@@ -40,15 +40,13 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBoxStock = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxPrecioUnitario = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 169);
+            this.label2.Location = new System.Drawing.Point(70, 122);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 20);
@@ -59,14 +57,14 @@
             // 
             this.ComboBoxTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxTipoProducto.FormattingEnabled = true;
-            this.ComboBoxTipoProducto.Location = new System.Drawing.Point(229, 169);
+            this.ComboBoxTipoProducto.Location = new System.Drawing.Point(229, 122);
             this.ComboBoxTipoProducto.Name = "ComboBoxTipoProducto";
             this.ComboBoxTipoProducto.Size = new System.Drawing.Size(186, 28);
             this.ComboBoxTipoProducto.TabIndex = 33;
             // 
             // textBoxProducto
             // 
-            this.textBoxProducto.Location = new System.Drawing.Point(147, 53);
+            this.textBoxProducto.Location = new System.Drawing.Point(147, 38);
             this.textBoxProducto.Name = "textBoxProducto";
             this.textBoxProducto.Size = new System.Drawing.Size(433, 26);
             this.textBoxProducto.TabIndex = 32;
@@ -74,7 +72,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(446, 257);
+            this.btnCancelar.Location = new System.Drawing.Point(446, 210);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(135, 63);
@@ -85,7 +83,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(33, 257);
+            this.btnGuardar.Location = new System.Drawing.Point(33, 210);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(135, 63);
@@ -98,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 56);
+            this.label1.Location = new System.Drawing.Point(55, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 20);
@@ -108,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(145, 212);
+            this.label3.Location = new System.Drawing.Point(145, 165);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 20);
@@ -119,7 +117,7 @@
             // 
             this.ComboBoxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxMarca.FormattingEnabled = true;
-            this.ComboBoxMarca.Location = new System.Drawing.Point(229, 209);
+            this.ComboBoxMarca.Location = new System.Drawing.Point(229, 162);
             this.ComboBoxMarca.Name = "ComboBoxMarca";
             this.ComboBoxMarca.Size = new System.Drawing.Size(186, 28);
             this.ComboBoxMarca.TabIndex = 36;
@@ -130,7 +128,7 @@
             // 
             // textBoxStock
             // 
-            this.textBoxStock.Location = new System.Drawing.Point(148, 85);
+            this.textBoxStock.Location = new System.Drawing.Point(148, 70);
             this.textBoxStock.Name = "textBoxStock";
             this.textBoxStock.Size = new System.Drawing.Size(433, 26);
             this.textBoxStock.TabIndex = 38;
@@ -138,38 +136,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 88);
+            this.label4.Location = new System.Drawing.Point(78, 73);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
             this.label4.TabIndex = 37;
             this.label4.Text = "Stock:";
             // 
-            // textBoxPrecioUnitario
-            // 
-            this.textBoxPrecioUnitario.Location = new System.Drawing.Point(148, 117);
-            this.textBoxPrecioUnitario.Name = "textBoxPrecioUnitario";
-            this.textBoxPrecioUnitario.Size = new System.Drawing.Size(433, 26);
-            this.textBoxPrecioUnitario.TabIndex = 40;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 120);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 20);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Precio Unitario:";
-            // 
             // FrmProductosAE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 359);
+            this.ClientSize = new System.Drawing.Size(623, 305);
             this.ControlBox = false;
-            this.Controls.Add(this.textBoxPrecioUnitario);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxStock);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ComboBoxMarca);
@@ -182,6 +161,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmProductosAE";
             this.Text = "FrmProductosAE";
+            this.Load += new System.EventHandler(this.FrmProductosAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,8 +179,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ComboBoxMarca;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox textBoxPrecioUnitario;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label label4;
     }

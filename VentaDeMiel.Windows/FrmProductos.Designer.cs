@@ -39,7 +39,6 @@
             this.CmlTipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmlMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmlStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CmlPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -114,8 +113,7 @@
             this.CmlProducto,
             this.CmlTipoProducto,
             this.CmlMarca,
-            this.CmlStock,
-            this.CmlPrecioUnitario});
+            this.CmlStock});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -160,14 +158,6 @@
             this.CmlStock.Name = "CmlStock";
             this.CmlStock.ReadOnly = true;
             // 
-            // CmlPrecioUnitario
-            // 
-            this.CmlPrecioUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlPrecioUnitario.HeaderText = "Precio Unitario";
-            this.CmlPrecioUnitario.MinimumWidth = 8;
-            this.CmlPrecioUnitario.Name = "CmlPrecioUnitario";
-            this.CmlPrecioUnitario.ReadOnly = true;
-            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -202,6 +192,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CmlTipoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CmlMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn CmlStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlPrecioUnitario;
     }
 }

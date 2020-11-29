@@ -35,7 +35,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmlCantidadDeAlzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlClaveColmena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +107,7 @@
             this.DatosDataGridView.AllowUserToDeleteRows = false;
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CmlCantidadDeAlzas});
+            this.CmlClaveColmena});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -120,13 +120,13 @@
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
             this.DatosDataGridView.TabIndex = 9;
             // 
-            // CmlCantidadDeAlzas
+            // CmlClaveColmena
             // 
-            this.CmlCantidadDeAlzas.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlCantidadDeAlzas.HeaderText = "Cantidad De Alzas";
-            this.CmlCantidadDeAlzas.MinimumWidth = 8;
-            this.CmlCantidadDeAlzas.Name = "CmlCantidadDeAlzas";
-            this.CmlCantidadDeAlzas.ReadOnly = true;
+            this.CmlClaveColmena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlClaveColmena.HeaderText = "Clave Colmena";
+            this.CmlClaveColmena.MinimumWidth = 8;
+            this.CmlClaveColmena.Name = "CmlClaveColmena";
+            this.CmlClaveColmena.ReadOnly = true;
             // 
             // FrmColmenas
             // 
@@ -158,6 +158,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CmlCantidadDeAlzas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmlClaveColmena;
     }
 }

@@ -61,7 +61,6 @@ namespace VentaDeMiel.Windows
             r.Cells[CmlMarca.Index].Value = producto.Marca.marca;
             r.Cells[CmlTipoProducto.Index].Value = producto.TipoProducto.tipoProducto;
             r.Cells[CmlStock.Index].Value = producto.Stock;
-            r.Cells[CmlPrecioUnitario.Index].Value = producto.PrecioUnitario;
             r.Tag = producto;
         }
 

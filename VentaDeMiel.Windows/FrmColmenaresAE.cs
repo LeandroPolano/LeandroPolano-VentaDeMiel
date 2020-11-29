@@ -30,7 +30,8 @@ namespace VentaDeMiel.Windows
 
         private readonly ServicioColmenar _servicioCiudades = new ServicioColmenar();
         private readonly ServicioCiudad _servicioCiudad = new ServicioCiudad();
-
+        private readonly ServicioInsumo _servicioInsumo = new ServicioInsumo();
+        private readonly ServicioEstadoColmena _servicioEstadoColmena = new ServicioEstadoColmena();
         private Colmenar colmenar;
         private ServicioColmenar _servicio = new ServicioColmenar();
         protected override void OnLoad(EventArgs e)
@@ -41,15 +42,44 @@ namespace VentaDeMiel.Windows
             List<Ciudad> lista = servicioCiudad.GetLista();
             var defaultMedida = new Ciudad { CiudadID = 0, ciudad = "[Seleccione]" };
             lista.Insert(0, defaultMedida);
+
             ComboBoxCiudad.DataSource = lista;
             ComboBoxCiudad.DisplayMember = "ciudad";
             ComboBoxCiudad.ValueMember = "CiudadID";
+
             ComboBoxCiudad.SelectedIndex = 0;
+
+            ServicioEstadoColmena servicioEstadoColmena = new ServicioEstadoColmena();
+            ComboBoxEstadoColmena.DataSource = null;
+            List<EstadoColmena> listaTP = servicioEstadoColmena.GetLista();
+            var estadoColmena = new EstadoColmena { EstadoColmenaID = 0, estadoColmena = "[Seleccione]" };
+            listaTP.Insert(0, estadoColmena);
+            ComboBoxEstadoColmena.DataSource = listaTP;
+            ComboBoxEstadoColmena.DisplayMember = "estadoColmena";
+            ComboBoxEstadoColmena.ValueMember = "EstadoColmenaID";
+
+            ComboBoxEstadoColmena.SelectedIndex = 0;
+
+
+            ServicioInsumo servicioInsumo = new ServicioInsumo();
+            ComboBoxInsumo.DataSource = null;
+            List<Insumo> listaIN = servicioInsumo.GetLista();
+            var insumo = new Insumo { InsumoID = 0, insumo = "[Seleccione]" };
+            listaIN.Insert(0, insumo);
+            ComboBoxInsumo.DataSource = listaIN;
+            ComboBoxInsumo.DisplayMember = "insumo";
+            ComboBoxInsumo.ValueMember = "InsumoID";
+
+            ComboBoxEstadoColmena.SelectedIndex = 0;
+
             if (colmenar != null)
             {
                 ComboBoxCiudad.SelectedValue = colmenar.Ciudad.CiudadID;
+                ComboBoxInsumo.SelectedValue = colmenar.Insumo.InsumoID;
+                ComboBoxEstadoColmena.SelectedValue = colmenar.EstadoColmena.EstadoColmenaID;
                 textBoxColmenar.Text = colmenar.NombreColmenar;
-
+                textBoxCantidadColmena.Text = colmenar.CantidadColmena.ToString();
+                _esEdicion = true;
             }
         }
 
@@ -64,7 +94,10 @@ namespace VentaDeMiel.Windows
                 }
 
                 colmenar.Ciudad = (Ciudad)ComboBoxCiudad.SelectedItem;
+                colmenar.Insumo = (Insumo)ComboBoxInsumo.SelectedItem;
+                colmenar.EstadoColmena = (EstadoColmena)ComboBoxEstadoColmena.SelectedItem;
                 colmenar.NombreColmenar = textBoxColmenar.Text;
+                colmenar.CantidadColmena =decimal.Parse( textBoxCantidadColmena.Text);
                 if (ValidarObjeto())
                 {
 
@@ -114,6 +147,16 @@ namespace VentaDeMiel.Windows
                 valido = false;
                 errorProvider1.SetError(ComboBoxCiudad, "Debe seleccionar una Ciudad");
             }
+            if (ComboBoxInsumo.SelectedIndex == 0)
+            {
+                valido = false;
+                errorProvider1.SetError(ComboBoxInsumo, "Debe seleccionar un Insumo");
+            }
+            if (ComboBoxEstadoColmena.SelectedIndex == 0)
+            {
+                valido = false;
+                errorProvider1.SetError(ComboBoxEstadoColmena, "Debe seleccionar un estado de las colmenas");
+            }
 
             if (string.IsNullOrEmpty(textBoxColmenar.Text) ||
                 string.IsNullOrWhiteSpace(textBoxColmenar.Text))
@@ -122,6 +165,19 @@ namespace VentaDeMiel.Windows
                 errorProvider1.SetError(textBoxColmenar, "Debe ingresar una colmenar");
             }
 
+            if (string.IsNullOrEmpty(textBoxCantidadColmena.Text) ||
+                string.IsNullOrWhiteSpace(textBoxCantidadColmena.Text))
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxColmenar, "Debe ingresar una Cantidad de colmenas");
+            }
+            decimal cantidad = 0;
+            if (!decimal.TryParse(textBoxCantidadColmena.Text,out cantidad))
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxCantidadColmena, "Debe ingresar una Cantidad de colmenas valida");
+
+            }
 
             return valido;
         }
@@ -131,6 +187,7 @@ namespace VentaDeMiel.Windows
 
             colmenar = null;
             ComboBoxCiudad.SelectedIndex = 0;
+            ComboBoxInsumo.SelectedIndex = 0;
         }
 
         private bool ValidarObjeto()

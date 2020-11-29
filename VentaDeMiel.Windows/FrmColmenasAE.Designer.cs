@@ -63,11 +63,11 @@
             // 
             // TextBoxColmena
             // 
-            this.TextBoxColmena.Location = new System.Drawing.Point(161, 68);
+            this.TextBoxColmena.Location = new System.Drawing.Point(147, 68);
             this.TextBoxColmena.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxColmena.MaxLength = 100;
             this.TextBoxColmena.Name = "TextBoxColmena";
-            this.TextBoxColmena.Size = new System.Drawing.Size(431, 26);
+            this.TextBoxColmena.Size = new System.Drawing.Size(445, 26);
             this.TextBoxColmena.TabIndex = 22;
             // 
             // label1
@@ -76,9 +76,9 @@
             this.label1.Location = new System.Drawing.Point(25, 71);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.Size = new System.Drawing.Size(123, 20);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Cantidad de alzas:";
+            this.label1.Text = "Clave Colmena :";
             // 
             // errorProvider1
             // 

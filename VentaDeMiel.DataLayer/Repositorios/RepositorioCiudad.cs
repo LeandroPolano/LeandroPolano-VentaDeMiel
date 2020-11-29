@@ -11,7 +11,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
     public class RepositorioCiudad
     {
         private readonly SqlConnection _connection;
-        private readonly RepositorioProvincia _repositorioProvincia;
+        private  RepositorioProvincia _repositorioProvincia;
         private readonly SqlTransaction _tran;
         private readonly Provincia provincia;
 
@@ -93,6 +93,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             Ciudad ciudad = new Ciudad();
             ciudad.CiudadID = reader.GetDecimal(0);
             ciudad.ciudad = reader.GetString(1);
+            _repositorioProvincia = new RepositorioProvincia(_connection);
             ciudad.Provincia = _repositorioProvincia.GetProvinciaPorId(reader.GetDecimal(2));
 
             return ciudad;
@@ -202,6 +203,25 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 comando = new SqlCommand(cadenaDeComando, _connection);
                 comando.Parameters.AddWithValue("@id", ciudad.CiudadID);
                 var reader = comando.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    
+                    cadenaDeComando = "SELECT CiudadID FROM ClientesDeMiel WHERE CiudadID=@Id";
+                    comando = new SqlCommand(cadenaDeComando, _connection);
+                    comando.Parameters.AddWithValue("@id", ciudad.CiudadID);
+                    reader = comando.ExecuteReader();
+                    if (!reader.HasRows)
+                    {
+
+                        cadenaDeComando = "SELECT CiudadID FROM Proveedores WHERE CiudadID=@Id";
+                        comando = new SqlCommand(cadenaDeComando, _connection);
+                        comando.Parameters.AddWithValue("@id", ciudad.CiudadID);
+                        reader = comando.ExecuteReader();
+                    }
+
+                }
+
+
                 return reader.HasRows;
             }
             catch (Exception e)

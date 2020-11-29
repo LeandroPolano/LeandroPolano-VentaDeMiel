@@ -11,5 +11,9 @@ namespace VentaDeMiel.BusinessLayer.Entities
         public decimal ColmenarID { get; set; }
         public Ciudad Ciudad { get; set; }
         public string NombreColmenar { get; set; }
+        public decimal CantidadColmena { get; set; }
+        public EstadoColmena EstadoColmena { get; set; }
+        public Insumo Insumo { get; set; }
+
     }
 }

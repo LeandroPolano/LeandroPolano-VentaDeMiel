@@ -37,6 +37,9 @@
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.CmnColmenar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CmnCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnCantidadColmena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnEstadoColmenar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnInsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +112,10 @@
             this.DatosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CmnColmenar,
-            this.CmnCiudad});
+            this.CmnCiudad,
+            this.CmnCantidadColmena,
+            this.CmnEstadoColmenar,
+            this.CmnInsumo});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
             this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -137,6 +143,30 @@
             this.CmnCiudad.MinimumWidth = 8;
             this.CmnCiudad.Name = "CmnCiudad";
             this.CmnCiudad.ReadOnly = true;
+            // 
+            // CmnCantidadColmena
+            // 
+            this.CmnCantidadColmena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnCantidadColmena.HeaderText = "Colmenas";
+            this.CmnCantidadColmena.MinimumWidth = 8;
+            this.CmnCantidadColmena.Name = "CmnCantidadColmena";
+            this.CmnCantidadColmena.ReadOnly = true;
+            // 
+            // CmnEstadoColmenar
+            // 
+            this.CmnEstadoColmenar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnEstadoColmenar.HeaderText = "Estado de colmenas";
+            this.CmnEstadoColmenar.MinimumWidth = 8;
+            this.CmnEstadoColmenar.Name = "CmnEstadoColmenar";
+            this.CmnEstadoColmenar.ReadOnly = true;
+            // 
+            // CmnInsumo
+            // 
+            this.CmnInsumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnInsumo.HeaderText = "Insumo";
+            this.CmnInsumo.MinimumWidth = 8;
+            this.CmnInsumo.Name = "CmnInsumo";
+            this.CmnInsumo.ReadOnly = true;
             // 
             // FrmColmenares
             // 
@@ -170,5 +200,8 @@
         private System.Windows.Forms.DataGridView DatosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn CmnColmenar;
         private System.Windows.Forms.DataGridViewTextBoxColumn CmnCiudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmnCantidadColmena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmnEstadoColmenar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CmnInsumo;
     }
 }

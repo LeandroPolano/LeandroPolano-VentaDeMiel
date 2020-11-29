@@ -21,7 +21,7 @@ namespace VentaDeMiel.Windows
 
         public FrmTiposDocumentosAE(FrmTiposDocumentos frmTiposDocumentos)
         {
-            this.frmTiposDocumentos = frmTiposDocumentos;
+            this.frm = frmTiposDocumentos;
             InitializeComponent();
         }
 
@@ -34,7 +34,6 @@ namespace VentaDeMiel.Windows
         private TipoDocumento tipodocumento;
         private bool _esEdicion = false;
         private ServicioTipoDocumento _servicio = new ServicioTipoDocumento();
-        private FrmTiposDocumentos frmTiposDocumentos;
 
         private readonly FrmTiposDocumentos frm;
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -124,10 +123,11 @@ namespace VentaDeMiel.Windows
         {
             bool valido = true;
             errorProvider1.Clear();
-            if (_servicio.Existe(tipodocumento))
+            if (string.IsNullOrEmpty(TextBoxTipoDocumento.Text) ||
+                string.IsNullOrWhiteSpace(TextBoxTipoDocumento.Text))
             {
                 valido = false;
-                errorProvider1.SetError(TextBoxTipoDocumento, "Tipo de documento repetido");
+                errorProvider1.SetError(TextBoxTipoDocumento, "Debe ingresar un Tipo de documento");
             }
 
             return valido;
@@ -149,6 +149,11 @@ namespace VentaDeMiel.Windows
         }
 
         private void FrmTiposDocumentosAE_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

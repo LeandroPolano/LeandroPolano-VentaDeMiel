@@ -43,15 +43,22 @@
   <ItemGroup>
     <Compile Include="Entities\Capacidad.cs" />
     <Compile Include="Entities\Ciudad.cs" />
+    <Compile Include="Entities\ClienteDeMiel.cs" />
     <Compile Include="Entities\Colmena.cs" />
     <Compile Include="Entities\Colmenar.cs" />
+    <Compile Include="Entities\EstadoColmena.cs" />
+    <Compile Include="Entities\Insumo.cs" />
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\ProblemaDeColmena.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\Provincia.cs" />
     <Compile Include="Entities\TipoDeProducto.cs" />
     <Compile Include="Entities\TipoDocumento.cs" />
+    <Compile Include="Entities\TipoEnvase.cs" />
+    <Compile Include="Entities\VentaProducto.cs" />
+    <Compile Include="Entities\Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

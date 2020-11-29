@@ -91,6 +91,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             Provincia provincia = new Provincia();
             provincia.ProvinciaID = reader.GetDecimal(0);
             provincia.provincia = reader.GetString(1);
+            _repositorioPais = new RepositorioPais(conexion);
             provincia.Pais = _repositorioPais.GetPaisPorId(reader.GetDecimal(2));
 
 

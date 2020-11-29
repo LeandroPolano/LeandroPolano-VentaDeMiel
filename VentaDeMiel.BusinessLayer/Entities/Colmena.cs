@@ -10,6 +10,6 @@ namespace VentaDeMiel.BusinessLayer.Entities
     {
         public decimal ColmenaID { get; set; }
 
-        public string CantidadDeAlzas { get; set; }
+        public string ClaveColmena { get; set; }
     }
 }

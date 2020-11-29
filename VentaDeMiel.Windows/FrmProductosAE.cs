@@ -63,7 +63,6 @@ namespace VentaDeMiel.Windows
                 ComboBoxTipoProducto.SelectedValue = producto.TipoProducto.TipoProductoID;
                 ComboBoxMarca.SelectedValue = producto.Marca.MarcaID;
                 textBoxProducto.Text = producto.producto;
-                textBoxPrecioUnitario.Text = producto.PrecioUnitario.ToString();
                 textBoxStock.Text = producto.Stock.ToString();
                 _esEdicion = true;
             }
@@ -83,7 +82,6 @@ namespace VentaDeMiel.Windows
                 producto.Marca = (Marca)ComboBoxMarca.SelectedItem;
                 producto.TipoProducto = ComboBoxTipoProducto.SelectedItem as TipoProducto;
                 producto.producto = textBoxProducto.Text;
-                producto.PrecioUnitario = decimal.Parse( textBoxPrecioUnitario.Text);
                 producto.Stock = decimal.Parse(textBoxStock.Text);
 
 
@@ -153,25 +151,13 @@ namespace VentaDeMiel.Windows
                 valido = false;
                 errorProvider1.SetError(textBoxProducto, "Debe ingresar una producto");
             }
-            if (string.IsNullOrEmpty(textBoxPrecioUnitario.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrecioUnitario.Text))
-            {
-                valido = false;
-                errorProvider1.SetError(textBoxPrecioUnitario, "Debe ingresar una Precio Unitario");
-            }
             if (string.IsNullOrEmpty(textBoxStock.Text) ||
                 string.IsNullOrWhiteSpace(textBoxStock.Text))
             {
                 valido = false;
                 errorProvider1.SetError(textBoxStock, "Debe ingresar un stock");
             }
-            decimal preciounitario;
             decimal stock;
-            if (!decimal.TryParse(textBoxPrecioUnitario.Text,out preciounitario))
-            {
-                valido = false;
-                errorProvider1.SetError(textBoxPrecioUnitario, "Debe ingresar un Numero");
-            }
             if (!decimal.TryParse(textBoxStock.Text, out stock))
             {
                 valido = false;
@@ -195,7 +181,6 @@ namespace VentaDeMiel.Windows
             ComboBoxTipoProducto.SelectedIndex = 0;
             textBoxStock.Clear();
             textBoxProducto.Clear();
-            textBoxPrecioUnitario.Clear();
 
         }
 
@@ -224,6 +209,9 @@ namespace VentaDeMiel.Windows
             return producto;
         }
 
- 
+        private void FrmProductosAE_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

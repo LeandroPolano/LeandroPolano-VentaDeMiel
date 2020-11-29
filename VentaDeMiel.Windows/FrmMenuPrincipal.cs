@@ -33,13 +33,14 @@ namespace VentaDeClase.ReportLayer
 
         private void Colmenas_Click(object sender, EventArgs e)
         {
-            FrmColmenas frm = new FrmColmenas();
+            FrmEstadosColmenas frm = new FrmEstadosColmenas();
             frm.ShowDialog(this);
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Application.Exit();
+            this.Close();
         }
 
         private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,6 +88,36 @@ namespace VentaDeClase.ReportLayer
         private void productosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             FrmProductos frm = new FrmProductos();
+            frm.ShowDialog(this);
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProveedores frm = new FrmProveedores();
+            frm.ShowDialog(this);
+        }
+
+        private void insumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmInsumos frm = new FrmInsumos();
+            frm.ShowDialog(this);
+        }
+
+        private void tipoEnvaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTiposEnvases frm = new FrmTiposEnvases();
+            frm.ShowDialog(this);
+        }
+
+        private void clienteDeMielToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClientesDeMiel frm = new FrmClientesDeMiel();
+            frm.ShowDialog(this);
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVentas frm = new FrmVentas();
             frm.ShowDialog(this);
         }
     }

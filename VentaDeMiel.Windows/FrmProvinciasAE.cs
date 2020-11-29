@@ -49,7 +49,8 @@ namespace VentaDeMiel.Windows
             {
                 ComboBoxPais.SelectedValue = provincia.Pais.PaisID;
                 textBoxProvincia.Text = provincia.provincia;
-                
+                _esEdicion = true;
+
             }
         }
 

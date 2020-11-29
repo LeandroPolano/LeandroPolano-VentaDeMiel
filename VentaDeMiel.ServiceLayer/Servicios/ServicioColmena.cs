@@ -24,9 +24,9 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             {
                 _conexion = new ConexionBD();
                 _repositorio = new RepositorioColmena(_conexion.AbrirConexion());
-                var CantidadDeAlzas = _repositorio.GetColmenaPorId(id);
+                var ClaveColmena = _repositorio.GetColmenaPorId(id);
                 _conexion.CerrarConexion();
-                return CantidadDeAlzas;
+                return ClaveColmena;
             }
             catch (Exception e)
             {
@@ -52,13 +52,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public void Guardar(Colmena CantidadDeAlzas)
+        public void Guardar(Colmena ClaveColmena)
         {
             try
             {
                 _conexion = new ConexionBD();
                 _repositorio = new RepositorioColmena(_conexion.AbrirConexion());
-                _repositorio.Guardar(CantidadDeAlzas);
+                _repositorio.Guardar(ClaveColmena);
                 _conexion.CerrarConexion();
 
             }
@@ -85,13 +85,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool Existe(Colmena CantidadDeAlzas)
+        public bool Existe(Colmena ClaveColmena)
         {
             try
             {
                 _conexion = new ConexionBD();
                 _repositorio = new RepositorioColmena(_conexion.AbrirConexion());
-                var existe = _repositorio.Existe(CantidadDeAlzas);
+                var existe = _repositorio.Existe(ClaveColmena);
                 _conexion.CerrarConexion();
                 return existe;
             }
@@ -101,13 +101,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             }
         }
 
-        public bool EstaRelacionado(Colmena CantidadDeAlzas)
+        public bool EstaRelacionado(Colmena ClaveColmena)
         {
             try
             {
                 _conexion = new ConexionBD();
                 _repositorio = new RepositorioColmena(_conexion.AbrirConexion());
-                var existe = _repositorio.EstaRelacionado(CantidadDeAlzas);
+                var existe = _repositorio.EstaRelacionado(ClaveColmena);
                 _conexion.CerrarConexion();
                 return existe;
             }
