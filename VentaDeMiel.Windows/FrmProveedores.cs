@@ -48,7 +48,7 @@ namespace VentaDeMiel.Windows
             r.Cells[CmlCuit.Index].Value = proveedor.Cuit;
             r.Cells[CmlRazonSocial.Index].Value = proveedor.RazonSocial;
             r.Cells[CmlDireccion.Index].Value = proveedor.Direccion;
-            r.Cells[CmlCiudad.Index].Value = proveedor.Ciudad.CiudadID;
+            r.Cells[CmlCiudad.Index].Value = proveedor.Ciudad.ciudad;
             r.Cells[CmlCodigoPostal.Index].Value = proveedor.CodigoPostal;
             r.Cells[CmlTelefono.Index].Value = proveedor.Telefono;
             r.Cells[CmlEmail.Index].Value = proveedor.Email;
@@ -73,10 +73,10 @@ namespace VentaDeMiel.Windows
             if (DatosDataGridView.SelectedRows.Count > 0)
             {
                 DataGridViewRow r = DatosDataGridView.SelectedRows[0];
-                Producto producto = (Producto)r.Tag;
+                Proveedor proveedor = (Proveedor)r.Tag;
 
 
-                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja a el Producto {producto.producto}?",
+                DialogResult dr = MessageBox.Show(this, $"¿Desea dar de baja a el Producto {proveedor.RazonSocial}?",
                     "Confirmar Baja",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
@@ -84,7 +84,7 @@ namespace VentaDeMiel.Windows
                 {
                     try
                     {
-                        _servicio.Borrar(producto.ProductoID);
+                        _servicio.Borrar(proveedor.ProveedorID);
                         DatosDataGridView.Rows.Remove(r);
                         MessageBox.Show("Registro borrado");
                     }

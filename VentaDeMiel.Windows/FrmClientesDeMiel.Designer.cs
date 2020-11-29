@@ -70,7 +70,7 @@
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(1079, 416);
+            this.DatosDataGridView.Size = new System.Drawing.Size(1478, 416);
             this.DatosDataGridView.TabIndex = 15;
             // 
             // CmlRazonSocial
@@ -149,7 +149,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1079, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(1478, 34);
             this.toolStrip1.TabIndex = 14;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -202,12 +202,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 450);
+            this.ClientSize = new System.Drawing.Size(1478, 450);
             this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
-            this.MaximumSize = new System.Drawing.Size(1101, 506);
-            this.MinimumSize = new System.Drawing.Size(1101, 506);
+            this.MaximumSize = new System.Drawing.Size(1500, 506);
+            this.MinimumSize = new System.Drawing.Size(1500, 506);
             this.Name = "FrmClientesDeMiel";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.FrmClientesDeMiel_Load);

@@ -102,7 +102,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
                 try
                 {
                     string cadenaComando = "INSERT INTO Productos (Producto, TipoProductoID, MarcaID, Stock)" +
-                        " VALUES (@producto, @tipo ,@marca, @stock, )";
+                        " VALUES (@producto, @tipo ,@marca, @stock)";
                     var comando = new SqlCommand(cadenaComando, conexion);
                     comando.Parameters.AddWithValue("@producto", producto.producto);
                     comando.Parameters.AddWithValue("@tipo", producto.TipoProducto.TipoProductoID);
@@ -129,7 +129,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             {
                 try
                 {
-                    string cadenaComando = "UPDATE Productos SET Producto=@nombre,TipoProductoID=@tipo, MarcaID=@marca, Stock=@stock, " +
+                    string cadenaComando = "UPDATE Productos SET Producto=@nombre,TipoProductoID=@tipo, MarcaID=@marca, Stock=@stock " +
                         " WHERE ProductoId=@id";
                     SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                     comando.Parameters.AddWithValue("@nombre", producto.producto);
