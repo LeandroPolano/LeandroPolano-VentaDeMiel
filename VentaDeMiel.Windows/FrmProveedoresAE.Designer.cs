@@ -203,6 +203,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 393);
+            this.ControlBox = false;
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxCodigoPostal);
@@ -219,8 +220,10 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(732, 449);
+            this.MinimumSize = new System.Drawing.Size(732, 449);
             this.Name = "FrmProveedoresAE";
-            this.Text = "FrmProveedoresAE";
+            this.Text = "Proveedor";
             this.Load += new System.EventHandler(this.FrmProveedoresAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

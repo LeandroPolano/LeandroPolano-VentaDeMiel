@@ -284,6 +284,8 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.DatosDataGridView);
+            this.MaximumSize = new System.Drawing.Size(1139, 552);
+            this.MinimumSize = new System.Drawing.Size(1139, 552);
             this.Name = "FrmVentasAE";
             this.Text = "Venta";
             this.Load += new System.EventHandler(this.FrmVentasAE_Load);

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
+            this.CmlTipoEnvase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmlCapacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.CmlTipoEnvase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CmlCapacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,22 @@
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
             this.DatosDataGridView.TabIndex = 13;
+            // 
+            // CmlTipoEnvase
+            // 
+            this.CmlTipoEnvase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlTipoEnvase.HeaderText = "Tipo de Envase";
+            this.CmlTipoEnvase.MinimumWidth = 8;
+            this.CmlTipoEnvase.Name = "CmlTipoEnvase";
+            this.CmlTipoEnvase.ReadOnly = true;
+            // 
+            // CmlCapacidad
+            // 
+            this.CmlCapacidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmlCapacidad.HeaderText = "Capacidad";
+            this.CmlCapacidad.MinimumWidth = 8;
+            this.CmlCapacidad.Name = "CmlCapacidad";
+            this.CmlCapacidad.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -122,22 +138,6 @@
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
-            // CmlTipoEnvase
-            // 
-            this.CmlTipoEnvase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlTipoEnvase.HeaderText = "Tipo de Envase";
-            this.CmlTipoEnvase.MinimumWidth = 8;
-            this.CmlTipoEnvase.Name = "CmlTipoEnvase";
-            this.CmlTipoEnvase.ReadOnly = true;
-            // 
-            // CmlCapacidad
-            // 
-            this.CmlCapacidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmlCapacidad.HeaderText = "Capacidad";
-            this.CmlCapacidad.MinimumWidth = 8;
-            this.CmlCapacidad.Name = "CmlCapacidad";
-            this.CmlCapacidad.ReadOnly = true;
-            // 
             // FrmTiposEnvases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -146,8 +146,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(822, 506);
+            this.MinimumSize = new System.Drawing.Size(822, 506);
             this.Name = "FrmTiposEnvases";
-            this.Text = "FrmTiposEnvases";
+            this.Text = "Tipos De Envases";
             this.Load += new System.EventHandler(this.FrmTiposEnvases_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).EndInit();
             this.toolStrip1.ResumeLayout(false);

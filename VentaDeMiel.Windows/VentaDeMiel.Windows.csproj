@@ -250,6 +250,12 @@
     <Compile Include="FrmVentasAE.Designer.cs">
       <DependentUpon>FrmVentasAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCapacidades.resx">
@@ -354,6 +360,9 @@
     <EmbeddedResource Include="FrmVentasAE.resx">
       <DependentUpon>FrmVentasAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -398,6 +407,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3 sin título_20201123140459.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7 sin título_20201128232232.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 sin título_202011231404591.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7 sin título_20201128232916.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

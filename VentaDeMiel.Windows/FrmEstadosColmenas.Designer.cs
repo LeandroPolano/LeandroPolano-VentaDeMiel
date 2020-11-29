@@ -136,6 +136,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(822, 506);
+            this.MinimumSize = new System.Drawing.Size(822, 506);
             this.Name = "FrmEstadosColmenas";
             this.Text = "Estados de Colmenas";
             this.Load += new System.EventHandler(this.FrmEstadosColmenas_Load);

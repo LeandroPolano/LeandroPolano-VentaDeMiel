@@ -63,9 +63,59 @@ namespace VentaDeMiel.Windows.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1606618432338 {
+            get {
+                object obj = ResourceManager.GetObject("1606618432338", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3_sin_título_20201123140459 {
             get {
                 object obj = ResourceManager.GetObject("3 sin título_20201123140459", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3_sin_título_202011231404591 {
+            get {
+                object obj = ResourceManager.GetObject("3 sin título_202011231404591", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4_sin_título_20201128232139 {
+            get {
+                object obj = ResourceManager.GetObject("4 sin título_20201128232139", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7_sin_título_20201128232232 {
+            get {
+                object obj = ResourceManager.GetObject("7 sin título_20201128232232", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _7_sin_título_20201128232916 {
+            get {
+                object obj = ResourceManager.GetObject("7 sin título_20201128232916", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +136,26 @@ namespace VentaDeMiel.Windows.Properties {
         internal static System.Drawing.Bitmap aaaa {
             get {
                 object obj = ResourceManager.GetObject("aaaa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close_window_64px {
+            get {
+                object obj = ResourceManager.GetObject("close_window_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close_window_96px {
+            get {
+                object obj = ResourceManager.GetObject("close_window_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

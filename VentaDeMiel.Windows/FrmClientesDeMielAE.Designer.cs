@@ -223,7 +223,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 424);
+            this.ClientSize = new System.Drawing.Size(758, 424);
+            this.ControlBox = false;
             this.Controls.Add(this.ComboBoxCiudad);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxNumeroDocumento);
@@ -242,8 +243,10 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(780, 480);
+            this.MinimumSize = new System.Drawing.Size(780, 480);
             this.Name = "FrmClientesDeMielAE";
-            this.Text = "FrmClientesDeMielAE";
+            this.Text = "Cliente";
             this.Load += new System.EventHandler(this.FrmClientesDeMielAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

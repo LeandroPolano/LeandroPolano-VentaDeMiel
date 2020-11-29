@@ -20,18 +20,34 @@ namespace VentaDeMiel.Windows
         private void FrmLogoInicio_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            timer1.Interval = 1500;
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
-            this.Close();
+            //timer1.Enabled = false;
+            //Application.Exit();
+
+            
         }
 
         private void FrmLogoInicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FrmMenuPrincipal FM = new FrmMenuPrincipal();
-            FM.ShowDialog(this);
+            
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            while (this.Opacity > 0)
+            {
+                this.Opacity -= 0.00001;
+            }
+            this.Hide();
+            Menu FM = new Menu();
+            FM.Show();
+            timer1.Stop();
+
         }
     }
 }

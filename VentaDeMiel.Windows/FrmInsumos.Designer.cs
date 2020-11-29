@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.CmnInsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CmnProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CmnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.CmnInsumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CmnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,30 +62,6 @@
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
             this.DatosDataGridView.TabIndex = 13;
-            // 
-            // CmnInsumo
-            // 
-            this.CmnInsumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmnInsumo.HeaderText = "Insumo";
-            this.CmnInsumo.MinimumWidth = 8;
-            this.CmnInsumo.Name = "CmnInsumo";
-            this.CmnInsumo.ReadOnly = true;
-            // 
-            // CmnProveedor
-            // 
-            this.CmnProveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CmnProveedor.HeaderText = "Proveedor";
-            this.CmnProveedor.MinimumWidth = 8;
-            this.CmnProveedor.Name = "CmnProveedor";
-            this.CmnProveedor.ReadOnly = true;
-            // 
-            // CmnCantidad
-            // 
-            this.CmnCantidad.HeaderText = "Cantidad";
-            this.CmnCantidad.MinimumWidth = 8;
-            this.CmnCantidad.Name = "CmnCantidad";
-            this.CmnCantidad.ReadOnly = true;
-            this.CmnCantidad.Width = 150;
             // 
             // toolStrip1
             // 
@@ -147,6 +123,30 @@
             this.CerrarToolStripButton.Text = "Cerrar";
             this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
+            // 
+            // CmnInsumo
+            // 
+            this.CmnInsumo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnInsumo.HeaderText = "Insumo";
+            this.CmnInsumo.MinimumWidth = 8;
+            this.CmnInsumo.Name = "CmnInsumo";
+            this.CmnInsumo.ReadOnly = true;
+            // 
+            // CmnProveedor
+            // 
+            this.CmnProveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnProveedor.HeaderText = "Proveedor";
+            this.CmnProveedor.MinimumWidth = 8;
+            this.CmnProveedor.Name = "CmnProveedor";
+            this.CmnProveedor.ReadOnly = true;
+            // 
+            // CmnCantidad
+            // 
+            this.CmnCantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CmnCantidad.HeaderText = "Cantidad";
+            this.CmnCantidad.MinimumWidth = 8;
+            this.CmnCantidad.Name = "CmnCantidad";
+            this.CmnCantidad.ReadOnly = true;
             // 
             // FrmInsumos
             // 

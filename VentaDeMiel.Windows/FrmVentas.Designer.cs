@@ -154,6 +154,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
+            this.MaximumSize = new System.Drawing.Size(1063, 682);
+            this.MinimumSize = new System.Drawing.Size(1063, 682);
             this.Name = "FrmVentas";
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.FrmVentas_Load_1);

@@ -115,9 +115,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(689, 347);
+            this.MinimumSize = new System.Drawing.Size(689, 347);
             this.Name = "FrmTiposEnvasesAE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmTiposEnvasesAE";
+            this.Text = "Tipo De Envase";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

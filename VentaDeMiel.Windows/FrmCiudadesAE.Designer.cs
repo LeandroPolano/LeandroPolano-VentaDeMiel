@@ -118,7 +118,7 @@
             this.MaximumSize = new System.Drawing.Size(638, 339);
             this.MinimumSize = new System.Drawing.Size(638, 339);
             this.Name = "FrmCiudadesAE";
-            this.Text = "Ciudades";
+            this.Text = "Ciudad";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

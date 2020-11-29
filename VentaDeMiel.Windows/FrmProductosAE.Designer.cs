@@ -159,8 +159,10 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(645, 361);
+            this.MinimumSize = new System.Drawing.Size(645, 361);
             this.Name = "FrmProductosAE";
-            this.Text = "FrmProductosAE";
+            this.Text = "Producto";
             this.Load += new System.EventHandler(this.FrmProductosAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

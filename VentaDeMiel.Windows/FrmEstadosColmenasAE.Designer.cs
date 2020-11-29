@@ -89,6 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 265);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.TextBoxEstadoColmena);
@@ -96,7 +97,7 @@
             this.MaximumSize = new System.Drawing.Size(701, 321);
             this.MinimumSize = new System.Drawing.Size(701, 321);
             this.Name = "FrmEstadosColmenasAE";
-            this.Text = "Estados De Colmenas";
+            this.Text = "Estado De Colmena";
             this.Load += new System.EventHandler(this.FrmEstadosColmenasAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
