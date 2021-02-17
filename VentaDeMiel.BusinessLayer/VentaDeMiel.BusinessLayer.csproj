@@ -49,6 +49,7 @@
     <Compile Include="Entities\EstadoColmena.cs" />
     <Compile Include="Entities\Insumo.cs" />
     <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Miel.cs" />
     <Compile Include="Entities\ProblemaDeColmena.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Producto.cs" />

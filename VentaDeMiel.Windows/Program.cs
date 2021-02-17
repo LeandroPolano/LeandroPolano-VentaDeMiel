@@ -17,7 +17,7 @@ namespace VentaDeMiel.Windows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogoInicio());
+            Application.Run(new MenuFinal());
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using VentaDeMiel.BusinessLayer.Entities;
@@ -18,7 +20,7 @@ namespace VentaDeMiel.ServiceLayer.Servicios
         private RepositorioEstadoColmena repositorioEstadoColmena;
         private RepositorioInsumo repositorioInsumo;
         private RepositorioProveedor repositorioProveedor;
-
+        private SqlTransaction transaction;
 
         private ConexionBD _conexion;
         public Colmenar GetColmenarPorId(decimal id)
@@ -51,10 +53,23 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         public void Guardar(Colmenar colmenar)
         {
-            _conexion = new ConexionBD();
-            _repositorioColmenar = new RepositorioColmenar(_conexion.AbrirConexion());
-            _repositorioColmenar.Guardar(colmenar);
-            _conexion.CerrarConexion();
+            try
+            {
+                _conexion = new ConexionBD();
+                SqlConnection cn = _conexion.AbrirConexion();
+                transaction = cn.BeginTransaction();
+                _repositorioColmenar = new RepositorioColmenar(cn, transaction);
+                repositorioInsumo = new RepositorioInsumo(cn, transaction);
+                repositorioInsumo.EditarInsumo(colmenar);
+                _repositorioColmenar.Guardar(colmenar);
+                transaction.Commit();
+                _conexion.CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                throw new Exception(e.Message);
+            }
         }
 
         public void Borrar(decimal id)

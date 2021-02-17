@@ -100,6 +100,25 @@ namespace VentaDeMiel.DataLayer.Repositorios
             return insumo;
 
         }
+
+        public void EditarInsumo(Colmenar colmenar)
+        {
+            try
+            {
+                var cadenaDeComando = "UPDATE Insumos SET Cantidad-=@cant WHERE InsumoId=@id";
+                var comando = new SqlCommand(cadenaDeComando, _connection, _tran);
+                comando.Parameters.AddWithValue("@id",colmenar.Insumo.InsumoID);
+                comando.Parameters.AddWithValue("@cant",colmenar.CantidadInsumo);
+                comando.ExecuteNonQuery();
+                colmenar.Insumo.Cantidad -= Convert.ToDecimal(colmenar.CantidadInsumo);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Guardar(Insumo insumo)
         {
             if (insumo.InsumoID == 0)

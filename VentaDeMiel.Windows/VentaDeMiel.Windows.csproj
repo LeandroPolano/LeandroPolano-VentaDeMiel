@@ -82,6 +82,12 @@
     <Compile Include="FrmClientesDeMielAE.Designer.cs">
       <DependentUpon>FrmClientesDeMielAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClienteX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteX.Designer.cs">
+      <DependentUpon>FrmClienteX.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmColmenaresAE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="FrmColmenasAE.Designer.cs">
       <DependentUpon>FrmColmenasAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnvaseX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnvaseX.Designer.cs">
+      <DependentUpon>FrmEnvaseX.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEstadosColmenas.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,12 @@
     <Compile Include="FrmInsumosAE.Designer.cs">
       <DependentUpon>FrmInsumosAE.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLocalidadX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLocalidadX.Designer.cs">
+      <DependentUpon>FrmLocalidadX.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogoInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +172,18 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMiel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMiel.Designer.cs">
+      <DependentUpon>FrmMiel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMielAE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMielAE.Designer.cs">
+      <DependentUpon>FrmMielAE.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPaises.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +207,12 @@
     </Compile>
     <Compile Include="FrmProductosAE.Designer.cs">
       <DependentUpon>FrmProductosAE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoX.Designer.cs">
+      <DependentUpon>FrmProductoX.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProveedores.cs">
       <SubType>Form</SubType>
@@ -256,6 +292,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuFinal.Designer.cs">
+      <DependentUpon>MenuFinal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCapacidades.resx">
@@ -276,6 +318,9 @@
     <EmbeddedResource Include="FrmClientesDeMielAE.resx">
       <DependentUpon>FrmClientesDeMielAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteX.resx">
+      <DependentUpon>FrmClienteX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmColmenaresAE.resx">
       <DependentUpon>FrmColmenaresAE.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmColmenasAE.resx">
       <DependentUpon>FrmColmenasAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnvaseX.resx">
+      <DependentUpon>FrmEnvaseX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadosColmenas.resx">
       <DependentUpon>FrmEstadosColmenas.cs</DependentUpon>
@@ -300,6 +348,9 @@
     <EmbeddedResource Include="FrmInsumosAE.resx">
       <DependentUpon>FrmInsumosAE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLocalidadX.resx">
+      <DependentUpon>FrmLocalidadX.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogoInicio.resx">
       <DependentUpon>FrmLogoInicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +363,12 @@
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMiel.resx">
+      <DependentUpon>FrmMiel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMielAE.resx">
+      <DependentUpon>FrmMielAE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPaises.resx">
       <DependentUpon>FrmPaises.cs</DependentUpon>
     </EmbeddedResource>
@@ -323,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosAE.resx">
       <DependentUpon>FrmProductosAE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoX.resx">
+      <DependentUpon>FrmProductoX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
@@ -362,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuFinal.resx">
+      <DependentUpon>MenuFinal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -416,6 +479,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\7 sin título_20201128232916.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20210216_000806.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Envase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\localidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1613512218977.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

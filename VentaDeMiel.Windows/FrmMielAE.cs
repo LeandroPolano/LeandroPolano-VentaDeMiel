@@ -12,40 +12,39 @@ using VentaDeMiel.ServiceLayer.Servicios;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmTiposDocumentosAE : Form
+    public partial class FrmMielAE : Form
     {
-        public FrmTiposDocumentosAE()
+        public FrmMielAE()
         {
             InitializeComponent();
         }
 
-        public FrmTiposDocumentosAE(FrmMiel frmTiposDocumentos)
+        public FrmMielAE(FrmMiel frmTiposDocumentos)
         {
             this.frm = frmTiposDocumentos;
             InitializeComponent();
         }
 
-        
+
 
         private void TextBoxTipoDocumento_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private TipoDocumento tipodocumento;
         private bool _esEdicion = false;
-        private ServicioTipoDocumento _servicio = new ServicioTipoDocumento();
-
+        private ServicioMiel _servicio = new ServicioMiel();
+        VentaDeMiel.BusinessLayer.Entities.Miel miel;
         private readonly FrmMiel frm;
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (ValidarDatos())
             {
-                if (tipodocumento == null)
+                if (miel == null)
                 {
-                    tipodocumento = new TipoDocumento();
+                    miel = new BusinessLayer.Entities.Miel();
                 }
-
-                tipodocumento.tipoDocumento = TextBoxMiel.Text;
+                
+                miel.miel=decimal.Parse( TextBoxMiel.Text);
                 if (ValidarObjeto())
                 {
 
@@ -53,10 +52,10 @@ namespace VentaDeMiel.Windows
                     {
                         try
                         {
-                            _servicio.Guardar(tipodocumento);
+                            _servicio.Guardar(miel);
                             if (frm != null)
                             {
-                                frm.AgregarFila(tipodocumento);
+                               // frm.AgregarFila(miel);
 
                             }
                             MessageBox.Show("Registro Guardado");
@@ -85,35 +84,30 @@ namespace VentaDeMiel.Windows
 
             }
         }
+
+        private bool ValidarObjeto()
+        {
+            throw new NotImplementedException();
+        }
+
         private void InicializarControles()
         {
             TextBoxMiel.Clear();
             TextBoxMiel.Focus();
-            tipodocumento = null;
+            miel = null;
         }
 
-        private bool ValidarObjeto()
-        {
-            bool valido = true;
-            errorProvider1.Clear();
-            if (_servicio.Existe(tipodocumento))
-            {
-                valido = false;
-                errorProvider1.SetError(TextBoxMiel, "Tipo de documento repetido");
-            }
-
-            return valido;
-        }
+        
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (tipodocumento != null)
+            if (miel != null)
             {
-                TextBoxMiel.Text = tipodocumento.tipoDocumento;
+                TextBoxMiel.Text = miel.miel.ToString();
                 _esEdicion = true;
             }
         }
-        
+
 
         private void TextBoxMarca_TextChanged(object sender, EventArgs e)
         {
@@ -133,14 +127,14 @@ namespace VentaDeMiel.Windows
             return valido;
         }
 
-        internal TipoDocumento GetTipoDocumento()
+        internal BusinessLayer.Entities.Miel GetMiel()
         {
-            return tipodocumento;
+            return miel;
         }
 
-        internal void SetTipoDocumento(TipoDocumento tipodocumento)
+        internal void SetTipoDocumento(BusinessLayer.Entities.Miel tipodocumento)
         {
-            this.tipodocumento = tipodocumento;
+            this.miel = tipodocumento;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -148,10 +142,7 @@ namespace VentaDeMiel.Windows
 
         }
 
-        private void FrmTiposDocumentosAE_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

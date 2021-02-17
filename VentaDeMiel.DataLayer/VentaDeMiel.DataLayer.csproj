@@ -52,6 +52,7 @@
     <Compile Include="Repositorios\RepositorioEstadoColmena.cs" />
     <Compile Include="Repositorios\RepositorioInsumo.cs" />
     <Compile Include="Repositorios\RepositorioMarca.cs" />
+    <Compile Include="Repositorios\RepositorioMiel.cs" />
     <Compile Include="Repositorios\RepositorioPais.cs" />
     <Compile Include="Repositorios\RepositorioProducto.cs" />
     <Compile Include="Repositorios\RepositorioProveedor.cs" />

@@ -144,7 +144,7 @@ namespace VentaDeMiel.Windows
 
         private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTiposDocumentos frm = new FrmTiposDocumentos();
+            FrmMiel frm = new FrmMiel();
             frm.ShowDialog(this);
         }
 
@@ -158,6 +158,11 @@ namespace VentaDeMiel.Windows
         {
             FrmCapacidades frm = new FrmCapacidades();
             frm.ShowDialog(this);
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

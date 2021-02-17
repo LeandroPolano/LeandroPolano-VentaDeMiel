@@ -51,7 +51,7 @@ namespace VentaDeClase.ReportLayer
 
         private void tipoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTiposDocumentos frm = new FrmTiposDocumentos();
+            FrmMiel frm = new FrmMiel();
             frm.ShowDialog(this);
         }
 

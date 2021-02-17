@@ -42,13 +42,13 @@ namespace VentaDeMiel.ServiceLayer.Servicios
 
         }
 
-        public void Guardar(Producto producto)
-        {
-            _conexion = new ConexionBD();
-            _repositorioProducto = new RepositorioProducto(_conexion.AbrirConexion());
-            _repositorioProducto.Guardar(producto);
-            _conexion.CerrarConexion();
-        }
+        //public void Guardar(Producto producto)
+        //{
+        //    _conexion = new ConexionBD();
+        //    _repositorioProducto = new RepositorioProducto(_conexion.AbrirConexion());
+        //    _repositorioProducto.Guardar(producto);
+        //    _conexion.CerrarConexion();
+        //}
 
         public void Borrar(VentaProducto ventaProducto)
         {
@@ -58,24 +58,24 @@ namespace VentaDeMiel.ServiceLayer.Servicios
             _conexion.CerrarConexion();
         }
 
-        public bool Existe(Producto producto)
-        {
-            try
-            {
-                _conexion = new ConexionBD();
-                repositorioVenta = new RepositorioVenta(_conexion.AbrirConexion());
-                repositorioTipoEnvase = new RepositorioTipoEnvase(_conexion.AbrirConexion());
-                _repositorioProducto = new RepositorioProducto(_conexion.AbrirConexion());
+        //public bool Existe(Producto producto)
+        //{
+        //    try
+        //    {
+        //        _conexion = new ConexionBD();
+        //        repositorioVenta = new RepositorioVenta(_conexion.AbrirConexion());
+        //        repositorioTipoEnvase = new RepositorioTipoEnvase(_conexion.AbrirConexion());
+        //        _repositorioProducto = new RepositorioProducto(_conexion.AbrirConexion());
 
-                var existe = _repositorioProducto.Existe(producto);
-                _conexion.CerrarConexion();
-                return existe;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
+        //        var existe = _repositorioProducto.Existe(producto);
+        //        _conexion.CerrarConexion();
+        //        return existe;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new Exception(e.Message);
+        //    }
+        //}
 
         public bool EstaRelacionado(VentaProducto ventaProducto)
         {

@@ -50,6 +50,7 @@
     <Compile Include="Servicios\ServicioEstadoColmena.cs" />
     <Compile Include="Servicios\ServicioInsumo.cs" />
     <Compile Include="Servicios\ServicioMarca.cs" />
+    <Compile Include="Servicios\ServicioMiel.cs" />
     <Compile Include="Servicios\ServicioPais.cs" />
     <Compile Include="Servicios\ServicioProducto.cs" />
     <Compile Include="Servicios\ServicioProveedor.cs" />

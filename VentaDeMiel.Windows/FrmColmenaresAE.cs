@@ -79,6 +79,7 @@ namespace VentaDeMiel.Windows
                 ComboBoxEstadoColmena.SelectedValue = colmenar.EstadoColmena.EstadoColmenaID;
                 textBoxColmenar.Text = colmenar.NombreColmenar;
                 textBoxCantidadColmena.Text = colmenar.CantidadColmena.ToString();
+                textBoxCantidadInsumo.Text = colmenar.CantidadInsumo.ToString();
                 _esEdicion = true;
             }
         }
@@ -98,6 +99,7 @@ namespace VentaDeMiel.Windows
                 colmenar.EstadoColmena = (EstadoColmena)ComboBoxEstadoColmena.SelectedItem;
                 colmenar.NombreColmenar = textBoxColmenar.Text;
                 colmenar.CantidadColmena =decimal.Parse( textBoxCantidadColmena.Text);
+                colmenar.CantidadInsumo = double.Parse(textBoxCantidadInsumo.Text);
                 if (ValidarObjeto())
                 {
 
@@ -165,6 +167,7 @@ namespace VentaDeMiel.Windows
                 errorProvider1.SetError(textBoxColmenar, "Debe ingresar una colmenar");
             }
 
+
             if (string.IsNullOrEmpty(textBoxCantidadColmena.Text) ||
                 string.IsNullOrWhiteSpace(textBoxCantidadColmena.Text))
             {
@@ -177,6 +180,32 @@ namespace VentaDeMiel.Windows
                 valido = false;
                 errorProvider1.SetError(textBoxCantidadColmena, "Debe ingresar una Cantidad de colmenas valida");
 
+            }
+            decimal cantidadInsumo = 0;
+            if (!decimal.TryParse(textBoxCantidadInsumo.Text, out cantidadInsumo))
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxCantidadInsumo, "Debe ingresar una Cantidad de Insumo Valido");
+
+            }
+
+            if (string.IsNullOrEmpty(textBoxCantidadInsumo.Text) ||
+                string.IsNullOrWhiteSpace(textBoxCantidadInsumo.Text))
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxCantidadInsumo, "Debe ingresar una Cantidad De Insumo");
+            }
+            if (cantidadInsumo < 0)
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxCantidadInsumo, "Debe ingresar una Cantidad de Insumo Valido");
+
+            }
+            Insumo insumo =(Insumo) ComboBoxInsumo.SelectedItem;
+            if (cantidadInsumo >insumo.Cantidad)
+            {
+                valido = false;
+                errorProvider1.SetError(textBoxCantidadInsumo, "Debe ingresar una Cantidad de Insumo Valido");
             }
 
             return valido;

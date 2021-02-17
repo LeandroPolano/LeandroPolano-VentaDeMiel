@@ -166,5 +166,10 @@ namespace VentaDeMiel.Windows
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        private void DatosDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

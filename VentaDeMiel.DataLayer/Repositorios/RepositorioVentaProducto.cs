@@ -13,7 +13,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private  SqlConnection conexion;
         private RepositorioVenta repositorioVenta;
         private RepositorioTipoEnvase repositorioTipoEnvase;
-        private RepositorioProducto repositorioProducto;
+        //private RepositorioProducto repositorioProducto;
         private readonly SqlTransaction _tran;
 
         public RepositorioVentaProducto(SqlConnection connection, RepositorioVenta repositorioVenta, RepositorioTipoEnvase repositorioTipoEnvase)
@@ -83,8 +83,8 @@ namespace VentaDeMiel.DataLayer.Repositorios
         private VentaProducto ConstruirProducto(SqlDataReader reader)
         {
             VentaProducto ventaproducto = new VentaProducto();
-            repositorioProducto = new RepositorioProducto(conexion);
-            ventaproducto.Producto = repositorioProducto.GetProductoPorId(reader.GetDecimal(0));
+            //repositorioProducto = new RepositorioProducto(conexion);
+            //ventaproducto.Producto = repositorioProducto.GetProductoPorId(reader.GetDecimal(0));
             repositorioVenta = new RepositorioVenta(conexion);
             ventaproducto.Venta = repositorioVenta.GetVentaPorId(reader.GetDecimal(1));
             repositorioTipoEnvase = new RepositorioTipoEnvase(conexion);
@@ -102,11 +102,11 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
                 try
                 {
-                    string cadenaComando = "INSERT INTO VentasProductos ( VentaID, ProductoID, Cantidad, TipoEnvaseID, Precio)" +
-                        " VALUES (@Venta, @producto, @Cantidad ,@TipoEnvase, @precio)";
+                    string cadenaComando = "INSERT INTO VentasProductos ( VentaID, Cantidad, TipoEnvaseID, Precio)" +
+                        " VALUES (@Venta, @Cantidad ,@TipoEnvase, @precio)";
                     var comando = new SqlCommand(cadenaComando, conexion);
                     comando.Parameters.AddWithValue("@Venta", ventaProducto.Venta.VentaID);
-                    comando.Parameters.AddWithValue("@producto", ventaProducto.Producto.ProductoID);
+                    //comando.Parameters.AddWithValue("@producto", ventaProducto.Producto.ProductoID);
                     comando.Parameters.AddWithValue("@Cantidad", ventaProducto.Cantidad);
                     comando.Parameters.AddWithValue("@TipoEnvase", ventaProducto.TipoEnvase.TipoEnvaseID);
                     comando.Parameters.AddWithValue("@precio", ventaProducto.Precio);
@@ -150,9 +150,9 @@ namespace VentaDeMiel.DataLayer.Repositorios
         {
             try
             {
-                string cadenaComando = "DELETE FROM VentasProductos WHERE ProductoID=@id AND VentaID=@venta";
+                string cadenaComando = "DELETE FROM VentasProductos WHERE VentaID=@venta";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
-                comando.Parameters.AddWithValue("@id", ventaProducto.Producto.ProductoID);
+                //comando.Parameters.AddWithValue("@id", ventaProducto.Producto.ProductoID);
                 comando.Parameters.AddWithValue("@venta", ventaProducto.Venta.VentaID);
 
                 comando.ExecuteNonQuery();

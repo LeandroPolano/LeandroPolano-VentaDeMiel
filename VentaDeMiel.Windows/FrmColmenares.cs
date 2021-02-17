@@ -51,6 +51,7 @@ namespace VentaDeMiel.Windows
             r.Cells[CmnCiudad.Index].Value = colmenar.Ciudad.ciudad;
             r.Cells[CmnEstadoColmenar.Index].Value = colmenar.EstadoColmena.estadoColmena;
             r.Cells[CmnInsumo.Index].Value = colmenar.Insumo.insumo;
+            r.Cells[CmnCantidadInsumo.Index].Value = colmenar.CantidadInsumo;
             r.Tag = colmenar;
         }
 

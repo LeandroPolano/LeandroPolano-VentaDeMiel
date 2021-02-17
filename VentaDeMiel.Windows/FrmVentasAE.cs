@@ -43,16 +43,16 @@ namespace VentaDeMiel.Windows
 
             ComboBoxCliente.SelectedIndex = 0;
 
-            ServicioProducto servicioProducto = new ServicioProducto();
-            ComboBoxProducto.DataSource = null;
-            List<Producto> listaP = servicioProducto.GetLista();
-            var defaultMedidaP = new Producto { ProductoID = 0, producto = "[Seleccione]" };
-            listaP.Insert(0, defaultMedidaP);
-            ComboBoxProducto.DataSource = listaP;
-            ComboBoxProducto.DisplayMember = "producto";
-            ComboBoxProducto.ValueMember = "ProductoID";
+            //ServicioProducto servicioProducto = new ServicioProducto();
+            //ComboBoxProducto.DataSource = null;
+            //List<Producto> listaP = servicioProducto.GetLista();
+            //var defaultMedidaP = new Producto { ProductoID = 0, producto = "[Seleccione]" };
+            //listaP.Insert(0, defaultMedidaP);
+            //ComboBoxProducto.DataSource = listaP;
+            //ComboBoxProducto.DisplayMember = "producto";
+            //ComboBoxProducto.ValueMember = "ProductoID";
 
-            ComboBoxProducto.SelectedIndex = 0;
+            //ComboBoxProducto.SelectedIndex = 0;
 
             ServicioTipoEnvase servicioTipoEnvase = new ServicioTipoEnvase();
             ComboBoxTipoEnvase.DataSource = null;
@@ -79,14 +79,16 @@ namespace VentaDeMiel.Windows
                 var ventasProductos = new VentaProducto();
                 ventasProductos.Cantidad =decimal.Parse(textBoxCantidad.Text);
                 ventasProductos.Precio =decimal.Parse( textBoxPrecio.Text);
-                ventasProductos.Producto =(Producto) ComboBoxProducto.SelectedItem;
+                //ventasProductos.Producto =(Producto) ComboBoxProducto.SelectedItem;
                 ventasProductos.TipoEnvase = (TipoEnvase)ComboBoxTipoEnvase.SelectedItem;
-                if (VerificarRepetido(ventasProductos.Producto))
-                {
-                    lista.Add(ventasProductos);
+                //if (VerificarRepetido(ventasProductos.Producto))
+                //{
+                //    lista.Add(ventasProductos);
+                //    AgregarFila(ventasProductos); 
 
-                    AgregarFila(ventasProductos); 
-                }
+                //}
+                lista.Add(ventasProductos);
+                AgregarFila(ventasProductos);
 
                 ActualizarTotal();
 
@@ -94,18 +96,18 @@ namespace VentaDeMiel.Windows
 
         }
 
-        private bool VerificarRepetido(Producto producto)
-        {
-            bool valido = true;
-            foreach (var vp in lista)
-            {
-                if (vp.Producto==producto)
-                {
-                    valido = false;
-                }
-            }
-            return valido;
-        }
+        //private bool VerificarRepetido(Producto producto)
+        //{
+        //    bool valido = true;
+        //    foreach (var vp in lista)
+        //    {
+        //        if (vp.Producto==producto)
+        //        {
+        //            valido = false;
+        //        }
+        //    }
+        //    return valido;
+        //}
 
         decimal total;
         private void ActualizarTotal()
@@ -132,10 +134,11 @@ namespace VentaDeMiel.Windows
 
         private void SetearFila(DataGridViewRow r, VentaProducto ventaProducto)
         {
-            r.Cells[CmnProducto.Index].Value = ventaProducto.Producto.producto;
+            //r.Cells[CmnProducto.Index].Value = ventaProducto.Producto.producto;
             r.Cells[CmnCantidad.Index].Value = ventaProducto.Cantidad;
             r.Cells[CmnTipoEnvase.Index].Value = ventaProducto.TipoEnvase.tipoEnvase;
             r.Cells[CmnPrecioUnitario.Index].Value = ventaProducto.Precio;
+            r.Cells[cmnPesoTotal.Index].Value = decimal.Parse(ventaProducto.TipoEnvase.Capacidad.capacidad)* ventaProducto.Cantidad;
             r.Tag = ventaProducto;
         }
 
@@ -149,11 +152,11 @@ namespace VentaDeMiel.Windows
         {
             var valido = true;
             errorProvider1.Clear();
-            if (ComboBoxProducto.SelectedIndex == 0)
-            {
-                valido = false;
-                errorProvider1.SetError(ComboBoxProducto, "Debe seleccionar un Producto");
-            }
+            //if (ComboBoxProducto.SelectedIndex == 0)
+            //{
+            //    valido = false;
+            //    errorProvider1.SetError(ComboBoxProducto, "Debe seleccionar un Producto");
+            //}
             if (ComboBoxTipoEnvase.SelectedIndex == 0)
             {
                 valido = false;
@@ -233,11 +236,11 @@ namespace VentaDeMiel.Windows
                 valido = false;
                 errorProvider1.SetError(ComboBoxCliente, "Debe seleccionar un Cliente");
             }
-            if (lista.Count == 0)
-            {
-                valido = false;
-                errorProvider1.SetError(btnVender, "Debe ingresar un producto a la lista de venta");
-            }
+            //if (lista.Count == 0)
+            //{
+            //    valido = false;
+            //    errorProvider1.SetError(btnVender, "Debe ingresar un producto a la lista de venta");
+            //}
             return valido;
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace VentaDeMiel.Windows
 {
-    partial class FrmTiposDocumentos
+    partial class FrmMiel
     {
         /// <summary>
         /// Required designer variable.

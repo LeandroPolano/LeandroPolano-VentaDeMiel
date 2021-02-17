@@ -12,9 +12,9 @@ using VentaDeMiel.ServiceLayer.Servicios;
 
 namespace VentaDeMiel.Windows
 {
-    public partial class FrmTiposDocumentos : Form
+    public partial class FrmMiel : Form
     {
-        public FrmTiposDocumentos()
+        public FrmMiel()
         {
             InitializeComponent();
         }
