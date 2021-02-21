@@ -171,5 +171,10 @@ namespace VentaDeMiel.Windows
         {
             Close();
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
