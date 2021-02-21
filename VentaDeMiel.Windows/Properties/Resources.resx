@@ -127,6 +127,9 @@
   <data name="localidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\localidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1606618432338" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1606618432338.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="7 sin título_20201128232232" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7 sin título_20201128232232.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,11 +139,20 @@
   <data name="Envase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Envase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3 sin título_20201123140459" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3 sin título_20201123140459.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="3 sin título_202011231404591" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3 sin título_202011231404591.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMG_20210216_000806" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_20210216_000806.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1613512218977" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1613512218977.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sell_stock_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sell_stock_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_window_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_window_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,19 +163,34 @@
   <data name="aaaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aaaa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bc76e8c5fc0e507e81c8407f198c8cf7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bc76e8c5fc0e507e81c8407f198c8cf7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foto-fondo-negro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foto-fondo-negro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1606618432338" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1606618432338.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3 sin título_20201123140459" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3 sin título_20201123140459.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="7d73420c16a5e3bb6393c788b931d012-fondo-degradado-de-nido-de-abeja" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7d73420c16a5e3bb6393c788b931d012-fondo-degradado-de-nido-de-abeja.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_20210216_000806" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_20210216_000806.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sell Stock_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sell Stock_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1613512218977" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1613512218977.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shopping_basket_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping_basket_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_document_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_document_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

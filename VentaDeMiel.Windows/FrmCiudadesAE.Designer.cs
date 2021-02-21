@@ -42,10 +42,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 103);
+            this.label2.Font = new System.Drawing.Font("MV Boli", 7.9F);
+            this.label2.Location = new System.Drawing.Point(6, 95);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 20);
+            this.label2.Size = new System.Drawing.Size(71, 18);
             this.label2.TabIndex = 40;
             this.label2.Text = "Provincia:";
             // 
@@ -53,25 +54,27 @@
             // 
             this.ComboBoxProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxProvincia.FormattingEnabled = true;
-            this.ComboBoxProvincia.Location = new System.Drawing.Point(235, 100);
+            this.ComboBoxProvincia.Location = new System.Drawing.Point(80, 93);
+            this.ComboBoxProvincia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBoxProvincia.Name = "ComboBoxProvincia";
-            this.ComboBoxProvincia.Size = new System.Drawing.Size(186, 28);
+            this.ComboBoxProvincia.Size = new System.Drawing.Size(222, 24);
             this.ComboBoxProvincia.TabIndex = 39;
             // 
             // textBoxCiudad
             // 
-            this.textBoxCiudad.Location = new System.Drawing.Point(97, 53);
+            this.textBoxCiudad.Location = new System.Drawing.Point(80, 55);
+            this.textBoxCiudad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCiudad.Name = "textBoxCiudad";
-            this.textBoxCiudad.Size = new System.Drawing.Size(433, 26);
+            this.textBoxCiudad.Size = new System.Drawing.Size(222, 22);
             this.textBoxCiudad.TabIndex = 38;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(454, 184);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(353, 116);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(135, 63);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 50);
             this.btnCancelar.TabIndex = 36;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -79,10 +82,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(41, 184);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Location = new System.Drawing.Point(353, 12);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(135, 63);
+            this.btnGuardar.Size = new System.Drawing.Size(120, 50);
             this.btnGuardar.TabIndex = 35;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -92,10 +95,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 56);
+            this.label1.Font = new System.Drawing.Font("MV Boli", 7.9F);
+            this.label1.Location = new System.Drawing.Point(18, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(56, 18);
             this.label1.TabIndex = 37;
             this.label1.Text = "Ciudad:";
             // 
@@ -105,9 +109,10 @@
             // 
             // FrmCiudadesAE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 283);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(518, 196);
             this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ComboBoxProvincia);
@@ -115,9 +120,13 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(638, 339);
-            this.MinimumSize = new System.Drawing.Size(638, 339);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(518, 196);
+            this.MinimumSize = new System.Drawing.Size(518, 196);
             this.Name = "FrmCiudadesAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Ciudad";
             this.Text = "Ciudad";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

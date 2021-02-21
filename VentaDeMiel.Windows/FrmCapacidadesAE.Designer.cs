@@ -40,10 +40,10 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(464, 143);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(222, 95);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(135, 63);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 50);
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -51,10 +51,10 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(51, 143);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Location = new System.Drawing.Point(33, 95);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(135, 63);
+            this.btnGuardar.Size = new System.Drawing.Size(120, 50);
             this.btnGuardar.TabIndex = 23;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -63,20 +63,21 @@
             // 
             // TextBoxCapacidad
             // 
-            this.TextBoxCapacidad.Location = new System.Drawing.Point(116, 62);
-            this.TextBoxCapacidad.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBoxCapacidad.Location = new System.Drawing.Point(101, 50);
+            this.TextBoxCapacidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TextBoxCapacidad.MaxLength = 100;
             this.TextBoxCapacidad.Name = "TextBoxCapacidad";
-            this.TextBoxCapacidad.Size = new System.Drawing.Size(483, 26);
+            this.TextBoxCapacidad.Size = new System.Drawing.Size(239, 22);
             this.TextBoxCapacidad.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 62);
+            this.label1.Font = new System.Drawing.Font("MV Boli", 7.9F);
+            this.label1.Location = new System.Drawing.Point(17, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(76, 18);
             this.label1.TabIndex = 25;
             this.label1.Text = "Capacidad:";
             // 
@@ -86,17 +87,21 @@
             // 
             // FrmCapacidadesAE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 272);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(376, 170);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.TextBoxCapacidad);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(647, 328);
-            this.MinimumSize = new System.Drawing.Size(647, 328);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(376, 170);
+            this.MinimumSize = new System.Drawing.Size(376, 170);
             this.Name = "FrmCapacidadesAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Capacidad";
             this.Load += new System.EventHandler(this.FrmCapacidadesAE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

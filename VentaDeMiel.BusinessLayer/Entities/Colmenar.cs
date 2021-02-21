@@ -14,6 +14,6 @@ namespace VentaDeMiel.BusinessLayer.Entities
         public decimal CantidadColmena { get; set; }
         public EstadoColmena EstadoColmena { get; set; }
         public Insumo Insumo { get; set; }
-        public double CantidadInsumo { get; set; }
+        public decimal CantidadInsumo { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             try
             {
                 string cadenaComando =
-                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID FROM Colmenares WHERE ColmenarId=@id";
+                    "SELECT ColmenarId, NombreColmenar, CiudadId, CantidadColmena, EstadoColmenaID, InsumoID,CantidadInsumo FROM Colmenares WHERE ColmenarId=@id";
                 SqlCommand comando = new SqlCommand(cadenaComando, _connection);
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -104,7 +104,7 @@ namespace VentaDeMiel.DataLayer.Repositorios
             colmenar.CantidadColmena = reader.GetDecimal(3);
             colmenar.EstadoColmena = _repositorioEstadoColmena.GetEstadoColmenaPorId(reader.GetDecimal(4));
             colmenar.Insumo = _repositorioInsumo.GetInsumoPorId(reader.GetDecimal(5));
-            colmenar.CantidadInsumo = (double) reader.GetDecimal(6);
+            colmenar.CantidadInsumo = reader.GetDecimal(6);
 
 
             return colmenar;

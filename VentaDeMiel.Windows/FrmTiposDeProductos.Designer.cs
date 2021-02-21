@@ -110,7 +110,7 @@
             this.CmlTipoDeProducto});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatosDataGridView.Location = new System.Drawing.Point(0, 27);
-            this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
             this.DatosDataGridView.ReadOnly = true;

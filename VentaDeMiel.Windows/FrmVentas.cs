@@ -61,11 +61,11 @@ namespace VentaDeMiel.Windows
             return r;
         }
 
-        private void NuevoToolStripButton_Click(object sender, EventArgs e)
-        {
-            FrmVentasAE frm = new FrmVentasAE(this) { Text = "Agregar Venta" };
-            DialogResult dr = frm.ShowDialog(this);
-        }
+        //private void NuevoToolStripButton_Click(object sender, EventArgs e)
+        //{
+        //    FrmVentasAE frm = new FrmVentasAE(this) { Text = "Agregar Venta" };
+        //    DialogResult dr = frm.ShowDialog(this);
+        //}
 
         private void BorrarToolStripButton_Click(object sender, EventArgs e)
         {
@@ -135,10 +135,10 @@ namespace VentaDeMiel.Windows
             }
         }
 
-        private void CerrarToolStripButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        //private void CerrarToolStripButton_Click(object sender, EventArgs e)
+        //{
+        //    Close();
+        //}
 
         
 
@@ -154,6 +154,17 @@ namespace VentaDeMiel.Windows
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        private void NuevoPanel_Paint(object sender, EventArgs e)
+        {
+            FrmVentasAE frm = new FrmVentasAE(this) { Text = "Agregar Venta" };
+            DialogResult dr = frm.ShowDialog(this);
+        }
+
+        private void CerrarPanel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -99,7 +99,7 @@ namespace VentaDeMiel.Windows
                 colmenar.EstadoColmena = (EstadoColmena)ComboBoxEstadoColmena.SelectedItem;
                 colmenar.NombreColmenar = textBoxColmenar.Text;
                 colmenar.CantidadColmena =decimal.Parse( textBoxCantidadColmena.Text);
-                colmenar.CantidadInsumo = double.Parse(textBoxCantidadInsumo.Text);
+                colmenar.CantidadInsumo = decimal.Parse(textBoxCantidadInsumo.Text);
                 if (ValidarObjeto())
                 {
 

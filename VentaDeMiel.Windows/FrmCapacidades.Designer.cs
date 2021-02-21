@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.NuevoToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.BorrarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.EditarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.CerrarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.CmlCapacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -44,62 +44,17 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NuevoToolStripButton,
-            this.BorrarToolStripButton,
-            this.EditarToolStripButton,
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
             this.toolStripSeparator1,
-            this.CerrarToolStripButton});
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(800, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(715, 67);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // NuevoToolStripButton
-            // 
-            this.NuevoToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.NuevoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NuevoToolStripButton.Name = "NuevoToolStripButton";
-            this.NuevoToolStripButton.Size = new System.Drawing.Size(68, 29);
-            this.NuevoToolStripButton.Text = "Nuevo";
-            this.NuevoToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.NuevoToolStripButton.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
-            // 
-            // BorrarToolStripButton
-            // 
-            this.BorrarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.BorrarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BorrarToolStripButton.Name = "BorrarToolStripButton";
-            this.BorrarToolStripButton.Size = new System.Drawing.Size(64, 29);
-            this.BorrarToolStripButton.Text = "Borrar";
-            this.BorrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BorrarToolStripButton.Click += new System.EventHandler(this.BorrarToolStripButton_Click);
-            // 
-            // EditarToolStripButton
-            // 
-            this.EditarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.EditarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.EditarToolStripButton.Name = "EditarToolStripButton";
-            this.EditarToolStripButton.Size = new System.Drawing.Size(61, 29);
-            this.EditarToolStripButton.Text = "Editar";
-            this.EditarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.EditarToolStripButton.Click += new System.EventHandler(this.EditarToolStripButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
-            // 
-            // CerrarToolStripButton
-            // 
-            this.CerrarToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.CerrarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CerrarToolStripButton.Name = "CerrarToolStripButton";
-            this.CerrarToolStripButton.Size = new System.Drawing.Size(63, 29);
-            this.CerrarToolStripButton.Text = "Cerrar";
-            this.CerrarToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.CerrarToolStripButton.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
             // 
             // DatosDataGridView
             // 
@@ -109,15 +64,15 @@
             this.DatosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CmlCapacidad});
             this.DatosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatosDataGridView.Location = new System.Drawing.Point(0, 34);
-            this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DatosDataGridView.Location = new System.Drawing.Point(0, 67);
+            this.DatosDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DatosDataGridView.MultiSelect = false;
             this.DatosDataGridView.Name = "DatosDataGridView";
             this.DatosDataGridView.ReadOnly = true;
             this.DatosDataGridView.RowHeadersVisible = false;
             this.DatosDataGridView.RowHeadersWidth = 62;
             this.DatosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DatosDataGridView.Size = new System.Drawing.Size(800, 416);
+            this.DatosDataGridView.Size = new System.Drawing.Size(715, 300);
             this.DatosDataGridView.TabIndex = 9;
             // 
             // CmlCapacidad
@@ -128,17 +83,69 @@
             this.CmlCapacidad.Name = "CmlCapacidad";
             this.CmlCapacidad.ReadOnly = true;
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::VentaDeMiel.Windows.Properties.Resources.Add;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(56, 64);
+            this.toolStripButton1.Text = "Nuevo";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.NuevoToolStripButton_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::VentaDeMiel.Windows.Properties.Resources.delete_document_40px;
+            this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(54, 64);
+            this.toolStripButton2.Text = "Borrar";
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.Click += new System.EventHandler(this.BorrarToolStripButton_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = global::VentaDeMiel.Windows.Properties.Resources.edit_40px;
+            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(52, 64);
+            this.toolStripButton3.Text = "Editar";
+            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton3.Click += new System.EventHandler(this.EditarToolStripButton_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 67);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Image = global::VentaDeMiel.Windows.Properties.Resources.exit_40px;
+            this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(53, 64);
+            this.toolStripButton4.Text = "Cerrar";
+            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton4.Click += new System.EventHandler(this.CerrarToolStripButton_Click);
+            // 
             // FrmCapacidades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(715, 367);
             this.ControlBox = false;
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.toolStrip1);
-            this.MaximumSize = new System.Drawing.Size(822, 506);
-            this.MinimumSize = new System.Drawing.Size(822, 506);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(733, 414);
+            this.MinimumSize = new System.Drawing.Size(733, 414);
             this.Name = "FrmCapacidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Capacidades";
             this.Load += new System.EventHandler(this.FrmCapacidades_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -152,12 +159,12 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton NuevoToolStripButton;
-        private System.Windows.Forms.ToolStripButton BorrarToolStripButton;
-        private System.Windows.Forms.ToolStripButton EditarToolStripButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton CerrarToolStripButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn CmlCapacidad;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

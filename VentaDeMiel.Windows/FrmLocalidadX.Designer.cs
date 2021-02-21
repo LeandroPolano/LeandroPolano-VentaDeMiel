@@ -94,6 +94,7 @@
             this.MaximumSize = new System.Drawing.Size(752, 238);
             this.MinimumSize = new System.Drawing.Size(752, 238);
             this.Name = "FrmLocalidadX";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLocalidadX";
             this.Load += new System.EventHandler(this.FrmLocalidadX_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);

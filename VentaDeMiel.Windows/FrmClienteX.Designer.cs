@@ -81,6 +81,7 @@
             this.MaximumSize = new System.Drawing.Size(752, 238);
             this.MinimumSize = new System.Drawing.Size(752, 238);
             this.Name = "FrmClienteX";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmClienteX";
             this.Load += new System.EventHandler(this.FrmClienteX_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);

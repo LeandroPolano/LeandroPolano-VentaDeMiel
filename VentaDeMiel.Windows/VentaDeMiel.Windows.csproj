@@ -498,5 +498,32 @@
   <ItemGroup>
     <None Include="Resources\1613512218977.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto-fondo-negro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bc76e8c5fc0e507e81c8407f198c8cf7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sell Stock_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_basket_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sell_stock_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_document_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_40px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
